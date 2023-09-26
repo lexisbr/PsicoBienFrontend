@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <!-- <link rel="stylesheet" href="home.component.css"> -->
-    <link rel="shortcut icon" href="img/psicobien.png" type="image/x-icon">
-</head>
-
-<body>
+<ion-content class="home">
     <header class="header">
         <div class="container">
-            <a href="#" target="_blank" class="logoBox">
+            <a href="/home" class="logoBox">
                 <img src="assets/img-home/psicobien.png" alt="logo" class="logo">
                 <h2 class="textLogo">Psico<span>bien</span></h2>
             </a>
@@ -20,7 +10,15 @@
                 <a href="" class="nav_link">Inicio</a>
                 <a href="" class="nav_link">Psicólogos</a>
                 <a href="#" class="nav_link"><ion-icon name="search-outline"></ion-icon></a>
+                <div class="comboBtn">
+                    <button class="button">Ingresar<ion-icon name="caret-down-outline"></ion-icon></button>
+                    <div class="loginBox">
+                        <button><a href="/login">Iniciar sesion</a></button>
+                        <button><a href="/create-account">Crear cuenta</a></button>
+                    </div>
+                </div>
             </nav>
+
         </div>
     </header>
     <main class="main">
@@ -71,21 +69,21 @@
                 <div class="cardBox">
                     <div class="cardHeader">
                         <div class="img">
-                            <img src="assets/img-home/foto.png" alt="foto" class="profile">
-                            <img src="assets/img-home/guate.png" alt="foto" class="logo">
+                            <img src="{{profesional.foto}}" alt="foto" class="profile">
+                            <img src="{{profesional.bandera}}" alt="foto" class="logo">
                         </div>
-
+    
                         <div class="data">
                             <p class="pC1">Psicólogo online</p>
-                            <h3>Luis Fernando Benítez Cervantes</h3>
-                            <p class="pC2">Cédula <span>11190710</span></p>
+                            <h3>{{profesional.nombres}} {{profesional.apellidos}}</h3>
+                            <p class="pC2">Cédula <span>{{profesional.cedula}}</span></p>
                             <a href="#">Ver opciones (42)</a>
                         </div>
                     </div>
                     <div class="cardContent">
                         <ul>
-                            <li>idioma: <span>Español</span></li>
-                            <li>Nacionalidad: <span>Mexicana</span></li>
+                            <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
                             <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
                         </ul>
                     </div>
@@ -97,9 +95,9 @@
                         <span>Trastorno de personalidad</span>
                     </div>
                     <div class="cardFooter">
-                        <a href="#">Ver Perfil</a>
+                        <a href="/profile">Ver Perfil</a>
                         <button type="button">Agregar cita</button>
-                    </div>
+                    </div> 
                 </div>
                 <div class="cardBox">
                     <div class="cardHeader">
@@ -107,7 +105,7 @@
                             <img src="assets/img-home/foto.png" alt="foto" class="profile">
                             <img src="assets/img-home/guate.png" alt="foto" class="logo">
                         </div>
-
+    
                         <div class="data">
                             <p class="pC1">Psicólogo online</p>
                             <h3>Luis Fernando Benítez Cervantes</h3>
@@ -132,7 +130,7 @@
                     <div class="cardFooter">
                         <a href="#">Ver Perfil</a>
                         <button type="button">Agregar cita</button>
-                    </div>
+                    </div> 
                 </div>
                 <div class="cardBox">
                     <div class="cardHeader">
@@ -140,7 +138,7 @@
                             <img src="assets/img-home/foto.png" alt="foto" class="profile">
                             <img src="assets/img-home/guate.png" alt="foto" class="logo">
                         </div>
-
+    
                         <div class="data">
                             <p class="pC1">Psicólogo online</p>
                             <h3>Luis Fernando Benítez Cervantes</h3>
@@ -165,7 +163,7 @@
                     <div class="cardFooter">
                         <a href="#">Ver Perfil</a>
                         <button type="button">Agregar cita</button>
-                    </div>
+                    </div> 
                 </div>
                 <div class="cardBox">
                     <div class="cardHeader">
@@ -173,7 +171,7 @@
                             <img src="assets/img-home/foto.png" alt="foto" class="profile">
                             <img src="assets/img-home/guate.png" alt="foto" class="logo">
                         </div>
-
+    
                         <div class="data">
                             <p class="pC1">Psicólogo online</p>
                             <h3>Luis Fernando Benítez Cervantes</h3>
@@ -198,7 +196,7 @@
                     <div class="cardFooter">
                         <a href="#">Ver Perfil</a>
                         <button type="button">Agregar cita</button>
-                    </div>
+                    </div> 
                 </div>
                 <div class="cardBox">
                     <div class="cardHeader">
@@ -206,7 +204,7 @@
                             <img src="assets/img-home/foto.png" alt="foto" class="profile">
                             <img src="assets/img-home/guate.png" alt="foto" class="logo">
                         </div>
-
+    
                         <div class="data">
                             <p class="pC1">Psicólogo online</p>
                             <h3>Luis Fernando Benítez Cervantes</h3>
@@ -231,7 +229,7 @@
                     <div class="cardFooter">
                         <a href="#">Ver Perfil</a>
                         <button type="button">Agregar cita</button>
-                    </div>
+                    </div> 
                 </div>
                 <div class="cardBox">
                     <div class="cardHeader">
@@ -239,7 +237,7 @@
                             <img src="assets/img-home/foto.png" alt="foto" class="profile">
                             <img src="assets/img-home/guate.png" alt="foto" class="logo">
                         </div>
-
+    
                         <div class="data">
                             <p class="pC1">Psicólogo online</p>
                             <h3>Luis Fernando Benítez Cervantes</h3>
@@ -264,7 +262,7 @@
                     <div class="cardFooter">
                         <a href="#">Ver Perfil</a>
                         <button type="button">Agregar cita</button>
-                    </div>
+                    </div> 
                 </div>
                 <div class="cardBox">
                     <div class="cardHeader">
@@ -272,7 +270,7 @@
                             <img src="assets/img-home/foto.png" alt="foto" class="profile">
                             <img src="assets/img-home/guate.png" alt="foto" class="logo">
                         </div>
-
+    
                         <div class="data">
                             <p class="pC1">Psicólogo online</p>
                             <h3>Luis Fernando Benítez Cervantes</h3>
@@ -297,7 +295,7 @@
                     <div class="cardFooter">
                         <a href="#">Ver Perfil</a>
                         <button type="button">Agregar cita</button>
-                    </div>
+                    </div> 
                 </div>
                 <div class="cardBox">
                     <div class="cardHeader">
@@ -305,7 +303,7 @@
                             <img src="assets/img-home/foto.png" alt="foto" class="profile">
                             <img src="assets/img-home/guate.png" alt="foto" class="logo">
                         </div>
-
+    
                         <div class="data">
                             <p class="pC1">Psicólogo online</p>
                             <h3>Luis Fernando Benítez Cervantes</h3>
@@ -330,7 +328,7 @@
                     <div class="cardFooter">
                         <a href="#">Ver Perfil</a>
                         <button type="button">Agregar cita</button>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </section>
@@ -343,6 +341,5 @@
         </ul>
         <h4 class="copyright">Copyright ©2023 <a href="#">Psicóbien</a>. All rights reserved.</h4>
     </footer>
-</body>
 
-</html>
+</ion-content>

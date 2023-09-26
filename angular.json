@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend_clinicaPsicologica": {
+    "PsicoBien-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/frontend-clinica-psicologica",
+            "outputPath": "dist/psico-bien-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -98,10 +98,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "frontend_clinicaPsicologica:build:production"
+              "browserTarget": "PsicoBien-app:build:production"
             },
             "development": {
-              "browserTarget": "frontend_clinicaPsicologica:build:development"
+              "browserTarget": "PsicoBien-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -109,7 +109,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend_clinicaPsicologica:build"
+            "browserTarget": "PsicoBien-app:build"
           }
         },
         "test": {
@@ -138,24 +138,24 @@
         "ionic-cordova-serve": {
           "builder": "@ionic/angular-toolkit:cordova-serve",
           "options": {
-            "cordovaBuildTarget": "frontend_clinicaPsicologica:ionic-cordova-build",
-            "devServerTarget": "frontend_clinicaPsicologica:serve"
+            "cordovaBuildTarget": "PsicoBien-app:ionic-cordova-build",
+            "devServerTarget": "PsicoBien-app:serve"
           },
           "configurations": {
             "production": {
-              "cordovaBuildTarget": "frontend_clinicaPsicologica:ionic-cordova-build:production",
-              "devServerTarget": "frontend_clinicaPsicologica:serve:production"
+              "cordovaBuildTarget": "PsicoBien-app:ionic-cordova-build:production",
+              "devServerTarget": "PsicoBien-app:serve:production"
             }
           }
         },
         "ionic-cordova-build": {
           "builder": "@ionic/angular-toolkit:cordova-build",
           "options": {
-            "browserTarget": "frontend_clinicaPsicologica:build"
+            "browserTarget": "PsicoBien-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "frontend_clinicaPsicologica:build:production"
+              "browserTarget": "PsicoBien-app:build:production"
             }
           }
         }

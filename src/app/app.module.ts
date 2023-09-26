@@ -3,19 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { CreateAcountComponent } from './create-account/create-account.component';
-import { HomeComponent } from './home/home.component';
+import { PruebasComponent } from './pages/pruebas/pruebas.component';
 import { IonicModule } from '@ionic/angular';
-import { PruebaComponent } from './prueba/prueba.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CreateAccountComponent } from './pages/create-account/create-account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    CreateAcountComponent,
+    PruebasComponent,
     HomeComponent,
-    PruebaComponent
+    ProfileComponent,
+    LoginComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,

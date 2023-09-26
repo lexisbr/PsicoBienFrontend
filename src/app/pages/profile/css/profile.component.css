@@ -1,0 +1,268 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap";
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.profile .header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100px;
+}
+.profile .header .container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 10px;
+}
+.profile .header .container .logoBox {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  color: #14161a;
+}
+.profile .header .container .logoBox .logo {
+  width: 100px;
+  padding-right: 20px;
+}
+.profile .header .container .logoBox .textLogo {
+  font-weight: 500;
+}
+.profile .header .container .logoBox .textLogo span {
+  color: #01acc8;
+  text-decoration: underline;
+}
+.profile .header .container .menuBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 400px;
+}
+.profile .header .container .menuBox .nav_link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+.profile .header .container .menuBox .nav_link ion-icon {
+  font-size: 30px;
+}
+.profile .main {
+  position: relative;
+  top: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+  background: rgb(228, 228, 231);
+}
+.profile .main .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 30px;
+  width: 98%;
+  gap: 20px;
+}
+.profile .main .content .profileBox {
+  width: 100%;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.profile .main .content .profileBox .info {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+.profile .main .content .profileBox .info h2 {
+  font-size: 40px;
+}
+.profile .main .content .profileBox .info h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.profile .main .content .profileBox .info h4 {
+  font-size: 20px;
+  font-weight: 400;
+}
+.profile .main .content .profileBox .info .foto img {
+  border-radius: 50%;
+  border: 5px ridge #01acc8;
+}
+.profile .main .content .profileBox .buttons {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.profile .main .content .profileBox .buttons button {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 0px 30px;
+  align-items: center;
+  border: none;
+  background: #01acc8;
+  height: 50px;
+  width: 200px;
+  border-radius: 15px;
+}
+.profile .main .content .container {
+  display: flex;
+  gap: 20px;
+}
+.profile .main .content .container .aboutBox {
+  width: 70%;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.profile .main .content .container .aboutBox .aboutContainer {
+  display: flex;
+  flex-direction: column;
+}
+.profile .main .content .container .aboutBox .aboutContainer h2 {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px 25px;
+}
+.profile .main .content .container .aboutBox .aboutContainer .aboutContent {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 25px;
+}
+.profile .main .content .container .aboutBox .aboutContainer .aboutContent p {
+  padding: 5px;
+}
+.profile .main .content .container .aboutBox .aboutContainer:first-child h2 {
+  border-top: none;
+}
+.profile .main .content .container .informacionBox {
+  width: 30%;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.profile .main .content .container .informacionBox h2 {
+  padding: 15px;
+}
+.profile .main .content .container .informacionBox .datosUbicacion {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 40px 25px;
+}
+.profile .main .content .container .informacionBox .btnContacto {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 40px 25px;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+.profile .main .content .container .informacionBox .btnContacto button {
+  border-style: none;
+  height: 40px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+.profile .main .content .container .informacionBox .btnContacto button ion-icon {
+  font-size: 25px;
+  padding: 10px;
+}
+.profile .main .content .container .informacionBox .btnContacto button:hover {
+  background: #01acc8;
+}
+.profile .main .content .container .informacionBox .btnContacto button:hover ion-icon {
+  color: #fff;
+}
+.profile .main .content .container .informacionBox .lenguage {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px 40px;
+  width: 100%;
+}
+.profile .main .content .container .informacionBox .lenguage .option {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.profile .main .content .container .informacionBox .lenguage .option ion-icon {
+  width: 20px;
+  color: green;
+}
+.profile .footer {
+  position: relative;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  background: #1fb5ce;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  top: 100px;
+  z-index: 1;
+}
+.profile .footer .sci {
+  position: relative;
+  display: flex;
+}
+.profile .footer .sci li {
+  list-style: none;
+}
+.profile .footer .sci li a {
+  text-decoration: none;
+  margin: 0 20px;
+}
+.profile .footer .sci li a ion-icon {
+  font-size: 50px;
+  color: #fff;
+}
+.profile .footer .sci li:nth-child(1) a ion-icon:hover {
+  border-radius: 10px;
+  color: #fff;
+  background-image: linear-gradient(45deg, #ffac4d, #e0437b, #ac30bc);
+}
+.profile .footer .sci li:nth-child(2) a ion-icon:hover {
+  background: #fff;
+  color: #0676e8;
+  border-radius: 10px;
+}
+.profile .footer .sci li:nth-child(3) a ion-icon:hover {
+  background: #fff;
+  color: #00c0ef;
+  border-radius: 10px;
+}
+.profile .footer .copyright {
+  margin-top: 20px;
+  color: #111;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+}
+.profile .footer .copyright a {
+  color: #fff;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #333;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}/*# sourceMappingURL=profile.component.css.map */

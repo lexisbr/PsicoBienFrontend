@@ -1,9 +1,6 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap";
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -136,7 +133,7 @@ body {
             flex-direction: column;
             padding: 80px 50px;
             gap: 60px;
-            
+
             .content {
                 display: flex;
                 flex-direction: column;
@@ -160,6 +157,7 @@ body {
                 align-items: center;
                 justify-content: space-around;
                 flex-wrap: wrap;
+
                 .boxCard {
 
                     position: relative;

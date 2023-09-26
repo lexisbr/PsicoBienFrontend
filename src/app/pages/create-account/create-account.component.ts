@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
-  styleUrls: ['./create-account.component.css']
+  styleUrls: ['./css/create-account.component.css']
 })
-export class CreateAcountComponent {
+export class CreateAccountComponent {
 
 }
