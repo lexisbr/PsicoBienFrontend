@@ -6,8 +6,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
-// import { CalendarPruebaComponent } from './pages/calendar-prueba/calendar-prueba.component';
-import { Pruebas2Component } from './pages/pruebas2/pruebas2.component';
+
+
 
 const routes: Routes = [
   {
@@ -39,10 +39,7 @@ const routes: Routes = [
     path: 'pruebas',
     component: PruebasComponent
   },
-  {
-    path: 'pruebas2',
-    component: Pruebas2Component
-  },
+
 ];
 
 @NgModule({
