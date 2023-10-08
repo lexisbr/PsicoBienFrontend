@@ -5,9 +5,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
 import listPlugin from '@fullcalendar/list';
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap-icons/font/bootstrap-icons.css';
-// import bootstrap5Plugin from '@fullcalendar/bootstrap5';
+
+import bootstrap5Plugin from '@fullcalendar/bootstrap5';
 
 @Component({
   selector: 'app-calendar',
@@ -16,7 +15,7 @@ import listPlugin from '@fullcalendar/list';
 })
 export class CalendarComponent implements OnInit {
   calendarVisible = true;
-  public events: any[];
+  public events: any;
   public options: any;
 
   constructor() { }
@@ -29,9 +28,9 @@ export class CalendarComponent implements OnInit {
         dayGridPlugin,
         timeGridPlugin,
         listPlugin,
-        // bootstrap5Plugin 
+        bootstrap5Plugin 
       ],
-      // themeSystem: 'bootstrap5',
+      themeSystem: 'bootstrap5',
       defaultDate: new Date(),
       locale: esLocale,
       headerToolbar: {
