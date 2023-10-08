@@ -223,7 +223,7 @@
 }
 .home .main .PsicoCards .cards .cardBox {
   width: 350px;
-  height: 550px;
+  min-height: 550px;
   border-radius: 15px;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
@@ -235,7 +235,7 @@
 .home .main .PsicoCards .cards .cardBox .cardHeader .img {
   position: relative;
   display: flex;
-  padding: 20px 15px;
+  padding: 20px 10px;
   height: 100%;
   align-items: center;
 }
@@ -281,6 +281,7 @@
 .home .main .PsicoCards .cards .cardBox .cardContent {
   display: flex;
   padding: 0 15px;
+  padding-bottom: 10px;
 }
 .home .main .PsicoCards .cards .cardBox .cardContent ul {
   width: 100%;

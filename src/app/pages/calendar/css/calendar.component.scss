@@ -1,0 +1,15 @@
+.calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    full-calendar {
+        padding: 10px;
+        border-radius: 15px;
+        background: #ebebeb;
+        width: 90%;
+        height: 90%;
+    }
+}

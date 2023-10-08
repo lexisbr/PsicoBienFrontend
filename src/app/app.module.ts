@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PruebasComponent } from './pages/pruebas/pruebas.component';
+import { AppRoutingModule } from './app-routing.module';
 import { IonicModule } from '@ionic/angular';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
+import { PruebasComponent } from './pages/pruebas/pruebas.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { CalendarPruebaComponent } from './pages/calendar-prueba/calendar-prueba.component';
+import { BoostrapPruebasComponent } from './pages/boostrap-pruebas/boostrap-pruebas.component';
+
 
 @NgModule({
   declarations: [
@@ -17,12 +22,16 @@ import { CreateAccountComponent } from './pages/create-account/create-account.co
     HomeComponent,
     ProfileComponent,
     LoginComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    CalendarComponent,
+    CalendarPruebaComponent,
+    BoostrapPruebasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IonicModule.forRoot()
+    IonicModule.forRoot(),
+    FullCalendarModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
