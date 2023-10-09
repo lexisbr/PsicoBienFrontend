@@ -1,1 +1,12 @@
-/*# sourceMappingURL=pruebas.component.css.map */
+div {
+  background: blue;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div input[type=file]::before {
+  content: none !important;
+  display: none !important;
+}/*# sourceMappingURL=pruebas.component.css.map */

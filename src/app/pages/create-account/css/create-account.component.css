@@ -1,4 +1,100 @@
-.create-account {
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container-fluid {
+  position: relative;
+}
+.container-fluid .header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100px;
+}
+.container-fluid .header .containerH {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+}
+.container-fluid .header .containerH .logoBox {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  color: #14161a;
+}
+.container-fluid .header .containerH .logoBox .logo {
+  width: 100px;
+  padding-right: 20px;
+}
+.container-fluid .header .containerH .logoBox .textLogo {
+  font-weight: 100;
+}
+.container-fluid .header .containerH .logoBox .textLogo span {
+  color: #01acc8;
+  text-decoration: underline;
+}
+.container-fluid .header .containerH .menuBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 400px;
+}
+.container-fluid .header .containerH .menuBox .nav_link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+.container-fluid .header .containerH .menuBox .nav_link i {
+  font-size: 30px;
+  color: #111;
+}
+.container-fluid .header .containerH .comboBtn {
+  position: relative;
+}
+.container-fluid .header .containerH .comboBtn .button {
+  border-style: none;
+  height: 50px;
+  width: 150px;
+  border-radius: 15px;
+}
+.container-fluid .header .containerH .comboBtn:hover .loginBox {
+  visibility: visible;
+}
+.container-fluid .header .containerH .comboBtn .loginBox {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  top: 50px;
+  right: 0;
+  background: #01acc8;
+  border-radius: 15px;
+  visibility: hidden;
+  gap: 20px;
+  flex-direction: column;
+  background: #f0f0f0;
+}
+.container-fluid .header .containerH .comboBtn .loginBox button {
+  width: 200px;
+  height: 50px;
+  border-style: none;
+  border-radius: 10px;
+  background: #01acc8;
+}
+.container-fluid .header .containerH .comboBtn .loginBox button a {
+  text-decoration: none;
+  color: #fff;
+}
+.container-fluid .create-account {
   display: flex;
   overflow: hidden;
   width: 100%;
@@ -9,18 +105,18 @@
   background-size: cover;
   background-position: center;
 }
-.create-account .color {
+.container-fluid .create-account .color {
   position: absolute;
   filter: blur(150px);
 }
-.create-account .color:nth-child(1) {
+.container-fluid .create-account .color:nth-child(1) {
   top: 300px;
   /* background: #5c55e6; */
   background: #00bfee;
   width: 600px;
   height: 600px;
 }
-.create-account .color:nth-child(2) {
+.container-fluid .create-account .color:nth-child(2) {
   bottom: 250px;
   left: 80px;
   /* background: #4b1c8b; */
@@ -28,7 +124,7 @@
   width: 600px;
   height: 600px;
 }
-.create-account .color:nth-child(3) {
+.container-fluid .create-account .color:nth-child(3) {
   bottom: 220px;
   right: 0px;
   /* background: #001f6a; */
@@ -36,12 +132,12 @@
   width: 600px;
   height: 600px;
 }
-.create-account .box {
+.container-fluid .create-account .box {
   position: relative;
   width: 100%;
   height: 100%;
 }
-.create-account .box .cuadrado {
+.container-fluid .create-account .box .cuadrado {
   content: "";
   position: absolute;
   border-radius: 10px;
@@ -54,94 +150,94 @@
   animation: animate 10s linear infinite;
   animation-delay: calc(-1s * var(--i));
 }
-.create-account .box .cuadrado:nth-child(1) {
+.container-fluid .create-account .box .cuadrado:nth-child(1) {
   top: -50px;
   right: -60px;
   width: 100px;
   height: 100px;
 }
-.create-account .box .cuadrado:nth-child(2) {
+.container-fluid .create-account .box .cuadrado:nth-child(2) {
   top: 150px;
   left: -100px;
   width: 120px;
   height: 120px;
 }
-.create-account .box .cuadrado:nth-child(3) {
+.container-fluid .create-account .box .cuadrado:nth-child(3) {
   bottom: 50px;
   right: -60px;
   width: 80px;
   height: 80px;
   z-index: 1;
 }
-.create-account .box .cuadrado:nth-child(4) {
+.container-fluid .create-account .box .cuadrado:nth-child(4) {
   bottom: -80px;
   left: 100px;
   width: 50px;
   height: 50px;
   z-index: 1;
 }
-.create-account .box .cuadrado:nth-child(5) {
+.container-fluid .create-account .box .cuadrado:nth-child(5) {
   top: -80px;
   left: 140px;
   width: 60px;
   height: 60px;
   z-index: 1;
 }
-.create-account .box .cuadrado:nth-child(6) {
+.container-fluid .create-account .box .cuadrado:nth-child(6) {
   top: 0px;
   left: -150px;
   width: 80px;
   height: 80px;
   z-index: 1;
 }
-.create-account .box .cuadrado:nth-child(7) {
+.container-fluid .create-account .box .cuadrado:nth-child(7) {
   bottom: 50px;
   right: -500px;
   width: 200px;
   height: 200px;
   z-index: 1;
 }
-.create-account .box .cuadrado:nth-child(8) {
+.container-fluid .create-account .box .cuadrado:nth-child(8) {
   bottom: 450px;
   right: -450px;
   width: 80px;
   height: 80px;
   z-index: 1;
 }
-.create-account .box .cuadrado:nth-child(9) {
+.container-fluid .create-account .box .cuadrado:nth-child(9) {
   bottom: 50px;
   left: -100px;
   width: 70px;
   height: 70px;
   z-index: 1;
 }
-.create-account .box .cuadrado:nth-child(10) {
+.container-fluid .create-account .box .cuadrado:nth-child(10) {
   top: 400px;
   left: -350px;
   width: 180px;
   height: 180px;
   z-index: 1;
 }
-.create-account .box .cuadrado:nth-child(11) {
+.container-fluid .create-account .box .cuadrado:nth-child(11) {
   top: 400px;
   left: 350px;
   width: 180px;
   height: 180px;
 }
-.create-account .box .cuadrado:nth-child(12) {
+.container-fluid .create-account .box .cuadrado:nth-child(12) {
   top: 250px;
   right: -140px;
   width: 180px;
   height: 180px;
 }
-.create-account .box .cuadrado:nth-child(13) {
+.container-fluid .create-account .box .cuadrado:nth-child(13) {
   top: 100px;
   left: 400px;
   width: 80px;
   height: 80px;
 }
-.create-account .box .container {
-  position: relative;
+.container-fluid .create-account .containerA {
+  position: absolute;
   width: 100%;
   height: 100%;
   background: rgba(30, 19, 19, 0.3);
@@ -152,7 +248,7 @@
   justify-content: center;
   align-items: center;
 }
-.create-account .box .container .form {
+.container-fluid .create-account .containerA .formulario {
   position: relative;
   width: 100%;
   height: 100%;
@@ -161,16 +257,16 @@
   align-items: center;
   justify-content: center;
 }
-.create-account .box .container .form form {
+.container-fluid .create-account .containerA .formulario form {
   width: 70%;
 }
-.create-account .box .container .form form h2 {
+.container-fluid .create-account .containerA .formulario form h2 {
   position: relative;
   color: white;
   font-size: 24px;
   margin-bottom: 40px;
 }
-.create-account .box .container .form form h2::before {
+.container-fluid .create-account .containerA .formulario form h2::before {
   content: "";
   position: absolute;
   left: 0;
@@ -179,18 +275,18 @@
   height: 4px;
   background: #fff;
 }
-.create-account .box .container .form form .groupInput {
+.container-fluid .create-account .containerA .formulario form .groupInput {
   width: 100%;
   display: flex;
 }
-.create-account .box .container .form form .groupInput .group {
+.container-fluid .create-account .containerA .formulario form .groupInput .group {
   width: 100%;
 }
-.create-account .box .container .form form .groupInput .group .inputBox {
+.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox {
   width: 100%;
   margin-top: 20px;
 }
-.create-account .box .container .form form .groupInput .group .inputBox input {
+.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox input {
   width: 80%;
   background: transparent;
   border: none;
@@ -204,13 +300,13 @@
   color: #fff;
   font-weight: 400;
 }
-.create-account .box .container .form form .groupInput .group .inputBox input::-moz-placeholder {
+.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox input::-moz-placeholder {
   color: rgba(255, 255, 255, 0.2);
 }
-.create-account .box .container .form form .groupInput .group .inputBox input::placeholder {
+.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox input::placeholder {
   color: rgba(255, 255, 255, 0.2);
 }
-.create-account .box .container .form form .groupInput .group .inputBox h4 {
+.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox h4 {
   width: 80%;
   background: transparent;
   padding: 0px 10px;
@@ -219,11 +315,11 @@
   color: #fff;
   font-weight: 400;
 }
-.create-account .box .container .form form .inputBox {
+.container-fluid .create-account .containerA .formulario form .inputBox {
   width: 100%;
   margin-top: 20px;
 }
-.create-account .box .container .form form .inputBox input {
+.container-fluid .create-account .containerA .formulario form .inputBox input {
   width: 80%;
   background: transparent;
   border: none;
@@ -237,13 +333,13 @@
   color: #fff;
   font-weight: 600;
 }
-.create-account .box .container .form form .inputBox input::-moz-placeholder {
+.container-fluid .create-account .containerA .formulario form .inputBox input::-moz-placeholder {
   color: rgba(255, 255, 255, 0.2);
 }
-.create-account .box .container .form form .inputBox input::placeholder {
+.container-fluid .create-account .containerA .formulario form .inputBox input::placeholder {
   color: rgba(255, 255, 255, 0.2);
 }
-.create-account .box .container .form form .inputBox h4 {
+.container-fluid .create-account .containerA .formulario form .inputBox h4 {
   width: 80%;
   background: transparent;
   border: none;
@@ -255,11 +351,11 @@
   color: #fff;
   font-weight: 400;
 }
-.create-account .box .container .form form .output {
+.container-fluid .create-account .containerA .formulario form .output {
   width: 100%;
   margin-top: 20px;
 }
-.create-account .box .container .form form .output input {
+.container-fluid .create-account .containerA .formulario form .output input {
   width: 100%;
   background: transparent;
   border: none;
@@ -275,7 +371,7 @@
   color: #fff;
   font-weight: 600;
 }
-.create-account .box .container .form form .output input[type=submit] {
+.container-fluid .create-account .containerA .formulario form .output input[type=submit] {
   background: white;
   color: #666;
   border: none;
@@ -284,7 +380,7 @@
   cursor: pointer;
   /* margin-bottom: 20px; */
 }
-.create-account .box .container .return {
+.container-fluid .create-account .containerA .return {
   position: absolute;
   top: 10%;
   right: 10%;

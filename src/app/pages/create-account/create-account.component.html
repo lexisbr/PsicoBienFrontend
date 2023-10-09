@@ -1,61 +1,86 @@
-<section class="create-account">
-    <div class="color"></div>
-    <div class="color"></div>
-    <div class="color"></div>
-    <div class="box">
-        <div class="cuadrado" style="--i:0"></div>
-        <div class="cuadrado" style="--i:1"></div>
-        <div class="cuadrado" style="--i:2"></div>
-        <div class="cuadrado" style="--i:3"></div>
-        <div class="cuadrado" style="--i:4"></div>
-        <div class="cuadrado" style="--i:5"></div>
-        <div class="cuadrado" style="--i:2"></div>
-        <div class="cuadrado" style="--i:3"></div>
-        <div class="cuadrado" style="--i:4"></div>
-        <div class="cuadrado" style="--i:5"></div>
-        <div class="cuadrado" style="--i:1"></div>
-        <div class="cuadrado" style="--i:1"></div>
-        <div class="cuadrado" style="--i:1"></div>
-        <div class="container">
+<div class="container-fluid">
+    <header class="header">
+        <div class="containerH">
+            <a href="/home" class="logoBox">
+                <img src="assets/img-home/psicobien.png" alt="logo" class="logo">
+                <h2 class="textLogo">Psico<span>bien</span></h2>
+            </a>
+            <nav class="menuBox">
+                <a href="" class="nav_link">Inicio</a>
+                <a href="" class="nav_link">Psicólogos</a>
+                <a href="#" class="nav_link"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <div class="comboBtn">
+                    <button class="button">Ingresar <i class="fa-solid fa-caret-down"></i></button>
+                    <div class="loginBox">
+                        <button><a href="/login">Iniciar sesion</a></button>
+                        <button><a href="/create-account">Crear cuenta</a></button>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+    <div class="create-account">
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="box">
+            <div class="cuadrado" style="--i:0"></div>
+            <div class="cuadrado" style="--i:1"></div>
+            <div class="cuadrado" style="--i:2"></div>
+            <div class="cuadrado" style="--i:3"></div>
+            <div class="cuadrado" style="--i:4"></div>
+            <div class="cuadrado" style="--i:5"></div>
+            <div class="cuadrado" style="--i:2"></div>
+            <div class="cuadrado" style="--i:3"></div>
+            <div class="cuadrado" style="--i:4"></div>
+            <div class="cuadrado" style="--i:5"></div>
+            <div class="cuadrado" style="--i:1"></div>
+            <div class="cuadrado" style="--i:1"></div>
+            <div class="cuadrado" style="--i:1"></div>
+
+        </div>
+        <div class="containerA">
             <div class="form">
-                <form>
+                <form [formGroup]="createAccountForm"(ngSubmit)="onCreate(createAccountForm.value)">
                     <h2>Register</h2>
                     <div class="groupInput">
                         <div class="group">
                             <div class="inputBox">
                                 <h4>Ingrese nombre</h4>
-                                <input type="text" name="" id="names" placeholder="Nombres...">
+                                <input type="text" id="names"  placeholder="Nombres..." formControlName="nombres">
                             </div>
                             <div class="inputBox">
                                 <h4>Ingrese apellidos</h4>
-                                <input type="text" name="" id="lastnames" placeholder="Apellidos...">
+                                <input type="text" id="lastnames" placeholder="Apellidos..." formControlName="apellidos">
                             </div>
                             <div class="inputBox">
                                 <h4>Correo electrónico</h4>
-                                <input type="text" name="" id="email" placeholder="Correo electrónico...">
+                                <input type="text" id="email" placeholder="Correo electrónico..." formControlName="correo">
                             </div>
                             <div class="inputBox">
                                 <h4>Correo electrónico</h4>
-                                <input type="text" name="" id="email" placeholder="Correo electrónico...">
+                                <input type="text" id="email" placeholder="Correo electrónico..." formControlName="correoValidacion">
                             </div>
                         </div>
                         <div class="group">
-
+    
                             <div class="inputBox">
                                 <h4>Número celular</h4>
-                                <input type="text" name="" id="email" placeholder="Correo electronico...">
+                                <input type="text" id="email" placeholder="Correo electronico..." formControlName="dni">
                             </div>
                             <div class="inputBox">
                                 <h4>Contraseña</h4>
-                                <input type="password" name="password" id="password" placeholder="Password">
+                                <input type="password" id="password" placeholder="Password" formControlName="password">
+                                    ">
                             </div>
                             <div class="inputBox">
                                 <h4>Confirmación contraseña</h4>
-                                <input type="password" name="passwordConf" id="password" placeholder="Confirm password">
+                                <input type="password" id="password" placeholder="Confirm password" formControlName="paswordVal">
                             </div>
                         </div>
                     </div>
-
+    
                     <div class="output">
                         <input type="submit" value="Create">
                     </div>
@@ -66,4 +91,5 @@
             </div>
         </div>
     </div>
-</section>
+
+</div>

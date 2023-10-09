@@ -8,49 +8,88 @@
   z-index: 10;
   width: 100%;
   height: 100px;
-  background: #fff;
 }
-.container-fluid .header .containerP {
+.container-fluid .header .containerH {
+  padding: 10px;
   display: flex;
   width: 100%;
   height: 100%;
   align-items: center;
   justify-content: space-around;
   background-color: #fff;
-  padding: 10px;
 }
-.container-fluid .header .containerP .logoBox {
+.container-fluid .header .containerH .logoBox {
   display: flex;
   align-items: center;
   padding: 20px 20px;
   text-decoration: none;
   color: #14161a;
 }
-.container-fluid .header .containerP .logoBox .logo {
+.container-fluid .header .containerH .logoBox .logo {
   width: 100px;
   padding-right: 20px;
 }
-.container-fluid .header .containerP .logoBox .textLogo {
-  font-weight: 500;
+.container-fluid .header .containerH .logoBox .textLogo {
+  font-weight: 100;
 }
-.container-fluid .header .containerP .logoBox .textLogo span {
+.container-fluid .header .containerH .logoBox .textLogo span {
   color: #01acc8;
   text-decoration: underline;
 }
-.container-fluid .header .containerP .menuBox {
+.container-fluid .header .containerH .menuBox {
   display: flex;
   align-items: center;
   justify-content: space-around;
   height: 100%;
   width: 400px;
 }
-.container-fluid .header .containerP .menuBox .nav_link {
+.container-fluid .header .containerH .menuBox .nav_link {
   text-decoration: none;
   color: #111;
   font-weight: 500;
 }
-.container-fluid .header .containerP .menuBox .nav_link i {
+.container-fluid .header .containerH .menuBox .nav_link i {
   font-size: 30px;
+  color: #111;
+}
+.container-fluid .header .containerH .comboBtn {
+  position: relative;
+}
+.container-fluid .header .containerH .comboBtn .button {
+  border-style: none;
+  height: 50px;
+  width: 150px;
+  border-radius: 15px;
+}
+.container-fluid .header .containerH .comboBtn:hover .loginBox {
+  visibility: visible;
+}
+.container-fluid .header .containerH .comboBtn .loginBox {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  top: 50px;
+  right: 0;
+  background: #01acc8;
+  border-radius: 15px;
+  visibility: hidden;
+  gap: 20px;
+  flex-direction: column;
+  background: #f0f0f0;
+}
+.container-fluid .header .containerH .comboBtn .loginBox button {
+  width: 200px;
+  height: 50px;
+  border-style: none;
+  border-radius: 10px;
+  background: #01acc8;
+}
+.container-fluid .header .containerH .comboBtn .loginBox button a {
+  text-decoration: none;
+  color: #fff;
 }
 .container-fluid .main {
   position: relative;
@@ -83,15 +122,52 @@
   justify-content: space-between;
   width: 100%;
   overflow: hidden;
-  padding: 25px;
-  background-image: url(https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80);
   height: 60%;
 }
+.container-fluid .main .content .profileBox .info img {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
 .container-fluid .main .content .profileBox .info .foto {
-  z-index: 100;
   position: absolute;
   top: 40%;
   right: 5%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .main .content .profileBox .info .foto:hover .actionBtn .btnSubir {
+  visibility: visible;
+}
+.container-fluid .main .content .profileBox .info .foto .actionBtn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir {
+  position: relative;
+  visibility: hidden;
+}
+.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir input {
+  display: none;
+}
+.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir .file-input-label {
+  display: inline-block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir .file-input-label:hover {
+  background-color: #f0f0f0;
+}
+.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir .file-input-label i {
+  margin-right: 5px;
 }
 .container-fluid .main .content .profileBox .info .foto img {
   width: 200px;
@@ -290,20 +366,26 @@
   border-radius: 10px;
   color: #fff;
   background-image: linear-gradient(45deg, #ffac4d, #e0437b, #ac30bc);
+  font-size: 46px;
+  padding: 2px;
 }
 .footer .sci li:nth-child(2) a i:hover {
   background: #fff;
   color: #0676e8;
   border-radius: 10px;
+  font-size: 46px;
+  padding: 2px;
 }
 .footer .sci li:nth-child(3) a i:hover {
   background: #fff;
   color: #00c0ef;
   border-radius: 10px;
+  font-size: 46px;
+  padding: 2px;
 }
 .footer .copyright {
   margin-top: 20px;
-  color: #111;
+  color: #666;
   font-size: 18px;
   font-weight: 300;
   text-align: center;
