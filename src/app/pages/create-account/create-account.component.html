@@ -24,6 +24,7 @@
         <div class="color"></div>
         <div class="color"></div>
         <div class="color"></div>
+        <div class="color"></div>
         <div class="box">
             <div class="cuadrado" style="--i:0"></div>
             <div class="cuadrado" style="--i:1"></div>
@@ -40,56 +41,51 @@
             <div class="cuadrado" style="--i:1"></div>
 
         </div>
-        <div class="containerA">
-            <div class="form">
-                <form [formGroup]="createAccountForm"(ngSubmit)="onCreate(createAccountForm.value)">
-                    <h2>Register</h2>
-                    <div class="groupInput">
-                        <div class="group">
-                            <div class="inputBox">
-                                <h4>Ingrese nombre</h4>
-                                <input type="text" id="names"  placeholder="Nombres..." formControlName="nombres">
-                            </div>
-                            <div class="inputBox">
-                                <h4>Ingrese apellidos</h4>
-                                <input type="text" id="lastnames" placeholder="Apellidos..." formControlName="apellidos">
-                            </div>
-                            <div class="inputBox">
-                                <h4>Correo electrónico</h4>
-                                <input type="text" id="email" placeholder="Correo electrónico..." formControlName="correo">
-                            </div>
-                            <div class="inputBox">
-                                <h4>Correo electrónico</h4>
-                                <input type="text" id="email" placeholder="Correo electrónico..." formControlName="correoValidacion">
-                            </div>
+
+    </div>
+    <div class="containerA">
+        <div class="formulario">
+            <form [formGroup]="createAccountForm"(ngSubmit)="onCreate(createAccountForm.value)">
+                <h2>Register</h2>
+                <div class="groupInput">
+                    <div class="group">
+                        <div class="inputBox">
+                            <h4>Ingrese nombre</h4>
+                            <input type="text" id="names"  placeholder="Nombres..." formControlName="nombres">
                         </div>
-                        <div class="group">
-    
-                            <div class="inputBox">
-                                <h4>Número celular</h4>
-                                <input type="text" id="email" placeholder="Correo electronico..." formControlName="dni">
-                            </div>
-                            <div class="inputBox">
-                                <h4>Contraseña</h4>
-                                <input type="password" id="password" placeholder="Password" formControlName="password">
-                                    ">
-                            </div>
-                            <div class="inputBox">
-                                <h4>Confirmación contraseña</h4>
-                                <input type="password" id="password" placeholder="Confirm password" formControlName="paswordVal">
-                            </div>
+                        <div class="inputBox">
+                            <h4>Ingrese apellidos</h4>
+                            <input type="text" id="lastnames" placeholder="Apellidos..." formControlName="apellidos">
+                        </div>
+                        <div class="inputBox">
+                            <h4>Correo electrónico</h4>
+                            <input type="text" id="email" placeholder="Correo electrónico..." formControlName="correo">
+                        </div>
+                        <div class="inputBox">
+                            <h4>Correo electrónico</h4>
+                            <input type="text" id="email" placeholder="Correo electrónico..." formControlName="correoValidacion">
                         </div>
                     </div>
-    
-                    <div class="output">
-                        <input type="submit" value="Create">
+                    <div class="group">
+                        <div class="inputBox">
+                            <h4>Número celular</h4>
+                            <input type="text" id="email" placeholder="Correo electronico..." formControlName="dni">
+                        </div>
+                        <div class="inputBox">
+                            <h4>Contraseña</h4>
+                            <input type="password" id="password" placeholder="Password..." formControlName="password">
+                        </div>
+                        <div class="inputBox">
+                            <h4>Confirmación contraseña</h4>
+                            <input type="password" id="password" placeholder="Confirm password..." formControlName="paswordVal">
+                        </div>
                     </div>
-                </form>
-            </div>
-            <div class="return">
-                <button><a href="/home">Regresar</a></button>
-            </div>
+                </div>
+
+                <div class="output">
+                    <input type="submit" value="Create">
+                </div>
+            </form>
         </div>
     </div>
-
 </div>

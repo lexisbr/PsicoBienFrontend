@@ -95,10 +95,11 @@
   color: #fff;
 }
 .container-fluid .create-account {
+  position: fixed;
+  top: 100px;
   display: flex;
-  overflow: hidden;
   width: 100%;
-  height: 100vh;
+  height: 1200px;
   align-items: center;
   justify-content: center;
   background: linear-gradient(to bottom, #f1f4f9, #dff1ff);
@@ -110,23 +111,29 @@
   filter: blur(150px);
 }
 .container-fluid .create-account .color:nth-child(1) {
-  top: 300px;
-  /* background: #5c55e6; */
+  top: 500px;
+  right: 0;
   background: #00bfee;
   width: 600px;
   height: 600px;
 }
 .container-fluid .create-account .color:nth-child(2) {
-  bottom: 250px;
-  left: 80px;
-  /* background: #4b1c8b; */
+  bottom: 350px;
+  left: 180px;
   background: #009fc7;
-  width: 600px;
-  height: 600px;
+  width: 800px;
+  height: 800px;
 }
 .container-fluid .create-account .color:nth-child(3) {
   bottom: 220px;
   right: 0px;
+  background: #0082a2;
+  width: 600px;
+  height: 600px;
+}
+.container-fluid .create-account .color:nth-child(3) {
+  top: 0;
+  right: 200px;
   /* background: #001f6a; */
   background: #0082a2;
   width: 600px;
@@ -145,82 +152,79 @@
   border-right: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
-  /* background: rgba(228, 8, 209, 0.1); */
   background: rgba(165, 193, 253, 0.3);
   animation: animate 10s linear infinite;
   animation-delay: calc(-1s * var(--i));
 }
 .container-fluid .create-account .box .cuadrado:nth-child(1) {
   top: -50px;
-  right: -60px;
+  right: 10px;
   width: 100px;
   height: 100px;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(2) {
   top: 150px;
-  left: -100px;
+  left: -60px;
   width: 120px;
   height: 120px;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(3) {
-  bottom: 50px;
-  right: -60px;
+  top: 100px;
+  right: 800px;
   width: 80px;
   height: 80px;
   z-index: 1;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(4) {
-  bottom: -80px;
+  top: 580px;
   left: 100px;
   width: 50px;
   height: 50px;
   z-index: 1;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(5) {
-  top: -80px;
-  left: 140px;
+  top: 80px;
+  left: 150px;
   width: 60px;
   height: 60px;
   z-index: 1;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(6) {
-  top: 0px;
-  left: -150px;
+  top: 400px;
+  left: 800px;
   width: 80px;
   height: 80px;
-  z-index: 1;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(7) {
-  bottom: 50px;
-  right: -500px;
+  top: 50px;
+  right: 500px;
   width: 200px;
   height: 200px;
   z-index: 1;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(8) {
-  bottom: 450px;
-  right: -450px;
-  width: 80px;
-  height: 80px;
-  z-index: 1;
+  top: 550px;
+  right: 450px;
+  width: 200px;
+  height: 200px;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(9) {
-  bottom: 50px;
-  left: -100px;
+  top: 300px;
+  right: 350px;
   width: 70px;
   height: 70px;
   z-index: 1;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(10) {
-  top: 400px;
-  left: -350px;
+  top: 750px;
+  right: 120px;
   width: 180px;
   height: 180px;
   z-index: 1;
 }
 .container-fluid .create-account .box .cuadrado:nth-child(11) {
   top: 400px;
-  left: 350px;
+  left: 250px;
   width: 180px;
   height: 180px;
 }
@@ -236,19 +240,19 @@
   width: 80px;
   height: 80px;
 }
-.container-fluid .create-account .containerA {
+.container-fluid .containerA {
   position: absolute;
   width: 100%;
-  height: 100%;
-  background: rgba(30, 19, 19, 0.3);
+  height: 1000px;
   border-radius: 10px;
   -webkit-backdrop-filter: blur(1px);
   backdrop-filter: blur(1px);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
-.container-fluid .create-account .containerA .formulario {
+.container-fluid .containerA .formulario {
   position: relative;
   width: 100%;
   height: 100%;
@@ -257,69 +261,69 @@
   align-items: center;
   justify-content: center;
 }
-.container-fluid .create-account .containerA .formulario form {
-  width: 70%;
+.container-fluid .containerA .formulario form {
+  width: 60%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 50px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5), 5px 5px 5px rgba(0, 0, 0, 0.05), -5px -5px 5px rgba(255, 255, 255, 0.5);
 }
-.container-fluid .create-account .containerA .formulario form h2 {
+.container-fluid .containerA .formulario form h2 {
   position: relative;
-  color: white;
-  font-size: 24px;
+  color: #111;
+  font-size: 30px;
   margin-bottom: 40px;
 }
-.container-fluid .create-account .containerA .formulario form h2::before {
+.container-fluid .containerA .formulario form h2::before {
   content: "";
   position: absolute;
   left: 0;
   bottom: -10px;
-  width: 500px;
+  width: 200px;
   height: 4px;
-  background: #fff;
+  background: #111;
 }
-.container-fluid .create-account .containerA .formulario form .groupInput {
+.container-fluid .containerA .formulario form .groupInput {
   width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.container-fluid .create-account .containerA .formulario form .groupInput .group {
+.container-fluid .containerA .formulario form .groupInput .group {
   width: 100%;
 }
-.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox {
+.container-fluid .containerA .formulario form .groupInput .group .inputBox {
   width: 100%;
   margin-top: 20px;
 }
-.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox input {
+.container-fluid .containerA .formulario form .groupInput .group .inputBox input {
   width: 80%;
   background: transparent;
-  border: none;
   padding: 5px 10px;
-  border-radius: 1px;
+  border-radius: 15px;
   border-top: 1px solid rgba(225, 255, 255, 0.2);
   border-left: 1px solid rgba(225, 255, 255, 0.2);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   outline: none;
-  font-size: 12px;
-  color: #fff;
+  font-size: 15px;
+  color: #363333;
   font-weight: 400;
 }
-.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.2);
+.container-fluid .containerA .formulario form .groupInput .group .inputBox input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }
-.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox input::placeholder {
-  color: rgba(255, 255, 255, 0.2);
+.container-fluid .containerA .formulario form .groupInput .group .inputBox input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
 }
-.container-fluid .create-account .containerA .formulario form .groupInput .group .inputBox h4 {
-  width: 80%;
-  background: transparent;
+.container-fluid .containerA .formulario form .groupInput .group .inputBox h4 {
   padding: 0px 10px;
-  font-size: 12px;
-  letter-spacing: 3px;
-  color: #fff;
-  font-weight: 400;
+  color: #111;
 }
-.container-fluid .create-account .containerA .formulario form .inputBox {
+.container-fluid .containerA .formulario form .inputBox {
   width: 100%;
   margin-top: 20px;
 }
-.container-fluid .create-account .containerA .formulario form .inputBox input {
+.container-fluid .containerA .formulario form .inputBox input {
   width: 80%;
   background: transparent;
   border: none;
@@ -330,16 +334,16 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   outline: none;
   font-size: 16px;
-  color: #fff;
+  color: #111;
   font-weight: 600;
 }
-.container-fluid .create-account .containerA .formulario form .inputBox input::-moz-placeholder {
+.container-fluid .containerA .formulario form .inputBox input::-moz-placeholder {
   color: rgba(255, 255, 255, 0.2);
 }
-.container-fluid .create-account .containerA .formulario form .inputBox input::placeholder {
+.container-fluid .containerA .formulario form .inputBox input::placeholder {
   color: rgba(255, 255, 255, 0.2);
 }
-.container-fluid .create-account .containerA .formulario form .inputBox h4 {
+.container-fluid .containerA .formulario form .inputBox h4 {
   width: 80%;
   background: transparent;
   border: none;
@@ -348,14 +352,14 @@
   outline: none;
   font-size: 16px;
   letter-spacing: 5px;
-  color: #fff;
+  color: #111;
   font-weight: 400;
 }
-.container-fluid .create-account .containerA .formulario form .output {
+.container-fluid .containerA .formulario form .output {
   width: 100%;
   margin-top: 20px;
 }
-.container-fluid .create-account .containerA .formulario form .output input {
+.container-fluid .containerA .formulario form .output input {
   width: 100%;
   background: transparent;
   border: none;
@@ -371,7 +375,7 @@
   color: #fff;
   font-weight: 600;
 }
-.container-fluid .create-account .containerA .formulario form .output input[type=submit] {
+.container-fluid .containerA .formulario form .output input[type=submit] {
   background: white;
   color: #666;
   border: none;
@@ -379,11 +383,6 @@
   max-width: 200px;
   cursor: pointer;
   /* margin-bottom: 20px; */
-}
-.container-fluid .create-account .containerA .return {
-  position: absolute;
-  top: 10%;
-  right: 10%;
 }
 
 @keyframes animate {
@@ -394,12 +393,8 @@
     transform: translateY(40px);
   }
 }
-@media (max-height: 700px) {
-  .create-account .box .container .form form .groupInput {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .create-account .box .container .form form .groupInput .group {
-    width: 500px;
+@media (max-width: 900px) {
+  .container-fluid .containerA .formulario form .groupInput {
+    flex-direction: column;
   }
 }/*# sourceMappingURL=create-account.component.css.map */
