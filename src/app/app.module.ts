@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PruebasComponent } from './pages/pruebas/pruebas.component';
+import { SelectTypeUserComponent } from './pages/select-type-user/select-type-user.component';
 
 
 
@@ -24,6 +25,7 @@ import { PruebasComponent } from './pages/pruebas/pruebas.component';
     LoginComponent,
     ProfileComponent,
     PruebasComponent,
+    SelectTypeUserComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
-
-
+import { SelectTypeUserComponent } from './pages/select-type-user/select-type-user.component';
 
 const routes: Routes = [
   {
@@ -38,6 +37,10 @@ const routes: Routes = [
   {
     path: 'pruebas',
     component: PruebasComponent
+  },
+  {
+    path: 'select',
+    component: SelectTypeUserComponent
   },
 
 ];
