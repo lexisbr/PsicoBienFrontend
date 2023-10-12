@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend_clinicaPsicologica": {
+    "Frontend-Psicobien": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/frontend-clinica-psicologica",
+            "outputPath": "dist/frontend-psicobien",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "frontend_clinicaPsicologica:build:production"
+              "browserTarget": "Frontend-Psicobien:build:production"
             },
             "development": {
-              "browserTarget": "frontend_clinicaPsicologica:build:development"
+              "browserTarget": "Frontend-Psicobien:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontend_clinicaPsicologica:build"
+            "browserTarget": "Frontend-Psicobien:build"
           }
         },
         "test": {

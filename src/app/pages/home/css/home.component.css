@@ -1,0 +1,399 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container-fluid {
+  background: #fff;
+}
+.container-fluid .header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100px;
+}
+.container-fluid .header .containerH {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+}
+.container-fluid .header .containerH .logoBox {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  color: #14161a;
+}
+.container-fluid .header .containerH .logoBox .logo {
+  width: 100px;
+  padding-right: 20px;
+}
+.container-fluid .header .containerH .logoBox .textLogo {
+  font-weight: 100;
+}
+.container-fluid .header .containerH .logoBox .textLogo span {
+  color: #01acc8;
+  text-decoration: underline;
+}
+.container-fluid .header .containerH .menuBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 400px;
+}
+.container-fluid .header .containerH .menuBox .nav_link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+.container-fluid .header .containerH .menuBox .nav_link i {
+  font-size: 30px;
+  color: #111;
+}
+.container-fluid .header .containerH .comboBtn {
+  position: relative;
+}
+.container-fluid .header .containerH .comboBtn .button {
+  border-style: none;
+  height: 50px;
+  width: 150px;
+  border-radius: 15px;
+}
+.container-fluid .header .containerH .comboBtn:hover .loginBox {
+  visibility: visible;
+}
+.container-fluid .header .containerH .comboBtn .loginBox {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  top: 50px;
+  right: 0;
+  background: #01acc8;
+  border-radius: 15px;
+  visibility: hidden;
+  gap: 20px;
+  flex-direction: column;
+  background: #f0f0f0;
+}
+.container-fluid .header .containerH .comboBtn .loginBox button {
+  width: 200px;
+  height: 50px;
+  border-style: none;
+  border-radius: 10px;
+  background: #01acc8;
+}
+.container-fluid .header .containerH .comboBtn .loginBox button a {
+  text-decoration: none;
+  color: #fff;
+}
+.container-fluid .main {
+  position: relative;
+  top: 100px;
+}
+.container-fluid .main .banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .main .banner .img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.8;
+}
+.container-fluid .main .banner::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+.container-fluid .main .banner .content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+}
+.container-fluid .main .banner .content h2 {
+  color: #fff;
+  font-size: 4em;
+}
+.container-fluid .main .banner .content p {
+  color: #fff;
+  font-size: 1.2em;
+}
+.container-fluid .main .banner .content .btn {
+  position: relative;
+  display: inline-block;
+  margin-top: 30px;
+  background: #fff;
+  color: #333;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 10px 30px;
+}
+.container-fluid .main .information {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 80px 50px;
+  gap: 60px;
+}
+.container-fluid .main .information .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .main .information .content h2 {
+  font-weight: 600;
+  font-size: 50px;
+}
+.container-fluid .main .information .content h3 {
+  font-weight: 400;
+  font-size: 30px;
+}
+.container-fluid .main .information .cardH {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.container-fluid .main .information .cardH .boxCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .main .information .cardH .boxCard img {
+  width: 200px;
+}
+.container-fluid .main .information .cardH .boxCard p {
+  color: #71717A;
+  text-align: center;
+}
+.container-fluid .main .PsicoCards {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 150px 50px;
+  gap: 60px;
+}
+.container-fluid .main .PsicoCards .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .main .PsicoCards .content h2 {
+  font-weight: 500;
+  font-size: 50px;
+}
+.container-fluid .main .PsicoCards .content h3 {
+  font-weight: 300;
+  font-size: 20px;
+}
+.container-fluid .main .PsicoCards .cards {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox {
+  width: 350px;
+  min-height: 550px;
+  border-radius: 15px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardHeader {
+  position: relative;
+  display: flex;
+  padding: 15px 5px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardHeader .img {
+  position: relative;
+  display: flex;
+  padding: 20px 10px;
+  height: 100%;
+  align-items: center;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardHeader .img .profile {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardHeader .img .logo {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  bottom: 20px;
+  right: 15px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardHeader .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px 1px;
+  gap: 8;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardHeader .data .pC1 {
+  color: #464646;
+  font-size: 15px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardHeader .data h3 {
+  font-size: 20px;
+  color: #464646;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardHeader .data .pC2 {
+  color: #464646;
+  font-size: 13px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardHeader .data a {
+  text-decoration: none;
+  color: #0085ff;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardContent {
+  display: flex;
+  padding: 0 15px;
+  padding-bottom: 10px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardContent ul {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 45px;
+  padding-right: 60px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardContent ul li {
+  color: #464646;
+  position: relative;
+  font-size: 18px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardContent ul li span {
+  font-weight: 600;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardspan {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 15px 20px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardspan span {
+  background: #f4f7fb;
+  border-radius: 25px;
+  padding: 4px;
+  font-size: 12px;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardFooter {
+  display: flex;
+  height: 120px;
+  align-items: center;
+  justify-content: space-around;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardFooter a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 130px;
+  color: #01acc8;
+  background-color: #fff;
+  border: 1px solid #01acc8;
+  border-radius: 10px;
+  text-decoration: none;
+}
+.container-fluid .main .PsicoCards .cards .cardBox .cardFooter button {
+  height: 40px;
+  width: 130px;
+  background: #01acc8;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+.container-fluid .footer {
+  position: relative;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  background: #1fb5ce;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+.container-fluid .footer .sci {
+  position: relative;
+  display: flex;
+}
+.container-fluid .footer .sci li {
+  list-style: none;
+}
+.container-fluid .footer .sci li a {
+  text-decoration: none;
+  margin: 0 20px;
+}
+.container-fluid .footer .sci li a i {
+  font-size: 50px;
+  color: #fff;
+}
+.container-fluid .footer .sci li:nth-child(1) a i:hover {
+  border-radius: 10px;
+  color: #fff;
+  background-image: linear-gradient(45deg, #ffac4d, #e0437b, #ac30bc);
+  font-size: 46px;
+  padding: 2px;
+}
+.container-fluid .footer .sci li:nth-child(2) a i:hover {
+  background: #fff;
+  color: #0676e8;
+  border-radius: 10px;
+  font-size: 46px;
+  padding: 2px;
+}
+.container-fluid .footer .sci li:nth-child(3) a i:hover {
+  background: #fff;
+  color: #00c0ef;
+  border-radius: 10px;
+  font-size: 46px;
+  padding: 2px;
+}
+.container-fluid .footer .copyright {
+  margin-top: 20px;
+  color: #666;
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+}
+.container-fluid .footer .copyright a {
+  color: #fff;
+  text-decoration: none;
+}/*# sourceMappingURL=home.component.css.map */

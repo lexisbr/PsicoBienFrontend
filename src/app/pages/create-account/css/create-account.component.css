@@ -1,0 +1,400 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.container-fluid {
+  position: relative;
+}
+.container-fluid .header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  height: 100px;
+}
+.container-fluid .header .containerH {
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+}
+.container-fluid .header .containerH .logoBox {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  color: #14161a;
+}
+.container-fluid .header .containerH .logoBox .logo {
+  width: 100px;
+  padding-right: 20px;
+}
+.container-fluid .header .containerH .logoBox .textLogo {
+  font-weight: 100;
+}
+.container-fluid .header .containerH .logoBox .textLogo span {
+  color: #01acc8;
+  text-decoration: underline;
+}
+.container-fluid .header .containerH .menuBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 400px;
+}
+.container-fluid .header .containerH .menuBox .nav_link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+.container-fluid .header .containerH .menuBox .nav_link i {
+  font-size: 30px;
+  color: #111;
+}
+.container-fluid .header .containerH .comboBtn {
+  position: relative;
+}
+.container-fluid .header .containerH .comboBtn .button {
+  border-style: none;
+  height: 50px;
+  width: 150px;
+  border-radius: 15px;
+}
+.container-fluid .header .containerH .comboBtn:hover .loginBox {
+  visibility: visible;
+}
+.container-fluid .header .containerH .comboBtn .loginBox {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  top: 50px;
+  right: 0;
+  background: #01acc8;
+  border-radius: 15px;
+  visibility: hidden;
+  gap: 20px;
+  flex-direction: column;
+  background: #f0f0f0;
+}
+.container-fluid .header .containerH .comboBtn .loginBox button {
+  width: 200px;
+  height: 50px;
+  border-style: none;
+  border-radius: 10px;
+  background: #01acc8;
+}
+.container-fluid .header .containerH .comboBtn .loginBox button a {
+  text-decoration: none;
+  color: #fff;
+}
+.container-fluid .create-account {
+  position: fixed;
+  top: 100px;
+  display: flex;
+  width: 100%;
+  height: 1200px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #f1f4f9, #dff1ff);
+  background-size: cover;
+  background-position: center;
+}
+.container-fluid .create-account .color {
+  position: absolute;
+  filter: blur(150px);
+}
+.container-fluid .create-account .color:nth-child(1) {
+  top: 500px;
+  right: 0;
+  background: #00bfee;
+  width: 600px;
+  height: 600px;
+}
+.container-fluid .create-account .color:nth-child(2) {
+  bottom: 350px;
+  left: 180px;
+  background: #009fc7;
+  width: 800px;
+  height: 800px;
+}
+.container-fluid .create-account .color:nth-child(3) {
+  bottom: 220px;
+  right: 0px;
+  background: #0082a2;
+  width: 600px;
+  height: 600px;
+}
+.container-fluid .create-account .color:nth-child(3) {
+  top: 0;
+  right: 200px;
+  /* background: #001f6a; */
+  background: #0082a2;
+  width: 600px;
+  height: 600px;
+}
+.container-fluid .create-account .box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.container-fluid .create-account .box .cuadrado {
+  content: "";
+  position: absolute;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  background: rgba(165, 193, 253, 0.3);
+  animation: animate 10s linear infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+.container-fluid .create-account .box .cuadrado:nth-child(1) {
+  top: -50px;
+  right: 10px;
+  width: 100px;
+  height: 100px;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(2) {
+  top: 150px;
+  left: -60px;
+  width: 120px;
+  height: 120px;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(3) {
+  top: 100px;
+  right: 800px;
+  width: 80px;
+  height: 80px;
+  z-index: 1;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(4) {
+  top: 580px;
+  left: 100px;
+  width: 50px;
+  height: 50px;
+  z-index: 1;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(5) {
+  top: 80px;
+  left: 150px;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(6) {
+  top: 400px;
+  left: 800px;
+  width: 80px;
+  height: 80px;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(7) {
+  top: 50px;
+  right: 500px;
+  width: 200px;
+  height: 200px;
+  z-index: 1;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(8) {
+  top: 550px;
+  right: 450px;
+  width: 200px;
+  height: 200px;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(9) {
+  top: 300px;
+  right: 350px;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(10) {
+  top: 750px;
+  right: 120px;
+  width: 180px;
+  height: 180px;
+  z-index: 1;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(11) {
+  top: 400px;
+  left: 250px;
+  width: 180px;
+  height: 180px;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(12) {
+  top: 250px;
+  right: -140px;
+  width: 180px;
+  height: 180px;
+}
+.container-fluid .create-account .box .cuadrado:nth-child(13) {
+  top: 100px;
+  left: 400px;
+  width: 80px;
+  height: 80px;
+}
+.container-fluid .containerA {
+  position: absolute;
+  width: 100%;
+  height: 1000px;
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+.container-fluid .containerA .formulario {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container-fluid .containerA .formulario form {
+  width: 60%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 50px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5), 5px 5px 5px rgba(0, 0, 0, 0.05), -5px -5px 5px rgba(255, 255, 255, 0.5);
+}
+.container-fluid .containerA .formulario form h2 {
+  position: relative;
+  color: #111;
+  font-size: 30px;
+  margin-bottom: 40px;
+}
+.container-fluid .containerA .formulario form h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 200px;
+  height: 4px;
+  background: #111;
+}
+.container-fluid .containerA .formulario form .groupInput {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-fluid .containerA .formulario form .groupInput .group {
+  width: 100%;
+}
+.container-fluid .containerA .formulario form .groupInput .group .inputBox {
+  width: 100%;
+  margin-top: 20px;
+}
+.container-fluid .containerA .formulario form .groupInput .group .inputBox input {
+  width: 80%;
+  background: transparent;
+  padding: 5px 10px;
+  border-radius: 15px;
+  border-top: 1px solid rgba(225, 255, 255, 0.2);
+  border-left: 1px solid rgba(225, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 15px;
+  color: #363333;
+  font-weight: 400;
+}
+.container-fluid .containerA .formulario form .groupInput .group .inputBox input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.container-fluid .containerA .formulario form .groupInput .group .inputBox input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+.container-fluid .containerA .formulario form .groupInput .group .inputBox h4 {
+  padding: 0px 10px;
+  color: #111;
+}
+.container-fluid .containerA .formulario form .inputBox {
+  width: 100%;
+  margin-top: 20px;
+}
+.container-fluid .containerA .formulario form .inputBox input {
+  width: 80%;
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 1px;
+  border-top: 1px solid rgba(225, 255, 255, 0.2);
+  border-left: 1px solid rgba(225, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 16px;
+  color: #111;
+  font-weight: 600;
+}
+.container-fluid .containerA .formulario form .inputBox input::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+.container-fluid .containerA .formulario form .inputBox input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+.container-fluid .containerA .formulario form .inputBox h4 {
+  width: 80%;
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 1px;
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 5px;
+  color: #111;
+  font-weight: 400;
+}
+.container-fluid .containerA .formulario form .output {
+  width: 100%;
+  margin-top: 20px;
+}
+.container-fluid .containerA .formulario form .output input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border-top: 1px solid rgba(225, 255, 255, 0.2);
+  border-left: 1px solid rgba(225, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  outline: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+  font-weight: 600;
+}
+.container-fluid .containerA .formulario form .output input[type=submit] {
+  background: white;
+  color: #666;
+  border: none;
+  font-weight: 600;
+  max-width: 200px;
+  cursor: pointer;
+  /* margin-bottom: 20px; */
+}
+
+@keyframes animate {
+  0%, 100% {
+    transform: translateY(-40px);
+  }
+  50% {
+    transform: translateY(40px);
+  }
+}
+@media (max-width: 900px) {
+  .container-fluid .containerA .formulario form .groupInput {
+    flex-direction: column;
+  }
+}/*# sourceMappingURL=create-account.component.css.map */

@@ -1,0 +1,352 @@
+<div class="container-fluid">
+    <header class="header">
+        <div class="containerH">
+            <a href="/home" class="logoBox">
+                <img src="assets/img-home/psicobien.png" alt="logo" class="logo">
+                <h2 class="textLogo">Psico<span>bien</span></h2>
+            </a>
+            <nav class="menuBox">
+                <a href="" class="nav_link">Inicio</a>
+                <a href="" class="nav_link">Psicólogos</a>
+                <a href="#" class="nav_link"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <div class="comboBtn">
+                    <button class="button">Ingresar <i class="fa-solid fa-caret-down"></i></button>
+                    <div class="loginBox">
+                        <button><a href="/login">Iniciar sesion</a></button>
+                        <button><a href="/create-account">Crear cuenta</a></button>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </header>
+    <main class="main">
+        <section class="banner">
+            <img src="assets/img-home/banner_3.webp" alt="banner" class="img">
+            <div class="content">
+                <h2> Tus salud mental es lo más importante</h2>
+                <p>Tu bienestar emocional es nuestra prioridad. En PsicóBien, te conectamos con profesionales de la
+                    salud mental para que puedas vivir una vida plena y equilibrada.</p>
+                <a href="#PsicoCards" class="btn">Ver más</a>
+            </div>
+        </section>
+
+        <section class="information">
+            <div class="content">
+                <h2>¿Cómo te ayudamos?</h2>
+                <h3>Proceso de conexión</h3>
+            </div>
+            <div class="cardH">
+                <div class="boxCard">
+                    <img src="assets/img-home/buscar.jpg" alt="">
+                    <h2>Buscar</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nulla facilis fugit, provident quo
+                        doloremque minus dicta quae, animi quod vero, rem dolor! Doloremque odit error rem. Maiores,
+                        blanditiis dolorem?</p>
+                </div>
+                <div class="boxCard">
+                    <img src="assets/img-home/contactar.png" alt="">
+                    <h2>Contactar</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nulla facilis fugit, provident quo
+                        doloremque minus dicta quae, animi quod vero, rem dolor! Doloremque odit error rem. Maiores,
+                        blanditiis dolorem?</p>
+                </div>
+                <div class="boxCard">
+                    <img src="assets/img-home/agendar.jpg" alt="">
+                    <h2>Agendar</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nulla facilis fugit, provident quo
+                        doloremque minus dicta quae, animi quod vero, rem dolor! Doloremque odit error rem. Maiores,
+                        blanditiis dolorem?</p>
+                </div>
+            </div>
+        </section>
+        <section class="PsicoCards" id="PsicoCards">
+            <div class="content">
+                <h2>Psicólogos que te pueden interesar</h2>
+                <h3>Profesionales capacitados para ayudarte con tu bienesar mental.</h3>
+            </div>
+            <div class="cards">
+                <div class="cardBox">
+                    <div class="cardHeader">
+                        <div class="img">
+                            <img src="{{profesional.foto}}" alt="foto" class="profile">
+                            <img src="{{profesional.bandera}}" alt="foto" class="logo">
+                        </div>
+
+                        <div class="data">
+                            <p class="pC1">Psicólogo online</p>
+                            <h3>{{profesional.nombres}} {{profesional.apellidos}}</h3>
+                            <p class="pC2">Cédula <span>{{profesional.cedula}}</span></p>
+                            <a href="#">Ver opciones (42)</a>
+                        </div>
+                    </div>
+                    <div class="cardContent">
+                        <ul>
+                            <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+                            <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cardspan">
+                        <span>Abuso sexual</span>
+                        <span>Ansiedad</span>
+                        <span>Conductas autodestructivas</span>
+                        <span>Conflicto de pareja</span>
+                        <span>Trastorno de personalidad</span>
+                    </div>
+                    <div class="cardFooter">
+                        <a href="/profile">Ver Perfil</a>
+                        <button type="button">Agregar cita</button>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="cardHeader">
+                        <div class="img">
+                            <img src="{{profesional.foto}}" alt="foto" class="profile">
+                            <img src="{{profesional.bandera}}" alt="foto" class="logo">
+                        </div>
+
+                        <div class="data">
+                            <p class="pC1">Psicólogo online</p>
+                            <h3>{{profesional.nombres}} {{profesional.apellidos}}</h3>
+                            <p class="pC2">Cédula <span>{{profesional.cedula}}</span></p>
+                            <a href="#">Ver opciones (42)</a>
+                        </div>
+                    </div>
+                    <div class="cardContent">
+                        <ul>
+                            <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+                            <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cardspan">
+                        <span>Abuso sexual</span>
+                        <span>Ansiedad</span>
+                        <span>Conductas autodestructivas</span>
+                        <span>Conflicto de pareja</span>
+                        <span>Trastorno de personalidad</span>
+                    </div>
+                    <div class="cardFooter">
+                        <a href="/profile">Ver Perfil</a>
+                        <button type="button">Agregar cita</button>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="cardHeader">
+                        <div class="img">
+                            <img src="{{profesional.foto}}" alt="foto" class="profile">
+                            <img src="{{profesional.bandera}}" alt="foto" class="logo">
+                        </div>
+
+                        <div class="data">
+                            <p class="pC1">Psicólogo online</p>
+                            <h3>{{profesional.nombres}} {{profesional.apellidos}}</h3>
+                            <p class="pC2">Cédula <span>{{profesional.cedula}}</span></p>
+                            <a href="#">Ver opciones (42)</a>
+                        </div>
+                    </div>
+                    <div class="cardContent">
+                        <ul>
+                            <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+                            <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cardspan">
+                        <span>Abuso sexual</span>
+                        <span>Ansiedad</span>
+                        <span>Conductas autodestructivas</span>
+                        <span>Conflicto de pareja</span>
+                        <span>Trastorno de personalidad</span>
+                    </div>
+                    <div class="cardFooter">
+                        <a href="/profile">Ver Perfil</a>
+                        <button type="button">Agregar cita</button>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="cardHeader">
+                        <div class="img">
+                            <img src="{{profesional.foto}}" alt="foto" class="profile">
+                            <img src="{{profesional.bandera}}" alt="foto" class="logo">
+                        </div>
+
+                        <div class="data">
+                            <p class="pC1">Psicólogo online</p>
+                            <h3>{{profesional.nombres}} {{profesional.apellidos}}</h3>
+                            <p class="pC2">Cédula <span>{{profesional.cedula}}</span></p>
+                            <a href="#">Ver opciones (42)</a>
+                        </div>
+                    </div>
+                    <div class="cardContent">
+                        <ul>
+                            <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+                            <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cardspan">
+                        <span>Abuso sexual</span>
+                        <span>Ansiedad</span>
+                        <span>Conductas autodestructivas</span>
+                        <span>Conflicto de pareja</span>
+                        <span>Trastorno de personalidad</span>
+                    </div>
+                    <div class="cardFooter">
+                        <a href="/profile">Ver Perfil</a>
+                        <button type="button">Agregar cita</button>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="cardHeader">
+                        <div class="img">
+                            <img src="{{profesional.foto}}" alt="foto" class="profile">
+                            <img src="{{profesional.bandera}}" alt="foto" class="logo">
+                        </div>
+
+                        <div class="data">
+                            <p class="pC1">Psicólogo online</p>
+                            <h3>{{profesional.nombres}} {{profesional.apellidos}}</h3>
+                            <p class="pC2">Cédula <span>{{profesional.cedula}}</span></p>
+                            <a href="#">Ver opciones (42)</a>
+                        </div>
+                    </div>
+                    <div class="cardContent">
+                        <ul>
+                            <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+                            <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cardspan">
+                        <span>Abuso sexual</span>
+                        <span>Ansiedad</span>
+                        <span>Conductas autodestructivas</span>
+                        <span>Conflicto de pareja</span>
+                        <span>Trastorno de personalidad</span>
+                    </div>
+                    <div class="cardFooter">
+                        <a href="/profile">Ver Perfil</a>
+                        <button type="button">Agregar cita</button>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="cardHeader">
+                        <div class="img">
+                            <img src="{{profesional.foto}}" alt="foto" class="profile">
+                            <img src="{{profesional.bandera}}" alt="foto" class="logo">
+                        </div>
+
+                        <div class="data">
+                            <p class="pC1">Psicólogo online</p>
+                            <h3>{{profesional.nombres}} {{profesional.apellidos}}</h3>
+                            <p class="pC2">Cédula <span>{{profesional.cedula}}</span></p>
+                            <a href="#">Ver opciones (42)</a>
+                        </div>
+                    </div>
+                    <div class="cardContent">
+                        <ul>
+                            <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+                            <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cardspan">
+                        <span>Abuso sexual</span>
+                        <span>Ansiedad</span>
+                        <span>Conductas autodestructivas</span>
+                        <span>Conflicto de pareja</span>
+                        <span>Trastorno de personalidad</span>
+                    </div>
+                    <div class="cardFooter">
+                        <a href="/profile">Ver Perfil</a>
+                        <button type="button">Agregar cita</button>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="cardHeader">
+                        <div class="img">
+                            <img src="{{profesional.foto}}" alt="foto" class="profile">
+                            <img src="{{profesional.bandera}}" alt="foto" class="logo">
+                        </div>
+
+                        <div class="data">
+                            <p class="pC1">Psicólogo online</p>
+                            <h3>{{profesional.nombres}} {{profesional.apellidos}}</h3>
+                            <p class="pC2">Cédula <span>{{profesional.cedula}}</span></p>
+                            <a href="#">Ver opciones (42)</a>
+                        </div>
+                    </div>
+                    <div class="cardContent">
+                        <ul>
+                            <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+                            <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cardspan">
+                        <span>Abuso sexual</span>
+                        <span>Ansiedad</span>
+                        <span>Conductas autodestructivas</span>
+                        <span>Conflicto de pareja</span>
+                        <span>Trastorno de personalidad</span>
+                    </div>
+                    <div class="cardFooter">
+                        <a href="/profile">Ver Perfil</a>
+                        <button type="button">Agregar cita</button>
+                    </div>
+                </div>
+                <div class="cardBox">
+                    <div class="cardHeader">
+                        <div class="img">
+                            <img src="{{profesional.foto}}" alt="foto" class="profile">
+                            <img src="{{profesional.bandera}}" alt="foto" class="logo">
+                        </div>
+
+                        <div class="data">
+                            <p class="pC1">Psicólogo online</p>
+                            <h3>{{profesional.nombres}} {{profesional.apellidos}}</h3>
+                            <p class="pC2">Cédula <span>{{profesional.cedula}}</span></p>
+                            <a href="#">Ver opciones (42)</a>
+                        </div>
+                    </div>
+                    <div class="cardContent">
+                        <ul>
+                            <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+                            <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="cardspan">
+                        <span>Abuso sexual</span>
+                        <span>Ansiedad</span>
+                        <span>Conductas autodestructivas</span>
+                        <span>Conflicto de pareja</span>
+                        <span>Trastorno de personalidad</span>
+                    </div>
+                    <div class="cardFooter">
+                        <a href="/profile">Ver Perfil</a>
+                        <button type="button">Agregar cita</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <ul class="sci">
+            <li> <a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+        </ul>
+        <h4 class="copyright">Copyright ©2023 <a href="#">Psicóbien</a>. All rights reserved.</h4>
+    </footer>
+</div>
