@@ -5,16 +5,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { CalendarComponent } from './pages/calendar/calendar.component';
+import { CalendarComponent } from './pages/complements/calendar/calendar.component';
 import { CreateAccountComponent } from './pages/create-account/create-account.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PruebasComponent } from './pages/pruebas/pruebas.component';
-import { FullCalendarModule } from '@fullcalendar/angular';
-import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-
-
+import { SelectTypeUserComponent } from './pages/select-type-user/select-type-user.component';
+import { HeaderComponent } from './pages/complements/header/header.component';
+import { FooterComponent } from './pages/complements/footer/footer.component';
+import { CardsComponent } from './pages/complements/cards/cards.component';
+import { DatingPatientComponent } from './pages/dating-patient/dating-patient.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,12 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     LoginComponent,
     ProfileComponent,
     PruebasComponent,
+    SelectTypeUserComponent,
+    HeaderComponent,
+    FooterComponent,
+    CardsComponent,
+    DatingPatientComponent
+
   ],
   imports: [
     BrowserModule,

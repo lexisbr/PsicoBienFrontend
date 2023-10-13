@@ -1,0 +1,86 @@
+.footer {
+    position: relative;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #1fb5ce;
+    height: 200px;
+    top: 100px;
+
+    .sci {
+        position: relative;
+        display: flex;
+
+        li {
+            list-style: none;
+
+            a {
+                text-decoration: none;
+                margin: 0 20px;
+
+                i {
+                    font-size: 50px;
+                    color: #fff;
+                }
+            }
+
+            &:nth-child(1) {
+                a {
+                    i {
+                        &:hover {
+                            border-radius: 10px;
+                            color: #fff;
+                            background-image: linear-gradient(45deg, #ffac4d, #e0437b, #ac30bc);
+                            font-size: 46px;
+                            padding: 2px;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2) {
+                a {
+                    i {
+                        &:hover {
+                            background: #fff;
+                            color: #0676e8;
+                            border-radius: 10px;
+                            font-size: 46px;
+                            padding: 2px;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(3) {
+                a {
+                    i {
+                        &:hover {
+                            background: #fff;
+                            color: #00c0ef;
+                            border-radius: 10px;
+                            font-size: 46px;
+                            padding: 2px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright {
+        margin-top: 20px;
+
+        color: #666;
+        font-size: 18px;
+        font-weight: 300;
+        text-align: center;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+}
