@@ -16,6 +16,8 @@ import { HeaderComponent } from './pages/complements/header/header.component';
 import { FooterComponent } from './pages/complements/footer/footer.component';
 import { CardsComponent } from './pages/complements/cards/cards.component';
 import { DatingPatientComponent } from './pages/dating-patient/dating-patient.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
