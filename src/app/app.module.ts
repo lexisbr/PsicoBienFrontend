@@ -34,7 +34,6 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     FooterComponent,
     CardsComponent,
     DatingPatientComponent
-
   ],
   imports: [
     BrowserModule,
