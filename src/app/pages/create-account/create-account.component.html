@@ -26,9 +26,9 @@
     <div class="containerA">
 
         <div class="formulario">
-            <form [formGroup]="createAccountForm" (ngSubmit)="onCreate(createAccountForm.value)">
+            <form [formGroup]="createAccountForm">
                 <div *ngIf="tab == 1">
-                    <h2>Register</h2>
+                    <h2>Registro</h2>
                     <div class="groupInput">
                         <div class="group">
                             <div class="inputBox">
@@ -55,14 +55,6 @@
                         </div>
                         <div class="group">
                             <div class="inputBox">
-                                <h4>Genero</h4>
-                                <select name="genero" id="genero" formControlName="genero">
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Femenino</option>
-                                    <option value="O">Otro</option>
-                                </select>
-                            </div>
-                            <div class="inputBox">
                                 <h4>Número celular</h4>
                                 <input type="text" id="email" placeholder="Telefono..." formControlName="telefono">
                             </div>
@@ -75,6 +67,14 @@
                                 <h4>Confirmación contraseña</h4>
                                 <input type="password" id="password" placeholder="Confirm password..."
                                     formControlName="paswordVal">
+                            </div>
+                            <div class="inputBox">
+                                <h4>Genero</h4>
+                                <select name="genero" id="genero" formControlName="genero">
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="O">Otro</option>
+                                </select>
                             </div>
                             <div class="inputBox">
                                 <h4>Pais</h4>
@@ -105,7 +105,12 @@
                     </div>
                 </div>
                 <div *ngIf="tab == 2">
-                    <h1>Elija el tipo de usuario</h1>
+                    <app-select-type-user
+                        (onSelectTipoUsuario)="onCreate($event)"
+                    ></app-select-type-user>
+                    <div class="output">
+                        <button (click)="prevTab()">Regresar</button>
+                    </div>
                 </div>
             </form>
         </div>

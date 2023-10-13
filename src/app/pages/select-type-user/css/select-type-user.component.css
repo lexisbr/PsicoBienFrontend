@@ -3,9 +3,6 @@
   margin: 0;
 }
 
-.container-fluid {
-  background: #fff;
-}
 .container-fluid .header {
   position: fixed;
   z-index: 10;
@@ -97,28 +94,26 @@
 .container-fluid .main {
   position: relative;
   width: 100%;
-  min-height: 1200px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 .container-fluid .main h2 {
-  font-size: 50px;
+  font-size: 28px;
 }
 .container-fluid .main .conteinerServiceBox {
   position: relative;
   display: flex;
+  gap: 100px;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 100px;
-  padding-top: 150px;
+  margin-top: 50px;
 }
 .container-fluid .main .conteinerServiceBox .serviceBox {
   position: relative;
-  width: 360px;
-  height: 360px;
+  width: 200;
+  height: 200px;
   border-radius: 20px;
   background: #51446e;
   overflow: hidden;
@@ -174,10 +169,12 @@
 .container-fluid .main .conteinerServiceBox .serviceBox .content h2 {
   margin-top: 10px;
   margin-bottom: 5px;
+  font-size: 18px;
 }
 .container-fluid .main .conteinerServiceBox .serviceBox .content p {
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.5em;
+  font-size: 20px;
 }
 .container-fluid .footer {
   position: relative;

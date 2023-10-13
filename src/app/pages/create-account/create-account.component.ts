@@ -7,6 +7,7 @@ import { UbicacionesService } from 'src/app/services/ubicaciones.service';
 import { Pais } from 'src/app/interface/pais.interface';
 import { Estado } from 'src/app/interface/estado.interface';
 import { Ciudad } from 'src/app/interface/ciudad.interface';
+import { TipoUsuario } from 'src/app/enum/tipos-usuario.enum';
 
 @Component({
   selector: 'app-create-account',
@@ -30,7 +31,6 @@ export class CreateAccountComponent implements OnInit {
     telefono: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     paswordVal: new FormControl('', Validators.required),
-    tipoUsuario: new FormControl('', Validators.required),
     idPais: new FormControl('', Validators.required),
     idEstado: new FormControl('', Validators.required),
     idCiudad: new FormControl('', Validators.required),
@@ -61,7 +61,7 @@ export class CreateAccountComponent implements OnInit {
     }
   }
 
-  obtenerCiudades(){
+  obtenerCiudades() {
     const idEstado = this.createAccountForm.value.idEstado;
     if (idEstado !== null && idEstado !== undefined) {
       this.ubicacionesService.obtenerCiudades(idEstado).subscribe((data) => {
@@ -71,22 +71,59 @@ export class CreateAccountComponent implements OnInit {
     }
   }
 
-  nextTab(){
+  nextTab() {
+    if(this.checkForNullUndefinedValues(this.createAccountForm)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Por favor, llena todos los campos',
+      });
+      return;
+    }
     this.tab = this.tab + 1;
   }
 
-  onCreate(form: UsuariosInterface | any) {
-    console.log(form);
-    const idPais = form.idCiudad;
-    console.log(idPais);
-    // this.usuarios.crearUsuario(form).subscribe(data =>{
-    //   Swal.fire({
-    //     icon: 'success',
-    //     title: 'Usuario registrado con exito',
-    //     showConfirmButton: false,
-    //     timer: 1500
-    //   })
-    //   console.log(form)
-    // })
+  prevTab() {
+    this.tab = this.tab - 1;
+  }
+
+  onCreate(tipoUsuario: TipoUsuario) {
+    console.log(this.createAccountForm.value);
+    const formData = this.createAccountForm.value;
+    const userData: UsuariosInterface = {
+      dni: formData.dni,
+      nombre: formData.nombre,
+      apellido: formData.apellido,
+      email: formData.email,
+      fechaNacimiento: formData.fechaNacimiento,
+      genero: formData.genero,
+      telefono: formData.telefono,
+      password: formData.password,
+      idCiudad: Number(formData.idCiudad),
+      idTipoUsuario: tipoUsuario,
+    };
+
+    this.usuarios.crearUsuario(userData).subscribe((data) => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Usuario registrado con exito',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      console.log(data);
+    });
+  }
+
+  checkForNullUndefinedValues(formGroup: FormGroup): boolean {
+    let hasNullUndefinedValues = false;
+
+    Object.keys(formGroup.controls).forEach((key) => {
+      const control = formGroup.get(key).value;
+      if (control == "" ||control === null || control === undefined) {
+        hasNullUndefinedValues = true;
+      }
+    });
+
+    return hasNullUndefinedValues;
   }
 }

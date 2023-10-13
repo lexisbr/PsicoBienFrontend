@@ -4,8 +4,6 @@
 }
 
 .container-fluid {
-    background: #fff;
-
     .header {
 
         position: fixed;
@@ -117,27 +115,25 @@
     .main {
         position: relative;
         width: 100%;
-        min-height: 1200px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         h2{
-            font-size: 50px;
+            font-size: 28px;
         }
         .conteinerServiceBox {
             position: relative;
             display: flex;
+            gap: 100px;
             justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 100px;
-            padding-top: 150px;
+            margin-top: 50px;
 
             .serviceBox {
                 position: relative;
-                width: 360px;
-                height: 360px;
+                width: 200;
+                height: 200px;
                 border-radius: 20px;
                 background: #51446e;
                 overflow: hidden;
@@ -201,11 +197,13 @@
                     h2 {
                         margin-top: 10px;
                         margin-bottom: 5px;
+                        font-size: 18px;
                     }
 
                     p {
-                        font-weight: 300;
+                        font-weight: 500;
                         line-height: 1.5em;
+                        font-size: 20px;
                     }
                 }
             }

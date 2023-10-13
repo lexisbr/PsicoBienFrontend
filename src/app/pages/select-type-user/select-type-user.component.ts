@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { TipoUsuario } from '../../enum/tipos-usuario.enum';
 
 @Component({
   selector: 'app-select-type-user',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class SelectTypeUserComponent {
 
+  @Output() onSelectTipoUsuario = new EventEmitter<TipoUsuario>();
+
+ tipoUsuario = TipoUsuario;
+
+  enviarTipoUsuario(idTipoUsuario: TipoUsuario){
+    this.onSelectTipoUsuario.emit(idTipoUsuario);
+  } 
 }
