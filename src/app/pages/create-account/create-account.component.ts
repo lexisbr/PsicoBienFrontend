@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsuariosInterface } from 'src/app/interface/usuarios.interface';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-create-account',
@@ -26,7 +27,14 @@ export class CreateAccountComponent implements OnInit {
   }
 
   onCreate(form: UsuariosInterface | any){
+    console.log(form)
     this.usuarios.crearUsuario(form).subscribe(data =>{
+      Swal.fire({
+        icon: 'success',
+        title: 'Usuario registrado con exito',
+        showConfirmButton: false,
+        timer: 1500
+      })
       console.log(form)
     })
   }

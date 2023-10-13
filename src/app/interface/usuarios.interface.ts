@@ -1,9 +1,13 @@
 export interface UsuariosInterface{
-    nombres: string;
-    apellidos: string;
-    correo: string;
-    correoValidacion: string;
     dni: string;
+    nombre: string;
+    apellido: string;
+    email: string;
+    fechaNacimiento: string;
+    genero: string;
+    telefono: string;
     password: string;
-    paswordVal: string;
+    paswordVal?: string;
+    tipoUsuario: string;
+    idCiudad: string;
 }

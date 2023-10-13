@@ -50,6 +50,10 @@
                 <div class="groupInput">
                     <div class="group">
                         <div class="inputBox">
+                            <h4>DNI</h4>
+                            <input type="text" id="names"  placeholder="DNI..." formControlName="dni">
+                        </div>
+                        <div class="inputBox">
                             <h4>Ingrese nombre</h4>
                             <input type="text" id="names"  placeholder="Nombres..." formControlName="nombres">
                         </div>
@@ -62,14 +66,22 @@
                             <input type="text" id="email" placeholder="Correo electrónico..." formControlName="correo">
                         </div>
                         <div class="inputBox">
-                            <h4>Correo electrónico</h4>
-                            <input type="text" id="email" placeholder="Correo electrónico..." formControlName="correoValidacion">
+                            <h4>Fecha Nacimiento</h4>
+                            <input type="date" id="email" formControlName="fechaNacimiento">
                         </div>
                     </div>
                     <div class="group">
                         <div class="inputBox">
+                            <h4>Genero</h4>
+                            <select name="genero" id="genero" formControlName="genero">
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                        <div class="inputBox">
                             <h4>Número celular</h4>
-                            <input type="text" id="email" placeholder="Correo electronico..." formControlName="dni">
+                            <input type="text" id="email" placeholder="Telefono..." formControlName="telefono">
                         </div>
                         <div class="inputBox">
                             <h4>Contraseña</h4>
@@ -78,6 +90,24 @@
                         <div class="inputBox">
                             <h4>Confirmación contraseña</h4>
                             <input type="password" id="password" placeholder="Confirm password..." formControlName="paswordVal">
+                        </div>
+                        <div class="inputBox">
+                            <h4>Pais</h4>
+                            <select name="paises" id="paises" formControlName="paises">
+                                <option value="">Guatemala</option>
+                            </select>
+                        </div>
+                        <div class="inputBox">
+                            <h4>Estado</h4>
+                            <select name="estados" id="estados" formControlName="estados">
+                                <option value="">Quetzaltenango</option>
+                            </select>
+                        </div>
+                        <div class="inputBox">
+                            <h4>Ciudad</h4>
+                            <select name="ciudades" id="ciudades" formControlName="ciudades">
+                                <option value="">Quetzaltenango</option>
+                            </select>
                         </div>
                     </div>
                 </div>

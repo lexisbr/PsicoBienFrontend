@@ -14,7 +14,7 @@ export class UsuarioService {
     }
 
     crearUsuario(form: UsuariosInterface): Observable<ResponseI> {
-        return this.http.post<ResponseI>(`http://localhost:5000/usuarios/create`, form);
+        return this.http.post<ResponseI>(`http://localhost:3000/usuarios/registrar`, form);
     }
     loginUsuario(form: LoginInterface): Observable<ResponseI>{
         return this.http.post<ResponseI>(``, form);
