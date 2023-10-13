@@ -1,25 +1,5 @@
 <div class="container-fluid">
-    <header class="header">
-        <div class="containerH">
-            <a href="/home" class="logoBox">
-                <img src="assets/img-home/psicobien.png" alt="logo" class="logo">
-                <h2 class="textLogo">Psico<span>bien</span></h2>
-            </a>
-            <nav class="menuBox">
-                <a href="" class="nav_link">Inicio</a>
-                <a href="" class="nav_link">Psicólogos</a>
-                <a href="#" class="nav_link"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <div class="comboBtn">
-                    <button class="button">Ingresar <i class="fa-solid fa-caret-down"></i></button>
-                    <div class="loginBox">
-                        <button><a href="/login">Iniciar sesion</a></button>
-                        <button><a href="/create-account">Crear cuenta</a></button>
-                    </div>
-                </div>
-            </nav>
-
-        </div>
-    </header>
+    <app-header></app-header>
     <main class="main">
         <h2>Seleccione que tipo de cuenta desea crear</h2>
         <div class="conteinerServiceBox">
@@ -39,22 +19,13 @@
                     <i class="fa-solid fa-user-doctor"></i>
                 </div>
                 <div class="content">
-                    <h2>Psicologo</h2>
+                    <h2>Psicólogo</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt enim explicabo mollitia autem
                         reprehenderit vitae commodi, aspernatur recusandae voluptatum corrupti, in a numquam, ullam
                         perspiciatis obcaecati. Harum ipsam praesentium asperiores.</p>
                 </div>
             </div>
         </div>
-
-
     </main>
-    <footer class="footer">
-        <ul class="sci">
-            <li> <a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-        </ul>
-        <h4 class="copyright">Copyright ©2023 <a href="#">Psicóbien</a>. All rights reserved.</h4>
-    </footer>
+    <app-footer></app-footer>
 </div>
