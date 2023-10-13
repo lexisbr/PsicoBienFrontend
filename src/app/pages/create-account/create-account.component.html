@@ -1,25 +1,5 @@
 <div class="container-fluid">
-    <header class="header">
-        <div class="containerH">
-            <a href="/home" class="logoBox">
-                <img src="assets/img-home/psicobien.png" alt="logo" class="logo">
-                <h2 class="textLogo">Psico<span>bien</span></h2>
-            </a>
-            <nav class="menuBox">
-                <a href="" class="nav_link">Inicio</a>
-                <a href="" class="nav_link">Psicólogos</a>
-                <a href="#" class="nav_link"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <div class="comboBtn">
-                    <button class="button">Ingresar <i class="fa-solid fa-caret-down"></i></button>
-                    <div class="loginBox">
-                        <button><a href="/login">Iniciar sesion</a></button>
-                        <button><a href="/create-account">Crear cuenta</a></button>
-                    </div>
-                </div>
-            </nav>
-
-        </div>
-    </header>
+    <app-header></app-header>
     <div class="create-account">
         <div class="color"></div>
         <div class="color"></div>
@@ -50,30 +30,30 @@
                 <div class="groupInput">
                     <div class="group">
                         <div class="inputBox">
-                            <h4>DNI</h4>
-                            <input type="text" id="names" placeholder="DNI..." formControlName="dni">
-                        </div>
-                        <div class="inputBox">
                             <h4>Ingrese nombre</h4>
-                            <input type="text" id="names" placeholder="Nombres..." formControlName="nombre">
+                            <input type="text" id="names" placeholder="Nombres..." formControlName="nombre" class="input">
                         </div>
                         <div class="inputBox">
                             <h4>Ingrese apellidos</h4>
-                            <input type="text" id="lastnames" placeholder="Apellidos..." formControlName="apellido">
+                            <input type="text" id="lastnames" placeholder="Apellidos..." formControlName="apellido" class="input">
+                        </div>
+                        <div class="inputBox">
+                            <h4>DNI</h4>
+                            <input type="text" id="names" placeholder="DNI..." formControlName="dni" class="input">
                         </div>
                         <div class="inputBox">
                             <h4>Correo electrónico</h4>
-                            <input type="text" id="email" placeholder="Correo electrónico..." formControlName="email">
+                            <input type="text" id="email" placeholder="Correo electrónico..." formControlName="email" class="input">
                         </div>
                         <div class="inputBox">
                             <h4>Fecha Nacimiento</h4>
-                            <input type="date" id="email" formControlName="fechaNacimiento">
+                            <input type="date" id="email" formControlName="fechaNacimiento" class="input">
                         </div>
                     </div>
                     <div class="group">
                         <div class="inputBox">
                             <h4>Genero</h4>
-                            <select name="genero" id="genero" formControlName="genero">
+                            <select name="genero" id="genero" formControlName="genero" class="input">
                                 <option value="M">Masculino</option>
                                 <option value="F">Femenino</option>
                                 <option value="O">Otro</option>
@@ -81,32 +61,32 @@
                         </div>
                         <div class="inputBox">
                             <h4>Número celular</h4>
-                            <input type="text" id="email" placeholder="Telefono..." formControlName="telefono">
+                            <input type="text" id="email" placeholder="Telefono..." formControlName="telefono" class="input">
                         </div>
                         <div class="inputBox">
                             <h4>Contraseña</h4>
-                            <input type="password" id="password" placeholder="Password..." formControlName="password">
+                            <input type="password" id="password" placeholder="Password..." formControlName="password" class="input">
                         </div>
                         <div class="inputBox">
                             <h4>Confirmación contraseña</h4>
                             <input type="password" id="password" placeholder="Confirm password..."
-                                formControlName="paswordVal">
+                                formControlName="paswordVal" class="input">
                         </div>
                         <div class="inputBox">
                             <h4>Pais</h4>
-                            <select name="paises" id="paises" formControlName="idPais" (change)="obtenerEstados()">
+                            <select name="paises" id="paises" formControlName="idPais" (change)="obtenerEstados()" class="input">
                                 <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombre}}</option>
                             </select>
                         </div>
                         <div class="inputBox">
                             <h4>Estado</h4>
-                            <select name="estados" id="estados" formControlName="idEstado" (change)="obtenerCiudades()">
+                            <select name="estados" id="estados" formControlName="idEstado" (change)="obtenerCiudades()" class="input">
                                 <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}</option>
                             </select>
                         </div>
                         <div class="inputBox">
                             <h4>Ciudad</h4>
-                            <select name="ciudades" id="ciudades" formControlName="idCiudad">
+                            <select name="ciudades" id="ciudades" formControlName="idCiudad" class="input">
                                 <option *ngFor="let ciudad of ciudades" [value]="ciudad.idCiudad">{{ciudad.nombre}}</option>
                             </select>
                         </div>
@@ -119,4 +99,5 @@
             </form>
         </div>
     </div>
+    <app-footer></app-footer>
 </div>
