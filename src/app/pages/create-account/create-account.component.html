@@ -44,77 +44,88 @@
 
     </div>
     <div class="containerA">
+
         <div class="formulario">
             <form [formGroup]="createAccountForm" (ngSubmit)="onCreate(createAccountForm.value)">
-                <h2>Register</h2>
-                <div class="groupInput">
-                    <div class="group">
-                        <div class="inputBox">
-                            <h4>DNI</h4>
-                            <input type="text" id="names" placeholder="DNI..." formControlName="dni">
+                <div *ngIf="tab == 1">
+                    <h2>Register</h2>
+                    <div class="groupInput">
+                        <div class="group">
+                            <div class="inputBox">
+                                <h4>DNI</h4>
+                                <input type="text" id="names" placeholder="DNI..." formControlName="dni">
+                            </div>
+                            <div class="inputBox">
+                                <h4>Ingrese nombre</h4>
+                                <input type="text" id="names" placeholder="Nombres..." formControlName="nombre">
+                            </div>
+                            <div class="inputBox">
+                                <h4>Ingrese apellidos</h4>
+                                <input type="text" id="lastnames" placeholder="Apellidos..." formControlName="apellido">
+                            </div>
+                            <div class="inputBox">
+                                <h4>Correo electrónico</h4>
+                                <input type="text" id="email" placeholder="Correo electrónico..."
+                                    formControlName="email">
+                            </div>
+                            <div class="inputBox">
+                                <h4>Fecha Nacimiento</h4>
+                                <input type="date" id="email" formControlName="fechaNacimiento">
+                            </div>
                         </div>
-                        <div class="inputBox">
-                            <h4>Ingrese nombre</h4>
-                            <input type="text" id="names" placeholder="Nombres..." formControlName="nombre">
-                        </div>
-                        <div class="inputBox">
-                            <h4>Ingrese apellidos</h4>
-                            <input type="text" id="lastnames" placeholder="Apellidos..." formControlName="apellido">
-                        </div>
-                        <div class="inputBox">
-                            <h4>Correo electrónico</h4>
-                            <input type="text" id="email" placeholder="Correo electrónico..." formControlName="email">
-                        </div>
-                        <div class="inputBox">
-                            <h4>Fecha Nacimiento</h4>
-                            <input type="date" id="email" formControlName="fechaNacimiento">
+                        <div class="group">
+                            <div class="inputBox">
+                                <h4>Genero</h4>
+                                <select name="genero" id="genero" formControlName="genero">
+                                    <option value="M">Masculino</option>
+                                    <option value="F">Femenino</option>
+                                    <option value="O">Otro</option>
+                                </select>
+                            </div>
+                            <div class="inputBox">
+                                <h4>Número celular</h4>
+                                <input type="text" id="email" placeholder="Telefono..." formControlName="telefono">
+                            </div>
+                            <div class="inputBox">
+                                <h4>Contraseña</h4>
+                                <input type="password" id="password" placeholder="Password..."
+                                    formControlName="password">
+                            </div>
+                            <div class="inputBox">
+                                <h4>Confirmación contraseña</h4>
+                                <input type="password" id="password" placeholder="Confirm password..."
+                                    formControlName="paswordVal">
+                            </div>
+                            <div class="inputBox">
+                                <h4>Pais</h4>
+                                <select name="paises" id="paises" formControlName="idPais" (change)="obtenerEstados()">
+                                    <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombre}}</option>
+                                </select>
+                            </div>
+                            <div class="inputBox">
+                                <h4>Estado</h4>
+                                <select name="estados" id="estados" formControlName="idEstado"
+                                    (change)="obtenerCiudades()">
+                                    <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="inputBox">
+                                <h4>Ciudad</h4>
+                                <select name="ciudades" id="ciudades" formControlName="idCiudad">
+                                    <option *ngFor="let ciudad of ciudades" [value]="ciudad.idCiudad">{{ciudad.nombre}}
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                    <div class="group">
-                        <div class="inputBox">
-                            <h4>Genero</h4>
-                            <select name="genero" id="genero" formControlName="genero">
-                                <option value="M">Masculino</option>
-                                <option value="F">Femenino</option>
-                                <option value="O">Otro</option>
-                            </select>
-                        </div>
-                        <div class="inputBox">
-                            <h4>Número celular</h4>
-                            <input type="text" id="email" placeholder="Telefono..." formControlName="telefono">
-                        </div>
-                        <div class="inputBox">
-                            <h4>Contraseña</h4>
-                            <input type="password" id="password" placeholder="Password..." formControlName="password">
-                        </div>
-                        <div class="inputBox">
-                            <h4>Confirmación contraseña</h4>
-                            <input type="password" id="password" placeholder="Confirm password..."
-                                formControlName="paswordVal">
-                        </div>
-                        <div class="inputBox">
-                            <h4>Pais</h4>
-                            <select name="paises" id="paises" formControlName="idPais" (change)="obtenerEstados()">
-                                <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombre}}</option>
-                            </select>
-                        </div>
-                        <div class="inputBox">
-                            <h4>Estado</h4>
-                            <select name="estados" id="estados" formControlName="idEstado" (change)="obtenerCiudades()">
-                                <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}</option>
-                            </select>
-                        </div>
-                        <div class="inputBox">
-                            <h4>Ciudad</h4>
-                            <select name="ciudades" id="ciudades" formControlName="idCiudad">
-                                <option *ngFor="let ciudad of ciudades" [value]="ciudad.idCiudad">{{ciudad.nombre}}</option>
-                            </select>
-                        </div>
+
+                    <div class="output">
+                        <button (click)="nextTab()">Continuar</button>
                     </div>
                 </div>
-
-                <div class="output">
-                    <input type="submit" value="Continuar">
+                <div *ngIf="tab == 2">
+                    <h1>Elija el tipo de usuario</h1>
                 </div>
             </form>
         </div>

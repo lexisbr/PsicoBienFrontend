@@ -18,6 +18,8 @@ export class CreateAccountComponent implements OnInit {
   estados: Estado[] = [];
   ciudades: Ciudad[] = [];
 
+  tab: number = 1;
+
   createAccountForm = new FormGroup({
     dni: new FormControl('', Validators.required),
     nombre: new FormControl('', Validators.required),
@@ -67,6 +69,10 @@ export class CreateAccountComponent implements OnInit {
         console.log(data);
       });
     }
+  }
+
+  nextTab(){
+    this.tab = this.tab + 1;
   }
 
   onCreate(form: UsuariosInterface | any) {
