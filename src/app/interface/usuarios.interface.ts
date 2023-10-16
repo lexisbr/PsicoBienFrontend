@@ -8,6 +8,7 @@ export interface UsuariosInterface{
     telefono: string;
     password: string;
     paswordVal?: string;
-    tipoUsuario: string;
-    idCiudad: string;
+    idTipoUsuario: number;
+    idCiudad: number;
+
 }

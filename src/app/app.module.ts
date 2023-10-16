@@ -19,6 +19,7 @@ import { DatingPatientComponent } from './pages/dating-patient/dating-patient.co
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,6 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     FooterComponent,
     CardsComponent,
     DatingPatientComponent
-
   ],
   imports: [
     BrowserModule,
