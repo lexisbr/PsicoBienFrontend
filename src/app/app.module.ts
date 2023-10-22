@@ -18,6 +18,8 @@ import { CardsComponent } from './pages/complements/cards/cards.component';
 import { DatingPatientComponent } from './pages/dating-patient/dating-patient.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { TopFiveComponent } from './pages/complements/top-five/top-five.component';
+import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     HeaderComponent,
     FooterComponent,
     CardsComponent,
-    DatingPatientComponent
+    DatingPatientComponent,
+    TopFiveComponent,
+    PsicologosComponent
   ],
   imports: [
     BrowserModule,

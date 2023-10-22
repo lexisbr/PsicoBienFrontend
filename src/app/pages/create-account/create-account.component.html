@@ -19,9 +19,7 @@
             <div class="cuadrado" style="--i:1"></div>
             <div class="cuadrado" style="--i:1"></div>
             <div class="cuadrado" style="--i:1"></div>
-
         </div>
-
     </div>
     <div class="containerA">
 
@@ -82,20 +80,19 @@
                             </div>
                             <div class="inputBox">
                                 <h4>Pais</h4>
-                                <select  class="input" name="paises" id="paises" formControlName="idPais" (change)="obtenerPaises()">
+                                <select  class="input" name="paises" id="paises" formControlName="idPais" (change)="obtenerEstados()">
                                     <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombre}}</option>
                                 </select>
                             </div>
                             <div class="inputBox">
                                 <h4>Estado</h4>
-                                <select class="input" name="estados" id="estados" formControlName="idEstado" (change)="obtenerEstados()">
-                                    <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}
-                                    </option>
+                                <select class="input" name="estados" id="estados" formControlName="idEstado" (change)="obtenerCiudades()">
+                                    <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}</option>
                                 </select>
                             </div>
                             <div class="inputBox">
                                 <h4>Ciudad</h4>
-                                <select class="input" name="ciudades" id="ciudades" formControlName="idCiudad" (change)="obtenerCiudades()">
+                                <select class="input" name="ciudades" id="ciudades" formControlName="idCiudad">
                                     <option *ngFor="let ciudad of ciudades" [value]="ciudad.idCiudad">{{ciudad.nombre}}
                                     </option>
                                 </select>

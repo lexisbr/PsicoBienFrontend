@@ -15,7 +15,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        .infoPatient{
+            background: #222;
+            min-height: 200px;
+            width: 90%;
+        }
         .contentDescription {
             width: 100%;
             .descriptionB{
@@ -30,6 +34,10 @@
                     padding: 50px;
                 }
             }
+        }
+        .contentMeasurement{
+            display: flex;
+            flex: 0 300px 300px;
         }
     }
 }
