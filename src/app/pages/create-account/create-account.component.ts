@@ -72,11 +72,20 @@ export class CreateAccountComponent implements OnInit {
   }
 
   nextTab() {
-    if(this.checkForNullUndefinedValues(this.createAccountForm)) {
+    const password = this.createAccountForm.value.password;
+    const passwordVal = this.createAccountForm.value.paswordVal;
+    if (this.checkForNullUndefinedValues(this.createAccountForm)) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Por favor, llena todos los campos',
+      });
+      return;
+    } else if (password !== passwordVal) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Las contraseñas no coinciden',
       });
       return;
     }
@@ -88,7 +97,6 @@ export class CreateAccountComponent implements OnInit {
   }
 
   onCreate(tipoUsuario: TipoUsuario) {
-    console.log(this.createAccountForm.value);
     const formData = this.createAccountForm.value;
     const userData: UsuariosInterface = {
       dni: formData.dni,
@@ -119,7 +127,7 @@ export class CreateAccountComponent implements OnInit {
 
     Object.keys(formGroup.controls).forEach((key) => {
       const control = formGroup.get(key).value;
-      if (control == "" ||control === null || control === undefined) {
+      if (control == '' || control === null || control === undefined) {
         hasNullUndefinedValues = true;
       }
     });
