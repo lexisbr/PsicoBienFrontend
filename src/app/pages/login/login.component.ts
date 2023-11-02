@@ -8,18 +8,26 @@ import { LoginInterface } from 'src/app/interface/login.interface';
   styleUrls: ['./css/login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm =  new FormGroup({
-    correo : new FormControl('',Validators.required),
-    password : new FormControl('',Validators.required)
+  loginForm = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   })
-  constructor ( private usuarios:UsuarioService){}
+  constructor(private usuarios: UsuarioService) { }
   ngOnInit(): void {
-    
+
   }
-  onLogin(form: LoginInterface | any){
-    // this.usuarios.loginUsuario(form).subscribe(data =>{
-      console.log(form)
-    // })
+  onLogin(form: LoginInterface | any) {
+    console.log(form)
+    this.usuarios.loginUsuario(form).subscribe(
+      data => {
+        console.log("Formulario", form)
+      },
+      error => {
+        console.log(error)
+        if (error.status == 404) {
+          console.log("El usuario no fue encontrado")
+        }
+      })
   }
 
 }

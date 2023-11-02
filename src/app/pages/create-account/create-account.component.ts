@@ -52,6 +52,7 @@ export class CreateAccountComponent implements OnInit {
   }
 
   obtenerEstados() {
+
     const idPais = this.createAccountForm.value.idPais;
     if (idPais !== null && idPais !== undefined) {
       this.ubicacionesService.obtenerEstados(idPais).subscribe((data) => {

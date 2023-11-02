@@ -11,17 +11,17 @@ export class UbicacionesService {
 
     url: string = 'http://localhost:3000/ubicaciones';
 
-    constructor(private httpClient: HttpClient){}
+    constructor(private http: HttpClient){}
 
     obtenerPaises(){
-        return this.httpClient.get<Pais[]>(`${this.url}/paises`);
+        return this.http.get<Pais[]>(`${this.url}/paises`);
     }
 
     obtenerEstados(idPais: string){
-        return this.httpClient.get<Estado[]>(`${this.url}/estados/${idPais}`);
+        return this.http.get<Estado[]>(`${this.url}/estados/${idPais}`);
     }
 
     obtenerCiudades(idEstado: string){
-        return this.httpClient.get<Ciudad[]>(`${this.url}/ciudades/${idEstado}`);
+        return this.http.get<Ciudad[]>(`${this.url}/ciudades/${idEstado}`);
     }
 }

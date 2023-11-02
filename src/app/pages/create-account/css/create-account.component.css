@@ -174,10 +174,11 @@
   justify-content: center;
 }
 .container-fluid .containerA .formulario form {
-  width: 60%;
-  background: rgba(255, 255, 255, 0.5);
+  width: 50%;
+  background: rgba(255, 255, 255, 0.4);
   border-radius: 15px;
   padding: 50px;
+  margin: 30px;
   box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5), 5px 5px 5px rgba(0, 0, 0, 0.05), -5px -5px 5px rgba(255, 255, 255, 0.5);
 }
 .container-fluid .containerA .formulario form h2 {
@@ -230,42 +231,6 @@
 .container-fluid .containerA .formulario form .groupInput .group .inputBox h4 {
   padding: 0px 10px;
   color: #111;
-}
-.container-fluid .containerA .formulario form .inputBox {
-  width: 100%;
-  margin-top: 20px;
-}
-.container-fluid .containerA .formulario form .inputBox input {
-  width: 80%;
-  background: transparent;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 1px;
-  border-top: 1px solid rgba(225, 255, 255, 0.2);
-  border-left: 1px solid rgba(225, 255, 255, 0.2);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  outline: none;
-  font-size: 16px;
-  color: #111;
-  font-weight: 600;
-}
-.container-fluid .containerA .formulario form .inputBox input::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.2);
-}
-.container-fluid .containerA .formulario form .inputBox input::placeholder {
-  color: rgba(255, 255, 255, 0.2);
-}
-.container-fluid .containerA .formulario form .inputBox h4 {
-  width: 80%;
-  background: transparent;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 1px;
-  outline: none;
-  font-size: 16px;
-  letter-spacing: 5px;
-  color: #111;
-  font-weight: 400;
 }
 .container-fluid .containerA .formulario form .output {
   width: 100%;

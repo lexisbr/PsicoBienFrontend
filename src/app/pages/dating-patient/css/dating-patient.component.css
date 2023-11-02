@@ -16,6 +16,11 @@
   justify-content: center;
   align-items: center;
 }
+.container-fluid .main .infoPatient {
+  background: #222;
+  min-height: 200px;
+  width: 90%;
+}
 .container-fluid .main .contentDescription {
   width: 100%;
 }
@@ -30,4 +35,8 @@
   width: 90%;
   height: 350px;
   padding: 50px;
+}
+.container-fluid .main .contentMeasurement {
+  display: flex;
+  flex: 0 300px 300px;
 }/*# sourceMappingURL=dating-patient.component.css.map */

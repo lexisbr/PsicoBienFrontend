@@ -10,6 +10,8 @@ import { SelectTypeUserComponent } from './pages/select-type-user/select-type-us
 import { HeaderComponent } from './pages/complements/header/header.component';
 import { CardsComponent } from './pages/complements/cards/cards.component';
 import { DatingPatientComponent } from './pages/dating-patient/dating-patient.component';
+import { TopFiveComponent } from './pages/complements/top-five/top-five.component';
+import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,14 @@ const routes: Routes = [
   {
     path: 'dating',
     component: DatingPatientComponent
+  },
+  {
+    path: 'top5',
+    component: TopFiveComponent
+  },
+  {
+    path: 'psicologos',
+    component: PsicologosComponent
   }
 
 ];

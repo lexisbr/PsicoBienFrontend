@@ -19,9 +19,7 @@
             <div class="cuadrado" style="--i:1"></div>
             <div class="cuadrado" style="--i:1"></div>
             <div class="cuadrado" style="--i:1"></div>
-
         </div>
-
     </div>
     <div class="containerA">
 
@@ -79,6 +77,18 @@
                                 <input class="input" type="password" id="password" placeholder="Confirm password..."
                                     formControlName="paswordVal">
                             </div>
+                        </div>
+                        <div class="group">
+                            <div class="inputBox">
+                                <h4>Número celular</h4>
+                                <input class="input" type="text" id="email" placeholder="Telefono..."
+                                    formControlName="telefono">
+                            </div>
+                            <div class="inputBox">
+                                <h4>Fecha Nacimiento</h4>
+                                <input class="input" type="date" id="email" formControlName="fechaNacimiento">
+                            </div>
+
                             <div class="inputBox">
                                 <h4>Pais</h4>
                                 <select class="input" name="paises" id="paises" formControlName="idPais"
@@ -88,10 +98,8 @@
                             </div>
                             <div class="inputBox">
                                 <h4>Estado</h4>
-                                <select class="input" name="estados" id="estados" formControlName="idEstado"
-                                    (change)="obtenerCiudades()">
-                                    <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}
-                                    </option>
+                                <select class="input" name="estados" id="estados" formControlName="idEstado" (change)="obtenerCiudades()">
+                                    <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}</option>
                                 </select>
                             </div>
                             <div class="inputBox">
