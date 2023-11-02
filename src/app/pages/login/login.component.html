@@ -27,9 +27,9 @@
         <div class="conteinerL">
             <div class="formulario">
                 <h2>Login</h2>
-                <form [formGroup]="loginForm"(ngSubmit)="onLogin(loginForm.value)">
+                <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
                     <div class="inputBox">
-                        <input type="text" id="username" placeholder="Username..." formControlName="correo">
+                        <input type="text" id="username" placeholder="Username..." formControlName="email">
                     </div>
                     <div class="inputBox">
                         <input type="password" id="password" placeholder="Password..." formControlName="password">

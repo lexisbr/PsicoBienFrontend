@@ -14,5 +14,6 @@ export class SelectTypeUserComponent {
 
   enviarTipoUsuario(idTipoUsuario: TipoUsuario){
     this.onSelectTipoUsuario.emit(idTipoUsuario);
+    console.log(this.onSelectTipoUsuario.emit(idTipoUsuario))
   } 
 }
