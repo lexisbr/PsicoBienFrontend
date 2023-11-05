@@ -16,9 +16,11 @@
   background: rgb(228, 228, 231);
 }
 .container-fluid .main .top-psicologos {
+  top: 200px;
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  height: auto;
 }
 .container-fluid .main .boxContainer {
   display: flex;
@@ -67,4 +69,8 @@
 .container-fluid .main .boxContainer .container-table {
   display: flex;
   width: 90%;
+}
+.container-fluid .main .boxContainer .container-table table tbody tr td {
+  text-align: center;
+  vertical-align: middle;
 }/*# sourceMappingURL=psicologos.component.css.map */

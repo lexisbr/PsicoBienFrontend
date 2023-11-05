@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Profesional } from 'src/app/interface/profecional';
+import { UsuariosInterface } from 'src/app/interface/usuarios.interface';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +10,30 @@ import { Profesional } from 'src/app/interface/profecional';
 })
 export class HomeComponent {
 
+  userLoginOn: boolean=false;
+  userData?: UsuariosInterface[];
+  constructor(private usuariosServices:UsuarioService) { }
+
+  ngOnInit() {
+    this.fillCard();
+  }
+
+  fillCard(){
+    console.log("Llamar a la peticion llegar")
+    this.usuariosServices.obtenerUsuarios().subscribe({
+      next:(usersData)=>{
+        console.log(usersData);
+        this.userData= usersData;
+      },
+      error:(err)=>{
+        console.error(err);
+        
+      },
+      complete:()=>{
+        console.info("Request Complet")
+      }
+    })
+  }
   profesional:Profesional = {
     nombres: 'Daemon',
     apellidos: 'Targaryen',

@@ -42,16 +42,57 @@
                 <h2>Psicólogos que te pueden interesar</h2>
                 <h3>Profesionales capacitados para ayudarte con tu bienesar mental.</h3>
             </div>
-            <div class="cards">
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-                <app-cards></app-cards>
-            </div>
+
+            <swiper-container 
+            pagination="false" 
+            grab-cursor="true" 
+            centered-slides="false" 
+            slides-per-view="auto" 
+            coverflow-effect-rotate="0"
+            coverflow-effect-stretch="0"
+            coverflow-effect-depth="200"
+            coverflow-effect-modifier="1"
+            coverflow-effect-slide-shadows="false"
+            >
+                <swiper-slide *ngFor="let usuario of userData">
+                    <!-- <div class="cards">
+                        <div class="cardBox" >
+                            <div class="cardHeader">
+                                <div class="img">
+                                    <img src="{{usuario.urlFotoPerfil}}" alt="foto" class="profile">
+                                    <img src="{{profesional.bandera}}" alt="foto" class="logo">
+                                </div>          
+                                <div class="data">
+                                    <p class="pC1">Psicólogo online</p>
+                                    <h3>{{usuario.nombre}} {{usuario.apellido}}</h3>
+                                    <p class="pC2">Cédula <span>{{usuario.dni}}</span></p>
+                                    <a href="#">Ver opciones (42)</a>
+                                </div>
+                            </div>
+                            <div class="cardContent">
+                                <ul>
+                                    <li>idioma: <span>{{profesional.idiomas}}</span></li>
+                                    <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+                                    <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
+                                </ul>
+                            </div>
+                            <div class="cardspan">
+                                <span>Abuso sexual</span>
+                                <span>Ansiedad</span>
+                                <span>Conductas autodestructivas</span>
+                                <span>Conflicto de pareja</span>
+                                <span>Trastorno de personalidad</span>
+                            </div>
+                            <div class="cardFooter">
+                                <a href="/profile">Ver Perfil</a>
+                                <button type="button">Agregar cita</button>
+                            </div>
+                        </div>
+                    </div> -->
+                    <app-cards></app-cards>
+                </swiper-slide>
+            </swiper-container>
+
         </section>
     </main>
     <app-footer></app-footer>

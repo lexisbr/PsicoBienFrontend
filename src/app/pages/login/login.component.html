@@ -27,15 +27,34 @@
         <div class="conteinerL">
             <div class="formulario">
                 <h2>Login</h2>
-                <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)">
+                <p class="text-danger">{{loginError}}</p>
+                <!-- <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)"> -->
+                <form [formGroup]="loginForm">
                     <div class="inputBox">
-                        <input type="text" id="username" placeholder="Username..." formControlName="email">
+                        <input class="form-control" type="email" id="username" placeholder="Username..." formControlName="email">
+                        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                            <div *ngIf="email.errors?.['required']">
+                                El correo es necesario.
+                            </div>
+                            <div *ngIf="email.errors?.['email']">
+                                Se tiene que ingresar un correo valido.
+                            </div>
+                        </div>
                     </div>
                     <div class="inputBox">
-                        <input type="password" id="password" placeholder="Password..." formControlName="password">
+                        <input class="form-control" type="password" id="password" placeholder="Password..."
+                            formControlName="password">
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                                <div *ngIf="password.errors?.['required']">
+                                    El correo es necesario.
+                                </div>
+                                <div *ngIf="password.errors?.['email']">
+                                    Se tiene que ingresar un correo valido.
+                                </div>
+                            </div>
                     </div>
                     <div class="inputBox">
-                        <input type="submit" value="Login" href="/select-type-user">
+                        <input type="submit" (click)="login()" value="Login" href="/select-type-user">
                     </div>
                     <p class="olvidar">¿Olvidaste tu contraseña?
                         <a href="#">Click aquí</a>

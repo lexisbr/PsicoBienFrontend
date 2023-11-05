@@ -213,12 +213,11 @@
 .container-fluid .cf .conteinerL .formulario form .inputBox input {
   width: 100%;
   background: transparent;
-  border: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
   padding: 10px 20px;
-  border-radius: 35px;
-  border-top: 1px solid rgba(225, 255, 255, 0.5);
-  border-left: 1px solid rgba(225, 255, 255, 0.5);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
   outline: none;
   font-size: 16px;
   letter-spacing: 1px;

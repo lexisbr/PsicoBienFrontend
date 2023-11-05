@@ -15,10 +15,11 @@
         gap: 50px;
         background: rgb(228, 228, 231);
         .top-psicologos{
+            top: 200px;
             display: flex;
             width: 100%;
             justify-content: space-evenly;
-
+            height: auto;
         }
         .boxContainer{
             display: flex;
@@ -71,6 +72,17 @@
             .container-table{
                 display: flex;
                 width: 90%;
+                table{
+                    tbody{
+                        tr{
+                            td{
+                                text-align: center;
+                                vertical-align: middle;
+                         
+                            }
+                        }
+                    }
+                }
             }
         }
     }

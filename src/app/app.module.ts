@@ -1,8 +1,9 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA,NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { CalendarComponent } from './pages/complements/calendar/calendar.component';
@@ -21,6 +22,11 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { TopFiveComponent } from './pages/complements/top-five/top-five.component';
 import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 
+
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
 
 @NgModule({
   declarations: [
@@ -49,6 +55,7 @@ import { PsicologosComponent } from './pages/psicologos/psicologos.component';
     SweetAlert2Module.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
