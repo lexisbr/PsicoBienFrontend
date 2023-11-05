@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Profesional } from 'src/app/interface/profecional';
+import { UsuariosInterface } from 'src/app/interface/usuarios.interface';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./css/cards.component.css']
 })
 export class CardsComponent {
+
+  @Input() userData: UsuariosInterface;
+
   profesional:Profesional = {
     nombres: 'Daemon',
     apellidos: 'Targaryen',

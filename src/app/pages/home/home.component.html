@@ -55,6 +55,7 @@
             coverflow-effect-slide-shadows="false"
             >
                 <swiper-slide *ngFor="let usuario of userData">
+                    <app-cards [userData]="usuario"></app-cards>
                     <!-- <div class="cards">
                         <div class="cardBox" >
                             <div class="cardHeader">
@@ -89,8 +90,8 @@
                             </div>
                         </div>
                     </div> -->
-                    <app-cards></app-cards>
                 </swiper-slide>
+                
             </swiper-container>
 
         </section>

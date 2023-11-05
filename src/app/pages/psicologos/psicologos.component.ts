@@ -8,6 +8,8 @@ import { UsuariosInterface } from 'src/app/interface/usuarios.interface';
   styleUrls: ['./css/psicologos.component.css']
 })
 export class PsicologosComponent {
+  title: string = 'Psicologos';
+
   userData?: UsuariosInterface[];
   constructor(private usuarioServices: UsuarioService){}
   ngOnInit(){
