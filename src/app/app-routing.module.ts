@@ -12,6 +12,7 @@ import { CardsComponent } from './pages/complements/cards/cards.component';
 import { DatingPatientComponent } from './pages/dating-patient/dating-patient.component';
 import { TopFiveComponent } from './pages/complements/top-five/top-five.component';
 import { PsicologosComponent } from './pages/psicologos/psicologos.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   {
@@ -21,11 +22,12 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [LoginGuard]
   },
   {
     path: 'login',
@@ -37,7 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'calendar',
-    component: CalendarComponent
+    component: CalendarComponent,
   },
   {
     path: 'pruebas',

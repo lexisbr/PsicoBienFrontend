@@ -23,20 +23,21 @@ export class UsuarioService {
             .pipe(
                 map((res: UserResponse) => {
                     console.log('Res =>', res)
-                    this.saveToken(res.token);
+
                 }),
                 catchError((err) => this.handlerError(err))
             );
     }
     logout(): void { }
     private readToken(): void { }
+
     private saveToken(token: string): void {
         localStorage.setItem('token', token)
     }
 
 
     obtenerUsuario(DNI) {
-        return this.http.get<UsuariosInterface[]>(`${this.url}/users/${DNI}`);
+        return this.http.get<UsuariosInterface>(`${this.url}/users/${DNI}`);
     }
     obtenerUsuarios() {
         return this.http.get<UsuariosInterface[]>(`${this.url}/users`).pipe(

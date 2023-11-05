@@ -39,6 +39,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.loginService.currentUserData.subscribe(
       {
         next:(userData)=>{
+          console.log("Profile",userData)
           this.userData= userData;
         }
       }
