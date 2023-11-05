@@ -1,0 +1,19 @@
+{
+    "dni": "10000001",
+    "nombre": "Emma",
+    "apellido": "Watson",
+    "fechaNacimiento": "1990-04-15",
+    "genero": "M",
+    "telefono": "96325412",
+    "email": "emmawatson@gmail.com",
+    "password": "234",
+    "urlFotoPerfil": "https://i.pinimg.com/564x/ed/48/94/ed4894ab1337ca03abd57d31749ac342.jpg",
+    "urlFotoPortada": "https://wallpaperaccess.com/full/4395206.png",
+    "direccion": null,
+    "estado": true,
+    "fechaCreacion": "2023-10-21T04:10:10.000Z",
+    "fechaActualizacion": null,
+    "idCiudad": "1",
+    "colegiadoProfesional": "89865212",
+    "idTipoUsuario": "2"
+}

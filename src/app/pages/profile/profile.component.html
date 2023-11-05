@@ -5,7 +5,7 @@
             <div class="profileBox">
 
                 <div class="info">
-                    <img src="{{portada.fondoPortada}}" alt="">
+                    <img src="{{userData?.urlFotoPortada}}" alt="">
                     <div class="foto">
                         <div class="actionBtn">
                             <div class="btnSubir">
@@ -16,14 +16,14 @@
                             </div>
                             <!-- <button (click)="sendFile()">Enviar</button> -->
                         </div>
-                        <img src="assets/img-profile/foto.png" alt="foto">
+                        <img src="{{userData?.urlFotoPerfil}}" alt="foto">
                     </div>
                 </div>
                 <div class="buttons">
                     <div class="textInfo">
-                        <h2>Balvino Alberto Ulin Menchú</h2>
+                        <h2>{{userData?.nombre}} {{userData?.apellido}} </h2>
                         <h3>Psicólogo, <span>Guatemala</span></h3>
-                        <h4>Colegiado No.13912</h4>
+                        <h4>Colegiado No.{{userData?.colegiadoProfesional}}</h4>
                     </div>
                     <div class="BoxButtons">
 

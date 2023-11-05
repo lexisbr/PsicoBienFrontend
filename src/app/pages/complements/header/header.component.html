@@ -5,15 +5,18 @@
             <h2 class="textLogo">Psico<span>bien</span></h2>
         </a>
         <nav class="menuBox">
-            <a href="" class="nav_link">Inicio</a>
+            <a href="/home" class="nav_link">Inicio</a>
             <a href="/psicologos" class="nav_link">Psicólogos</a>
             <a href="#" class="nav_link"><i class="fa-solid fa-magnifying-glass"></i></a>
-            <div class="comboBtn">
+            <div *ngIf="!userLoginOn" class="comboBtn">
                 <button class="button">Ingresar <i class="fa-solid fa-caret-down"></i></button>
                 <div class="loginBox">
                     <button><a href="/login">Iniciar sesion</a></button>
                     <button><a href="/create-account">Crear cuenta</a></button>
                 </div>
+            </div>
+            <div *ngIf="userLoginOn" class="comboBtn">
+                <button class="button">Salir</button>
             </div>
         </nav>
     </div>

@@ -6,5 +6,6 @@ export interface Profesional{
     idiomas:string
     nacionalidad:string,
     foto:string,
-    bandera: string
+    bandera: string,
+    
 }
