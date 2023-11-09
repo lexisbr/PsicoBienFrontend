@@ -2,10 +2,11 @@
     <app-header></app-header>
     <div class="main">
         <div class="prueba" *ngIf="!updateDataComponent">
-            <app-update-data (actualizarPerfil)="actualizarPerfilEnPadre($event)" [updateDataComponent]="updateDataComponent"></app-update-data>
+            <app-update-data (actualizarPerfil)="actualizarPerfilEnPadre($event)"
+                [updateDataComponent]="updateDataComponent"></app-update-data>
         </div>
         <section class="content">
-            
+
             <div class="profileBox">
                 <div class="configura">
                     <i class="fa-solid fa-gear" (click)="updateDataComponent = !updateDataComponent"></i>
@@ -21,6 +22,7 @@
                         <h2>{{userData?.nombre}} {{userData?.apellido}} </h2>
                         <h3>Psicólogo, <span>Guatemala</span></h3>
                         <h4>Colegiado No.{{userData?.colegiadoProfesional}}</h4>
+
                     </div>
                     <div class="BoxButtons">
 
@@ -29,10 +31,13 @@
                             Informacion</button>
                         <button>
                             <i class="fa-solid fa-envelope"></i>
-                            Contactar</button>
+                            <a
+                                href="mailto:{{userData.email}}?subject=Asunto del correo&body=Cuerpo del correo">Contactar</a>
+                        </button>
                         <button>
                             <i class="fa-brands fa-whatsapp"></i>
                             Contactar</button>
+
                     </div>
 
                 </div>
@@ -44,24 +49,64 @@
                             <h2>
                                 Biografía
                             </h2>
-                            <div class="aboutContent">
+                            <div class="aboutContent" *ngFor="let p of datosProfesional">
                                 <p>
-                                    {{datosProfesional.descripcion}}
+                                    {{p.descripcion}}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="aboutContainer">
+                            <h2>
+                                Terminos y condiciones
+                            </h2>
+                            <div class="aboutContent" *ngFor="let p of clinicasProfesiona">
+                                <p>
+                                    {{p.terminosDeAtencion}}
                                 </p>
                             </div>
                         </div>
 
-
                     </div>
                     <div class="informacionBox">
                         <h2>Más información</h2>
-                        <div class="datosUbicacion">
-                            <h3>Ubicaicón</h3>
-                            <h4>
-                                <i class="fa-solid fa-location-dot"></i>
-                                segunda calle 1-62 zona 1 San Mateo,
-                                Quetzaltnenagp.
-                            </h4>
+                        <div class="lenguage">
+                            <h2>Información</h2>
+                            <div class="option" *ngFor="let p of datosProfesional">
+                                <i class="fa-solid fa-check"></i>
+                                <p>Teléfono: {{userData.telefono}}</p>
+                            </div>
+                            <div class="option" *ngFor="let p of datosProfesional">
+                                <i class="fa-solid fa-check"></i>
+                                <p>Precio/hora: {{p.precioPorHora}}</p>
+                            </div>
+                        </div>
+                        <div class="lenguage">
+                            <h2>Idiomas</h2>
+                            <div class="option" *ngFor="let idioma of UserDataIdiomas">
+                                <i class="fa-solid fa-check"></i>
+                                <p>{{idioma.nombre}}</p>
+                            </div>
+                        </div>
+                        <div class="lenguage">
+                            <h2>Especialidades</h2>
+                            <div class="option" *ngFor="let especialidad of especialidades">
+                                <i class="fa-solid fa-check"></i>
+                                <p>{{especialidad.especialidad}}</p>
+                            </div>
+                        </div>
+                        <div class="lenguage" >
+                            <h2>Clinicas</h2>
+                            <div class="boxClinicas" *ngFor="let p of clinicasProfesiona">
+                                <div class="option">
+                                    <i class="fa-solid fa-check"></i>
+                                    {{p.nombre}}
+                                </div>
+                                <h5>
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    {{p.calle}} calle {{p.numero}} zona {{p.zona}} {{p.ciudad}},
+                                    {{p.estado}}.({{p.referencias_direccion}})
+                                </h5>
+                            </div>
                         </div>
                         <div class="btnContacto">
                             <button>
@@ -73,20 +118,6 @@
                             <button>
                                 <i class="fa-brands fa-whatsapp"></i>
                             </button>
-                        </div>
-                        <div class="lenguage">
-                            <h2>Idiomas</h2>
-                            <div class="option" *ngFor="let idioma of UserDataIdiomas">
-                                <i class="fa-solid fa-check"></i>
-                                <p >{{idioma.nombre}}</p>
-                            </div>
-                        </div>
-                        <div class="lenguage">
-                            <h2>Especialidades</h2>
-                            <div class="option" *ngFor="let especialidad of especialidades">
-                                <i class="fa-solid fa-check"></i>
-                                <p>{{especialidad.especialidad}}</p>
-                            </div>
                         </div>
                     </div>
                 </div>

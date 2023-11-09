@@ -102,17 +102,41 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 bg-white">
-                    <h2 class="text-center">Biografía</h2>
+                    <h2 class="text-center">Clinicas</h2>
                     <div class="card">
                         <div class="card-header bg-white text-black d-flex justify-content-between align-items-center"
-                            *ngFor="let idiomas of userDataIdiomas">
-                            <label>{{idiomas.nombre}}</label>
+                            *ngFor="let cliniclas of clinicasProfesiona">
+                            <label>{{cliniclas.nombre}}</label>
                             <button class="btn btn-outline-danger btn-block"
-                                (click)="deleteIdioma(idiomas.idProfesionalIdiomas)"
+                                (click)="deleteClinica(cliniclas.idClinica)"
                                 id="idioma.idProfesionalIdioma">Eliminar</button>
                         </div>
                     </div>
                     <button class="btn btn-outline-success btn-block">Agregar</button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 bg-white">
+
+                    <div class="agregar">
+                        <h2 class="text-center">Agregar clinica</h2>
+                        <form [formGroup]="clinicaForm">
+                                <input class="form-control" formControlName="zona">
+                                <input class="form-control" formControlName="calle">
+                                <input class="form-control" formControlName="numero">
+                                <input class="form-control" formControlName="piso">
+                                <input class="form-control" formControlName="telefono">
+                                <input class="form-control" formControlName="nombre">
+                                <input class="form-control" formControlName="referencias_direccion">
+                                <input class="form-control" formControlName="idCiudad">
+                                <input class="form-control" formControlName="colegiadoProfesional">
+                                <input class="form-control" formControlName="terminosDeAtencion">
+                                <input class="form-control" formControlName="estado">
+                            <button (click)="agregarEspecialidad()" class="btn btn-outline-success btn-block" type="submit">Agregar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

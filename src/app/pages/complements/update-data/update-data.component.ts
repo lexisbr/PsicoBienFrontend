@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import { IdiomasService } from 'src/app/services/idiomas.service';
 import { Idiomas, IdiomasProfesional } from 'src/app/interface/profesionales_idiomas.interface';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { ProfesionalEspecialidades } from 'src/app/interface/profesionales_idiomas.interface';
+import { ProfesionalEspecialidades, ClinicasProfesional } from 'src/app/interface/profesionales_idiomas.interface';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-update-data',
@@ -30,11 +30,26 @@ export class UpdateDataComponent implements OnInit {
     colegiadoProfesional: new FormControl('', Validators.required),
 
   })
+  clinicaForm = this.formBuilder.group({
+    zona: new FormControl('', Validators.required),
+    calle: new FormControl('', Validators.required),
+    numero: new FormControl('', Validators.required),
+    piso: new FormControl('', Validators.required),
+    telefono: new FormControl('', Validators.required),
+    nombre: new FormControl('', Validators.required),
+    referencias_direccion: new FormControl('', Validators.required),
+    idCiudad: new FormControl('', Validators.required),
+    colegiadoProfesional: new FormControl('', Validators.required),
+    terminosDeAtencion: new FormControl('', Validators.required),
+    estado: new FormControl('', Validators.required),
+
+  })
   //
   userDataIdiomas: IdiomasProfesional[]
   idiomas: IdiomasProfesional[];
   userData?: UsuariosInterface;
   especialidades: ProfesionalEspecialidades[];
+  clinicasProfesiona?: ClinicasProfesional[];//oberter clinicas
   constructor(
     private loginService: LoginService,
     private idiomasService: IdiomasService,
@@ -76,8 +91,18 @@ export class UpdateDataComponent implements OnInit {
         console.info("Request Complet")
       }
     })
+    this.usuariosServices.obtenerClinicas(this.userData.colegiadoProfesional).subscribe(
+      {
+        next: (clinicas)=>{
+          this.clinicasProfesiona = clinicas;
+        }
+      }
+    ) 
+
     this.obtenerIdiomas();
   }
+
+  
   obtenerIdiomas() {
     this.idiomasService.obtenerIdiomas().subscribe({
       next: (data) => {
@@ -159,10 +184,24 @@ export class UpdateDataComponent implements OnInit {
       confirmButtonText: 'Eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
-        // console.log(idProfesionalIdiomas)
-        this.http.delete<any>(`http://localhost:3000/usuarios/deleteIdioma/${idProfesionalIdiomas}`).subscribe(res => {
-          location.reload();
-        })
+        this.http.delete<any>(`http://localhost:3000/usuarios/deleteIdioma/${idProfesionalIdiomas}`).subscribe(
+          (res) => (Swal.fire({
+            icon: 'success',
+            title: 'Idioma borrada',
+            text: 'El idioma se borro correctamente'
+          }).then((result) => {
+            if (result) {
+              location.reload();
+            }
+          })
+          ),
+          (err) => (Swal.fire({
+            icon: 'error',
+            title: 'Opps....',
+            text: 'Parece que no subio nada!!!'
+          })
+          )
+        )
       }
     })
   }
@@ -185,11 +224,8 @@ export class UpdateDataComponent implements OnInit {
           icon: 'error',
           title: 'Opps....',
           text: 'Parece que no subio nada!!!'
-
         }))
-
       )
-
     }
   }
 
@@ -211,9 +247,8 @@ export class UpdateDataComponent implements OnInit {
           icon: 'error',
           title: 'Opps....',
           text: 'Parece que no subio nada!!!'
-
-        }))
-
+        })
+        )
       )
     }
   }
@@ -227,11 +262,55 @@ export class UpdateDataComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         // console.log(idProfesionalIdiomas)
-        this.http.delete<any>(`http://localhost:3000/usuarios/deleteEspecialidad/${idProfesionalIdiomas}`).subscribe(res => {
-          location.reload();
-        })
+        this.http.delete<any>(`http://localhost:3000/usuarios/deleteEspecialidad/${idProfesionalIdiomas}`).subscribe(
+          (res) => (Swal.fire({
+            icon: 'success',
+            title: 'Especialidad borrada',
+            text: 'La especialidad se borro correctamente'
+          }).then((result) => {
+            if (result) {
+              location.reload();
+            }
+          })
+          ),
+          (err) => (Swal.fire({
+            icon: 'error',
+            title: 'Opps....',
+            text: 'Parece que no subio nada!!!'
+          })
+          )
+        )
       }
     })
   }
-
+  deleteClinica(idClinica) {
+    Swal.fire({
+      icon: 'info',
+      title: `Desea eliminar la clinica?`,
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // console.log(idProfesionalIdiomas)
+        this.http.delete<any>(`http://localhost:3000/usuarios/deleteClinica/${idClinica}`).subscribe(
+          (res) => (Swal.fire({
+            icon: 'success',
+            title: 'Clinica borrada',
+            text: 'La clinica se borro correctamente'
+          }).then((result) => {
+            if (result) {
+              location.reload();
+            }
+          })
+          ),
+          (err) => (Swal.fire({
+            icon: 'error',
+            title: 'Opps....',
+            text: 'Parece que no subio nada!!!'
+          })
+          )
+        )
+      }
+    })
+  }
 }

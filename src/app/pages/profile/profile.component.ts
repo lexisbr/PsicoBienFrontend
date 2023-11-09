@@ -3,10 +3,10 @@ import { UsuarioEspecialidades, UsuariosInterface } from 'src/app/interface/usua
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { LoginService } from 'src/app/services/auth/login.service';
-import { DatosProfesional, ProfesionalEspecialidades } from 'src/app/interface/profesionales_idiomas.interface';
+import { ClinicasProfesional, DatosProfesional, ProfesionalEspecialidades } from 'src/app/interface/profesionales_idiomas.interface';
 import { IdiomasProfesional, Profesionales_idiomasInterface } from 'src/app/interface/profesionales_idiomas.interface';
 import { IdiomasService } from 'src/app/services/idiomas.service';
-import { dE } from '@fullcalendar/core/internal-common';
+import { cl, dE } from '@fullcalendar/core/internal-common';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -19,7 +19,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
   private fileTmp: any;
   userLoginOn: boolean = false;
   userData?: UsuariosInterface;
-  datosProfesional: DatosProfesional;
+  //Datos basicos del profesional
+  datosProfesional?: DatosProfesional[];
+  //Clinicas del profesional
+  clinicasProfesiona?: ClinicasProfesional[];
   UserDataIdiomas: IdiomasProfesional[];
   especialidades: ProfesionalEspecialidades[];
   constructor(
@@ -91,13 +94,18 @@ export class ProfileComponent implements OnInit, OnDestroy {
       this.usuarios.datosProfesional(this.userData.colegiadoProfesional).subscribe(
         {
           next: (datosProfesional)=>{
-            console.log("datos que vienen de descripcion ", datosProfesional)
+            // console.log("datos que vienen de descripcion ", datosProfesional)
               this.datosProfesional = datosProfesional;
           }
         }
-      )
-      
-      
+      )  
+      this.usuarios.obtenerClinicas(this.userData.colegiadoProfesional).subscribe(
+        {
+          next: (clinicas)=>{
+            this.clinicasProfesiona = clinicas;
+          }
+        }
+      )  
   }
 }
 

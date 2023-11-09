@@ -107,5 +107,6 @@
 }
 .container-fluid .separador .container .row .col-md-4 .agregar form {
   display: flex;
-  gap: 35px;
+  flex-direction: column;
+  gap: 15px;
 }/*# sourceMappingURL=update-data.component.css.map */

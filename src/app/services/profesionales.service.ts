@@ -13,4 +13,5 @@ export class ProfesionalesService {
   obtenerEspecialidades(): Observable<any> {
     return this.http.get<any[]>(`${this.apiUrl}/especialidades`);
   }
+
 }
