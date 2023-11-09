@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { Pais } from 'src/app/interface/pais.interface';
 import { Profesional } from 'src/app/interface/profecional';
 import { UsuariosInterface } from 'src/app/interface/usuarios.interface';
+import { LoginService } from 'src/app/services/auth/login.service';
+import { UbicacionesService } from 'src/app/services/ubicaciones.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -11,8 +14,14 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class HomeComponent {
 
   userLoginOn: boolean=false;
-  userData?: UsuariosInterface[];
-  constructor(private usuariosServices:UsuarioService) { }
+  userData?: UsuariosInterface;
+  userDatas?: UsuariosInterface[];
+  pais: Pais;
+  constructor(
+    private usuariosServices:UsuarioService,
+    private ubicasionesServices: UbicacionesService,
+    private loginService: LoginService
+    ) { }
 
   ngOnInit() {
     this.fillCard();
@@ -23,7 +32,8 @@ export class HomeComponent {
     this.usuariosServices.obtenerUsuarios().subscribe({
       next:(usersData)=>{
         console.log(usersData);
-        this.userData= usersData;
+        this.userDatas= usersData;
+        //const idPais = usersData.idCiudad;
       },
       error:(err)=>{
         console.error(err);
@@ -33,15 +43,5 @@ export class HomeComponent {
         console.info("Request Complet")
       }
     })
-  }
-  profesional:Profesional = {
-    nombres: 'Daemon',
-    apellidos: 'Targaryen',
-    cedula: '15264859-4',
-    colegiado: '15487521',
-    idiomas: 'Valirio',
-    nacionalidad: 'Westeros',
-    foto:'https://pbs.twimg.com/media/FwDIp7jWcAc6mBc?format=jpg&name=900x900',
-    bandera: 'https://www.therichest.com/wp-content/uploads/2017/01/House-Targaryen-Flag.jpg'
   }
 }

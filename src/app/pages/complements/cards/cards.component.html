@@ -1,31 +1,27 @@
-<div class="cardBox">
+<div class="cardBox"    >
     <div class="cardHeader">
         <div class="img">
             <img src="{{userData.urlFotoPerfil}}" alt="foto" class="profile">
-            <img src="{{profesional.bandera}}" alt="foto" class="logo">
+            <img *ngFor="let pais of pais" src="{{pais.urlBandera}}" alt="foto" class="logo">
         </div>
 
         <div class="data">
             <p class="pC1">Profesional</p>
-            <h3>{{userData.nombre}}</h3>
+            <h3>{{userData.nombre}} {{userData.apellido}}</h3>
             <p class="pC2">Cédula <span>{{userData.dni}}</span></p>
-            <a href="#">Ver opciones (42)</a>
+            <a href="/psicologos">Ver opciones (42)</a>
         </div>
     </div>
-    <div class="cardContent">
+    <div class="cardContent" >
         <ul>
-            <li>idioma: <span>{{profesional.idiomas}}</span></li>
-            <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
+            <li>idioma: <span *ngFor="let idiomas of userDataIdiomas"  >{{idiomas.nombre}} </span></li>
+            <li>Nacionalidad: <span *ngFor="let pais of pais">{{pais.nombre}}</span></li>
             <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
         </ul>
     </div>
 
-    <div class="cardspan">
-        <span>Abuso sexual</span>
-        <span>Ansiedad</span>
-        <span>Conductas autodestructivas</span>
-        <span>Conflicto de pareja</span>
-        <span>Trastorno de personalidad</span>
+    <div class="cardspan" *ngFor="let especialidad of especialidades">
+        <span >{{especialidad.especialidad}}</span>
     </div>
     <div class="cardFooter">
         <a href="/profile">Ver Perfil</a>

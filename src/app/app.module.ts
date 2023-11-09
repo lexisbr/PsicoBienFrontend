@@ -26,6 +26,7 @@ import { Select2Module } from 'ng-select2-component';
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
 import { SearchbarComponent } from './pages/complements/searchbar/searchbar.component';
+import { UpdateDataComponent } from './pages/complements/update-data/update-data.component';
 // register Swiper custom elements
 register();
 
@@ -46,6 +47,7 @@ register();
     TopFiveComponent,
     PsicologosComponent,
     SearchbarComponent,
+    UpdateDataComponent
   ],
   imports: [
     BrowserModule,

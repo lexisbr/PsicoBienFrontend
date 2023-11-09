@@ -36,30 +36,41 @@
   align-items: center;
   justify-content: space-around;
   height: 100%;
-  width: 400px;
+  width: 500px;
 }
-.header .containerH .menuBox .nav_link {
+.header .containerH .menuBox .navMenu {
+  display: flex;
+  width: 70%;
+  justify-content: space-evenly;
+}
+.header .containerH .menuBox .navMenu .nav_link {
   text-decoration: none;
-  color: #111;
+  color: #6d4e4e;
   font-weight: 500;
 }
-.header .containerH .menuBox .nav_link i {
+.header .containerH .menuBox .navMenu .nav_link i {
   font-size: 30px;
   color: #111;
 }
-.header .containerH .comboBtn {
+.header .containerH .menuBox .comboBtn {
   position: relative;
 }
-.header .containerH .comboBtn .button {
+.header .containerH .menuBox .comboBtn .btnLogout {
+  border-style: none;
+  height: 50px;
+  width: 120px;
+  border-radius: 15px;
+}
+.header .containerH .menuBox .comboBtn .btnLogin {
   border-style: none;
   height: 50px;
   width: 150px;
   border-radius: 15px;
 }
-.header .containerH .comboBtn:hover .loginBox {
+.header .containerH .menuBox .comboBtn:hover .loginBox {
   visibility: visible;
 }
-.header .containerH .comboBtn .loginBox {
+.header .containerH .menuBox .comboBtn .loginBox {
   display: flex;
   position: absolute;
   justify-content: center;
@@ -75,14 +86,23 @@
   flex-direction: column;
   background: #f0f0f0;
 }
-.header .containerH .comboBtn .loginBox button {
+.header .containerH .menuBox .comboBtn .loginBox button {
   width: 200px;
   height: 50px;
   border-style: none;
   border-radius: 10px;
   background: #01acc8;
 }
-.header .containerH .comboBtn .loginBox button a {
+.header .containerH .menuBox .comboBtn .loginBox button a {
   text-decoration: none;
   color: #fff;
+}
+
+@media (max-width: 900px) {
+  .header {
+    height: 200px;
+  }
+  .header .containerH {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=header.component.css.map */

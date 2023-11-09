@@ -29,85 +29,140 @@
                     <h2>Registro</h2>
                     <div class="groupInput">
                         <div class="group">
-                            <div class="inputBox">
-                                <h4>DNI</h4>
-                                <input class="input" type="text" id="names" placeholder="DNI..." formControlName="dni">
-                            </div>
+    
                             <div class="inputBox">
                                 <h4>Nombres</h4>
-                                <input class="input" type="text" id="names" placeholder="Nombres..."
-                                    formControlName="nombre">
+                                <input class="form-control" type="text" id="names" placeholder="Nombres..." formControlName="nombre">
+                                <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="text-danger">
+                                    <div *ngIf="nombre.errors?.['required']">
+                                        El nombre es necesario.
+                                    </div>
+                                </div>
                             </div>
                             <div class="inputBox">
                                 <h4>Apellidos</h4>
-                                <input class="input" type="text" id="lastnames" placeholder="Apellidos..."
-                                    formControlName="apellido">
+                                <input class="form-control" type="text" id="lastnames" placeholder="Apellidos..." formControlName="apellido">
+                                    <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="text-danger">
+                                        <div *ngIf="apellido.errors?.['required']">
+                                            El apellido es necesario.
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="inputBox">
+                                <h4>DNI</h4>
+                                <input class="form-control" type="text" id="names" placeholder="DNI..." formControlName="dni">
+                                <div *ngIf="dni.invalid && (dni.dirty || dni.touched)" class="text-danger">
+                                    <div *ngIf="dni.errors?.['required']">
+                                        El DNI es necesario.
+                                    </div>
+                                </div>
                             </div>
                             <div class="inputBox">
                                 <h4>Correo electrónico</h4>
-                                <input class="input" type="text" id="email" placeholder="Correo electrónico..."
+                                <input class="form-control" type="text" id="email" placeholder="Correo electrónico..."
                                     formControlName="email">
+                                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                                        <div *ngIf="email.errors?.['required']">
+                                            El correo es necesario.
+                                        </div>
+                                        <div *ngIf="email.errors?.['email']">
+                                            Se tiene que ingresar un correo valido.
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="inputBox">
+                                <h4>Número celular</h4>
+                                <input class="form-control" type="text" id="telefono" placeholder="Telefono..."
+                                    formControlName="telefono">
+                                    <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="text-danger">
+                                        <div *ngIf="telefono.errors?.['required']">
+                                            El número celular es necesario.
+                                        </div>
+                                    </div>
+                            </div>
+
+                        </div>
+
+                        <div class="group">
+                            <div class="inputBox">
+                                <h4>Contraseña</h4>
+                                <input class="form-control" type="text" id="password" placeholder="Contraseña..."
+                                    formControlName="password">
+                                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                                        <div *ngIf="password.errors?.['required']">
+                                            La contraseña es necesaria.
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="inputBox">
+                                <h4>Validación de contraseña</h4>
+                                <input class="form-control" type="text" id="password" placeholder="Telefono..."
+                                    formControlName="paswordVal">
+                                    <div *ngIf="paswordVal.invalid && (paswordVal.dirty || paswordVal.touched)" class="text-danger">
+                                        <div *ngIf="paswordVal.errors?.['required']">
+                                            La validacion es necesaria.
+                                        </div>
+                                    </div>
                             </div>
                             <div class="inputBox">
                                 <h4>Fecha Nacimiento</h4>
-                                <input class="input" type="date" id="email" formControlName="fechaNacimiento">
+                                <input class="form-control" type="date" id="email" formControlName="fechaNacimiento">
+                                <div *ngIf="fechaNacimiento.invalid && (fechaNacimiento.dirty || fechaNacimiento.touched)" class="text-danger">
+                                    <div *ngIf="fechaNacimiento.errors?.['required']">
+                                        La fecha de nacimiento es necesaria.
+                                    </div>
+                                </div>
                             </div>
                             <div class="inputBox">
                                 <h4>Genero</h4>
-                                <select class="input" name="genero" id="genero" formControlName="genero">
+                                <select class="form-control" name="genero" id="genero" formControlName="genero">
                                     <option value="M">Masculino</option>
                                     <option value="F">Femenino</option>
                                     <option value="O">Otro</option>
                                 </select>
+                                <div *ngIf="genero.invalid && (genero.dirty || genero.touched)" class="text-danger">
+                                    <div *ngIf="genero.errors?.['required']">
+                                        El genero es necesario.
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="group">
-                            <div class="inputBox">
-                                <h4>Número celular</h4>
-                                <input class="input" type="text" id="email" placeholder="Telefono..."
-                                    formControlName="telefono">
-                            </div>
-                            <div class="inputBox">
-                                <h4>Contraseña</h4>
-                                <input class="input" type="password" id="password" placeholder="Password..."
-                                    formControlName="password">
-                            </div>
-                            <div class="inputBox">
-                                <h4>Confirmación contraseña</h4>
-                                <input class="input" type="password" id="password" placeholder="Confirm password..."
-                                    formControlName="paswordVal">
-                            </div>
-                        </div>
-                        <div class="group">
-                            <div class="inputBox">
-                                <h4>Número celular</h4>
-                                <input class="input" type="text" id="email" placeholder="Telefono..."
-                                    formControlName="telefono">
-                            </div>
-                            <div class="inputBox">
-                                <h4>Fecha Nacimiento</h4>
-                                <input class="input" type="date" id="email" formControlName="fechaNacimiento">
+                            <div class="paisestado">
+                                <div class="inputBox">
+                                    <h4>Pais</h4>
+                                    <select class="form-control" name="paises" id="paises" formControlName="idPais"
+                                        (change)="obtenerEstados()">
+                                        <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombre}}</option>
+                                    </select>
+                                    <div *ngIf="idPais.invalid && (idPais.dirty || idPais.touched)" class="text-danger">
+                                        <div *ngIf="idPais.errors?.['required']">
+                                            El Pais es necesario.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inputBox">
+                                    <h4>Estado</h4>
+                                    <select class="form-control" name="estados" id="estados" formControlName="idEstado" (change)="obtenerCiudades()">
+                                        <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}</option>
+                                    </select>
+                                    <div *ngIf="idEstado.invalid && (idEstado.dirty || idEstado.touched)" class="text-danger">
+                                        <div *ngIf="idEstado.errors?.['required']">
+                                            El Estado es necesario.
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="inputBox">
-                                <h4>Pais</h4>
-                                <select class="input" name="paises" id="paises" formControlName="idPais"
-                                    (change)="obtenerEstados()">
-                                    <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombre}}</option>
-                                </select>
-                            </div>
-                            <div class="inputBox">
-                                <h4>Estado</h4>
-                                <select class="input" name="estados" id="estados" formControlName="idEstado" (change)="obtenerCiudades()">
-                                    <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}</option>
-                                </select>
-                            </div>
-                            <div class="inputBox">
                                 <h4>Ciudad</h4>
-                                <select class="input" name="ciudades" id="ciudades" formControlName="idCiudad">
+                                <select class="form-control" name="ciudades" id="ciudades" formControlName="idCiudad">
                                     <option *ngFor="let ciudad of ciudades" [value]="ciudad.idCiudad">{{ciudad.nombre}}
                                     </option>
                                 </select>
+                                <div *ngIf="idCiudad.invalid && (idCiudad.dirty || idCiudad.touched)" class="text-danger">
+                                    <div *ngIf="idCiudad.errors?.['required']">
+                                        La Ciudad es necesaria.
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

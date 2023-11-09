@@ -1,0 +1,121 @@
+<div class="container-fluid">
+    <h1 class="text-center bg-white">Actualizar datos de perfil</h1>
+    <i class="fa-solid fa-rectangle-xmark" (click)="enviarDatosAlPadre()"></i>
+    <hr>
+    
+<div class="separadorFotos">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 bg-white">
+                <div class="card">
+                    <div class="card-body">
+                        <form (ngSubmit)="onSubmit()">
+                            <label>Cambiar foto de portada</label>
+                            <div class="form-group">
+                                <div class="div_file">
+                                    <p class="text">Seleccionar...</p>
+                                    <input class="btn_enviar" type="file" name="image" accept="image/*"
+                                        (change)="selectImage($event)"><br>
+                                </div>
+                                <button class="btn btn-outline-primary" type="submit">Subir</button>
+                            </div>
+                        </form>
+                        <form (ngSubmit)="onSubmit2()">
+                            <label>Cambiar foto de perfil</label>
+                            <div class="form-group">
+                                <div class="div_file">
+                                    <p class="text">Seleccionar...</p>
+                                    <input class="btn_enviar" type="file" name="image" accept="image/*"
+                                    (change)="selectImage($event)"><br>
+                                </div>
+                                <button class="btn btn-outline-primary" type="submit">Subir</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 bg-white">
+                <div class="card card-foto">
+                    <img [src]="imgURL" alt="" class="card-img-top">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <br>
+    <div class="separador">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 bg-white">
+                    <h2 class="text-center">Idiomas</h2>
+                    <div class="card">
+                        <div class="card-header bg-white text-black d-flex justify-content-between align-items-center"
+                            *ngFor="let idiomas of userDataIdiomas">
+                            <label>{{idiomas.nombre}}</label>
+                            <button class="btn btn-outline-danger btn-block"
+                                (click)="deleteIdioma(idiomas.idProfesionalIdiomas)"
+                                id="idioma.idProfesionalIdiomas">Eliminar</button>
+                        </div>
+                    </div>
+                    <div class="agregar">
+                        <form [formGroup]="idiomasForm">
+                            <select class="form-control" name="idiomas" id="idiomas" formControlName="idIdioma" (change)="selectIdioma($event)" >
+                                <option *ngFor="let idioma of idiomas" [value]="idioma.idIdiomas" >{{idioma.nombre}}</option>
+                            </select>
+                            <button (click)="agregarIdioma()" class="btn btn-outline-success btn-block" type="submit">Agregar</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 bg-white">
+                    <h2 class="text-center">Especialidades</h2>
+                    <div class="card">
+                        <div class="card-header bg-white text-black d-flex justify-content-between align-items-center"
+                            *ngFor="let especialidad of especialidades">
+                            <label>{{especialidad.especialidad}}</label>
+                            <button class="btn btn-outline-danger btn-block"
+                                (click)="deleteEspecialidad(especialidad.idProfesionalEspecialidad)"
+                                id="especialidad.idProfesionalEspecialidad">Eliminar</button>
+                        </div>
+                    </div>
+                    <div class="agregar">
+                        <form [formGroup]="especialidadesForm">
+                            <input class="form-control" formControlName="especialidad">
+                            <button (click)="agregarEspecialidad()" class="btn btn-outline-success btn-block" type="submit">Agregar</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="separador">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 bg-white">
+                    <h2 class="text-center">Biografía</h2>
+                    <div class="card">
+                        <div class="card-header bg-white text-black d-flex justify-content-between align-items-center"
+                            *ngFor="let idiomas of userDataIdiomas">
+                            <label>{{idiomas.nombre}}</label>
+                            <button class="btn btn-outline-danger btn-block"
+                                (click)="deleteIdioma(idiomas.idProfesionalIdiomas)"
+                                id="idioma.idProfesionalIdioma">Eliminar</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-success btn-block">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>
