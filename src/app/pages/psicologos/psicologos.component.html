@@ -6,13 +6,13 @@
             <app-top-five></app-top-five>
         </div>
         <div class="boxContainer">
-            <h2>¿Qué estas buscando?</h2>
-            <div class="searchBar">
-                <input type="text">
-                <div class="actions">
-                    <button>
-                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                    </button>
+            <div class="filters">
+                <h2>¿Qué estas buscando?</h2>
+                <app-searchbar placeholder="Buscar por nombre"></app-searchbar>
+                <div class="filter-box">
+                    <select2 [data]="estados" minCountForSearch="-1" (update)="updateEstado($event)" placeholder="Busca por departamento"></select2>
+                    <select2 [data]="especialidades" minCountForSearch="-1" multiple="true" placeholder="Busca por las especialidades que te interesan"></select2>
+                    <button (click)="search()">Buscar</button>
                 </div>
             </div>
             <div class="container-table">
@@ -30,8 +30,7 @@
                         <tr *ngFor="let usuario of userData; let i = index">
                             <th scope="row">{{i+1}}</th>
                             <td>
-                                <img src="{{usuario.urlFotoPerfil}}"
-                                    alt="Not found" height="100px">
+                                <img src="{{usuario.urlFotoPerfil}}" alt="Not found" height="100px">
                             </td>
                             <td>{{usuario.nombre}}</td>
                             <td>{{usuario.apellido}}</td>

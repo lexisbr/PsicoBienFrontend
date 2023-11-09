@@ -28,7 +28,7 @@ export class UsuarioService {
                 catchError((err) => this.handlerError(err))
             );
     }
-    logout(): void { }
+    
     private readToken(): void { }
 
     private saveToken(token: string): void {
