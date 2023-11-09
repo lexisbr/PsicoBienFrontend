@@ -201,7 +201,7 @@
 
 
             form {
-                width: 50%;
+                width: 60%;
                 background: rgba(255, 255, 255, 0.4);
                 border-radius: 15px;
                 padding: 50px;
@@ -236,22 +236,25 @@
 
                     .group {
                         width: 100%;
-
+                        .paisestado{
+                            display: flex;
+                        }
                         .inputBox {
                             width: 100%;
                             margin-top: 20px;
 
-                            .input {
+                            input, select {
                                 width: 80%;
                                 background: transparent;
-                                padding: 5px 10px;
-                                border-radius: 15px;
-                                border-top: 1px solid rgba(225, 255, 255, 0.2);
-                                border-left: 1px solid rgba(225, 255, 255, 0.2);
-                                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                                border-top:  none;
+                                border-right:  none;
+                                border-bottom:  none;
+                                padding: 10px 20px;
+                                border-radius: 5px;
                                 outline: none;
                                 font-size: 15px;
-                                color: #363333;
+                                letter-spacing: 1px;
+                                color: #111;
                                 font-weight: 400;
 
                                 &::-moz-placeholder {

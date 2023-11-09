@@ -12,6 +12,14 @@
   padding-bottom: 30px;
   background: rgb(228, 228, 231);
 }
+.container-fluid .main .prueba {
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #ccc;
+  z-index: 1000;
+}
 .container-fluid .main .content {
   display: flex;
   flex-direction: column;
@@ -20,6 +28,19 @@
   width: 98%;
   gap: 20px;
   position: relative;
+}
+.container-fluid .main .content .configura {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 3%;
+  right: 2%;
+}
+.container-fluid .main .content .configura i {
+  font-size: 35px;
+}
+.container-fluid .main .content .configura i:hover {
+  color: #fff;
 }
 .container-fluid .main .content .profileBox {
   width: 100%;
@@ -50,36 +71,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.container-fluid .main .content .profileBox .info .foto:hover .actionBtn .btnSubir {
-  visibility: visible;
-}
-.container-fluid .main .content .profileBox .info .foto .actionBtn {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir {
-  position: relative;
-  visibility: hidden;
-}
-.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir input {
-  display: none;
-}
-.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir .file-input-label {
-  display: inline-block;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir .file-input-label:hover {
-  background-color: #f0f0f0;
-}
-.container-fluid .main .content .profileBox .info .foto .actionBtn .btnSubir .file-input-label i {
-  margin-right: 5px;
 }
 .container-fluid .main .content .profileBox .info .foto img {
   width: 200px;
@@ -215,8 +206,8 @@
 .container-fluid .main .content .containerP .contentBox .informacionBox .lenguage {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   padding: 10px 40px;
+  padding-bottom: 40px;
   width: 100%;
-  height: 200px;
 }
 .container-fluid .main .content .containerP .contentBox .informacionBox .lenguage .option {
   width: 100%;
@@ -246,6 +237,11 @@
   width: 100%;
 }
 
+@media (max-width: 900px) {
+  .container-fluid .main {
+    top: 200px;
+  }
+}
 ::-webkit-scrollbar {
   width: 10px;
 }

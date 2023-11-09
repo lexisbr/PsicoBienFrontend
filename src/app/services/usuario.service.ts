@@ -4,8 +4,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 import { BehaviorSubject, Observable, throwError } from 'rxjs'
-
-import { UserResponse, UsuariosInterface } from '../interface/usuarios.interface';
+import { DatosProfesional, ProfesionalEspecialidades } from '../interface/profesionales_idiomas.interface';
+import { UserResponse, UsuarioEspecialidades, UsuariosInterface } from '../interface/usuarios.interface';
 import { LoginInterface } from '../interface/login.interface';
 import { catchError, map, tap } from 'rxjs/operators';
 
@@ -17,23 +17,8 @@ export class UsuarioService {
     currentUserData: BehaviorSubject<UsuariosInterface[]> = new BehaviorSubject<UsuariosInterface[]>([])
 
     constructor(private http: HttpClient) { }
-    login(form: UsuariosInterface): Observable<UserResponse | void> {
-        return this.http
-            .post<UserResponse>(`${environment.usuariosUrl}/login`, form)
-            .pipe(
-                map((res: UserResponse) => {
-                    console.log('Res =>', res)
+    
 
-                }),
-                catchError((err) => this.handlerError(err))
-            );
-    }
-    logout(): void { }
-    private readToken(): void { }
-
-    private saveToken(token: string): void {
-        localStorage.setItem('token', token)
-    }
 
 
     obtenerUsuario(DNI) {
@@ -54,20 +39,14 @@ export class UsuarioService {
     crearUsuario(form: UsuariosInterface): Observable<ResponseI> {
         return this.http.post<ResponseI>(`${this.url}/registrar`, form);
     }
-    loginUsuario(form: LoginInterface): Observable<UsuariosInterface | void> {
-        return this.http
-            .post<UsuariosInterface>(`${this.url}/login`, form)
-            .pipe(
-                map((res: UsuariosInterface) => {
-                    console.log('Res =>', res)
-                    return res
-                }),
-                catchError((err) => this.handlerError(err))
-            );
+
+    buscarEspecialidad(dni: string){
+        return this.http.get<ProfesionalEspecialidades[]>(`${environment.usuariosUrl}/userEspecialidad/${dni}`);
     }
-    get userData():Observable<UsuariosInterface[]>{
-        return this.currentUserData.asObservable();
+    datosProfesional(colegiado:string){
+        return this.http.get<DatosProfesional>(`${environment.profesionalesUrl}/datosProfesionales/${colegiado}`)
     }
+
     private handlerError(error: HttpErrorResponse) {
         if (error.status === 0) {
             console.error('Se ha producido un error ', error.error)

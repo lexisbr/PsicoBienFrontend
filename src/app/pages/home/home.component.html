@@ -54,42 +54,8 @@
             coverflow-effect-modifier="1"
             coverflow-effect-slide-shadows="false"
             >
-                <swiper-slide *ngFor="let usuario of userData">
+                <swiper-slide *ngFor="let usuario of userDatas">
                     <app-cards [userData]="usuario"></app-cards>
-                    <!-- <div class="cards">
-                        <div class="cardBox" >
-                            <div class="cardHeader">
-                                <div class="img">
-                                    <img src="{{usuario.urlFotoPerfil}}" alt="foto" class="profile">
-                                    <img src="{{profesional.bandera}}" alt="foto" class="logo">
-                                </div>          
-                                <div class="data">
-                                    <p class="pC1">Psicólogo online</p>
-                                    <h3>{{usuario.nombre}} {{usuario.apellido}}</h3>
-                                    <p class="pC2">Cédula <span>{{usuario.dni}}</span></p>
-                                    <a href="#">Ver opciones (42)</a>
-                                </div>
-                            </div>
-                            <div class="cardContent">
-                                <ul>
-                                    <li>idioma: <span>{{profesional.idiomas}}</span></li>
-                                    <li>Nacionalidad: <span>{{profesional.nacionalidad}}</span></li>
-                                    <li>Modelo terapéutico: <span>Cognitivo - conductual</span></li>
-                                </ul>
-                            </div>
-                            <div class="cardspan">
-                                <span>Abuso sexual</span>
-                                <span>Ansiedad</span>
-                                <span>Conductas autodestructivas</span>
-                                <span>Conflicto de pareja</span>
-                                <span>Trastorno de personalidad</span>
-                            </div>
-                            <div class="cardFooter">
-                                <a href="/profile">Ver Perfil</a>
-                                <button type="button">Agregar cita</button>
-                            </div>
-                        </div>
-                    </div> -->
                 </swiper-slide>
                 
             </swiper-container>

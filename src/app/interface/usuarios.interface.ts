@@ -16,7 +16,7 @@ export interface UsuariosInterface{
     estado?:boolean;
     colegiadoProfesional?: string;
     idTipoUsuario?: number;
-    idCiudad?: number;
+    idPais?: number;
 }
 
 export interface UserResponse{
@@ -24,4 +24,8 @@ export interface UserResponse{
     token: string;
     userId: number;
     role: Roles;
+}
+
+export interface UsuarioEspecialidades{
+    especialidad: string;
 }

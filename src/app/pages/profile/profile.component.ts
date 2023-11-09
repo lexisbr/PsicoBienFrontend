@@ -1,63 +1,104 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { UsuariosInterface } from 'src/app/interface/usuarios.interface';
+import { UsuarioEspecialidades, UsuariosInterface } from 'src/app/interface/usuarios.interface';
 import { ActivatedRoute } from '@angular/router';
-import { Portada } from 'src/app/interface/portada';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { LoginService } from 'src/app/services/auth/login.service';
+import { DatosProfesional, ProfesionalEspecialidades } from 'src/app/interface/profesionales_idiomas.interface';
+import { IdiomasProfesional, Profesionales_idiomasInterface } from 'src/app/interface/profesionales_idiomas.interface';
+import { IdiomasService } from 'src/app/services/idiomas.service';
+import { dE } from '@fullcalendar/core/internal-common';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./css/profile.component.css']
 })
 export class ProfileComponent implements OnInit, OnDestroy {
-  @Input() usuario: UsuariosInterface;
-  private fileTmp:any;
-  userLoginOn:boolean=false;
-  userData?: UsuariosInterface;
-  constructor(private usuarios: UsuarioService, private route: ActivatedRoute, private loginService:LoginService) { }
 
-  getFile($event:any): void{
-    const [ file ] = $event.target.files;
-    this.fileTmp = {
-      fileRaw:file,
-      fileName:file.name
+  @Input() usuario: UsuariosInterface;
+  updateDataComponent: boolean = true;
+  private fileTmp: any;
+  userLoginOn: boolean = false;
+  userData?: UsuariosInterface;
+  datosProfesional: DatosProfesional;
+  UserDataIdiomas: IdiomasProfesional[];
+  especialidades: ProfesionalEspecialidades[];
+  constructor(
+    private usuarios: UsuarioService,
+    private route: ActivatedRoute,
+    private loginService: LoginService,
+    private idiomasService: IdiomasService
+  ) { }
+  selectImage(event){
+    if(event.target.files.length > 0){
+      console.log(event.target.files[0])
+      const reader = new FileReader();
+      reader.readAsDataURL
     }
 
   }
-  ngOnDestroy():void{
+  actualizarPerfilEnPadre(datos: boolean) {
+    this.updateDataComponent = datos;
+  }
+  
+  onSubmit(){
+
+
+  }
+  getFile($event: any): void {
+    const [file] = $event.target.files;
+    this.fileTmp = {
+      fileRaw: file,
+      fileName: file.name
+    }
+
+  }
+  ngOnDestroy(): void {
     this.loginService.currentUserLoginOn.unsubscribe();
     this.loginService.currentUserData.unsubscribe();
   }
   ngOnInit() {
     this.loginService.currentUserLoginOn.subscribe(
       {
-        next:(userLoginOn)=>{
-          this.userLoginOn=userLoginOn;
+        next: (userLoginOn) => {
+          this.userLoginOn = userLoginOn;
         }
       }
     );
     this.loginService.currentUserData.subscribe(
       {
-        next:(userData)=>{
-          console.log("Profile",userData)
-          this.userData= userData;
+        next: (userData) => {
+          console.log("Profile(profile)", userData)
+          this.userData = userData;
         }
       }
     )
-    // this.usuarios.obtenerUsuario(10000001).subscribe(
-    //   data => {
-    //     console.log("Respuesta del servidorProfile:",data);
-    //   },
-    //   error => {
-    //     console.log(error)
-    //     if (error.status == 404) {
-    //       console.log("El usuario no fue encontrado")
-    //     }
-    //   })
-    //   console.log("prueba",this.usuario)
+    this.idiomasService.obtenerIdiomasProfesional(this.userData.dni).subscribe(
+      {
+        next: (idiomasData) => {
+          // console.log("Estos son los idiomas xd: ", idiomasData)
+          this.UserDataIdiomas = idiomasData    
+          
+        }
+      }) 
+      this.usuarios.buscarEspecialidad(this.userData.dni).subscribe(
+        {
+          next: (especialidades)=>{
+            // console.log("Estas son las especialidades",especialidades);
+            this.especialidades = especialidades;
+          }
+        }
+      )
+      this.usuarios.datosProfesional(this.userData.colegiadoProfesional).subscribe(
+        {
+          next: (datosProfesional)=>{
+            console.log("datos que vienen de descripcion ", datosProfesional)
+              this.datosProfesional = datosProfesional;
+          }
+        }
+      )
+      
+      
   }
-  portada:Portada = {
-    fondoPortada: 'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg'
-  }
-
 }
+
+

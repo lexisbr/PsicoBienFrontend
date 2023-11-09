@@ -1,21 +1,18 @@
 <div class="container-fluid">
     <app-header></app-header>
     <div class="main">
+        <div class="prueba" *ngIf="!updateDataComponent">
+            <app-update-data (actualizarPerfil)="actualizarPerfilEnPadre($event)" [updateDataComponent]="updateDataComponent"></app-update-data>
+        </div>
         <section class="content">
+            
             <div class="profileBox">
-
+                <div class="configura">
+                    <i class="fa-solid fa-gear" (click)="updateDataComponent = !updateDataComponent"></i>
+                </div>
                 <div class="info">
                     <img src="{{userData?.urlFotoPortada}}" alt="">
                     <div class="foto">
-                        <div class="actionBtn">
-                            <div class="btnSubir">
-                                <input type="file" (change)="getFile($event)" id="fileInput">
-                                <label for="fileInput" class="file-input-label">
-                                    <i class="fas fa-cloud-upload-alt"></i>
-                                </label>
-                            </div>
-                            <!-- <button (click)="sendFile()">Enviar</button> -->
-                        </div>
                         <img src="{{userData?.urlFotoPerfil}}" alt="foto">
                     </div>
                 </div>
@@ -45,85 +42,15 @@
                     <div class="aboutBox">
                         <div class="aboutContainer">
                             <h2>
-                                Acerda de mí
+                                Biografía
                             </h2>
                             <div class="aboutContent">
                                 <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora delectus eveniet
-                                    labore esse
-                                    maxime suscipit laudantium vero. Quas quisquam explicabo neque non perspiciatis fuga
-                                    quae
-                                    delectus
-                                    expedita illo, tempora nulla?
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia, vero natus ea vitae
-                                    atque
-                                    architecto
-                                    fuga quisquam ipsam iste perferendis labore deserunt nobis doloremque delectus
-                                    voluptas
-                                    velit
-                                    officia odit repellat.
+                                    {{datosProfesional.descripcion}}
                                 </p>
                             </div>
                         </div>
-                        <div class="aboutContainer">
-                            <h2>
-                                Experiencia laboral
-                            </h2>
-                            <div class="aboutContent">
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora delectus eveniet
-                                    labore esse
-                                    maxime suscipit laudantium vero. Quas quisquam explicabo neque non perspiciatis fuga
-                                    quae
-                                    delectus
-                                    expedita illo, tempora nulla?
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia, vero natus ea vitae
-                                    atque
-                                    architecto
-                                    fuga quisquam ipsam iste perferendis labore deserunt nobis doloremque delectus
-                                    voluptas
-                                    velit
-                                    officia odit repellat.
-                                </p>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora delectus eveniet
-                                    labore esse
-                                    maxime suscipit laudantium vero. Quas quisquam explicabo neque non perspiciatis fuga
-                                    quae
-                                    delectus
-                                    expedita illo, tempora nulla?
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia, vero natus ea vitae
-                                    atque
-                                    architecto
-                                    fuga quisquam ipsam iste perferendis labore deserunt nobis doloremque delectus
-                                    voluptas
-                                    velit
-                                    officia odit repellat.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="aboutContainer">
-                            <h2>
-                                Acerda de mí
-                            </h2>
-                            <div class="aboutContent">
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora delectus eveniet
-                                    labore esse
-                                    maxime suscipit laudantium vero. Quas quisquam explicabo neque non perspiciatis fuga
-                                    quae
-                                    delectus
-                                    expedita illo, tempora nulla?
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia, vero natus ea vitae
-                                    atque
-                                    architecto
-                                    fuga quisquam ipsam iste perferendis labore deserunt nobis doloremque delectus
-                                    voluptas
-                                    velit
-                                    officia odit repellat.
-                                </p>
-                            </div>
-                        </div>
+
 
                     </div>
                     <div class="informacionBox">
@@ -149,46 +76,16 @@
                         </div>
                         <div class="lenguage">
                             <h2>Idiomas</h2>
-                            <div class="option">
+                            <div class="option" *ngFor="let idioma of UserDataIdiomas">
                                 <i class="fa-solid fa-check"></i>
-                                <p>Español</p>
-                            </div>
-                            <div class="option">
-                                <i class="fa-solid fa-check"></i>
-                                <p>Ingles</p>
+                                <p >{{idioma.nombre}}</p>
                             </div>
                         </div>
                         <div class="lenguage">
-                            <h2>Idiomas</h2>
-                            <div class="option">
+                            <h2>Especialidades</h2>
+                            <div class="option" *ngFor="let especialidad of especialidades">
                                 <i class="fa-solid fa-check"></i>
-                                <p>Español</p>
-                            </div>
-                            <div class="option">
-                                <i class="fa-solid fa-check"></i>
-                                <p>Ingles</p>
-                            </div>
-                        </div>
-                        <div class="lenguage">
-                            <h2>Idiomas</h2>
-                            <div class="option">
-                                <i class="fa-solid fa-check"></i>
-                                <p>Español</p>
-                            </div>
-                            <div class="option">
-                                <i class="fa-solid fa-check"></i>
-                                <p>Ingles</p>
-                            </div>
-                        </div>
-                        <div class="lenguage">
-                            <h2>Idiomas</h2>
-                            <div class="option">
-                                <i class="fa-solid fa-check"></i>
-                                <p>Español</p>
-                            </div>
-                            <div class="option">
-                                <i class="fa-solid fa-check"></i>
-                                <p>Ingles</p>
+                                <p>{{especialidad.especialidad}}</p>
                             </div>
                         </div>
                     </div>

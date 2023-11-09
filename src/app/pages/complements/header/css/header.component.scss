@@ -41,66 +41,94 @@
             align-items: center;
             justify-content: space-around;
             height: 100%;
-            width: 400px;
+            width: 500px;
 
-            .nav_link {
-                text-decoration: none;
-                color: #111;
-                font-weight: 500;
-
-                i {
-                    font-size: 30px;
-                    color: #111;
-                }
-            }
-        }
-
-        .comboBtn {
-            position: relative;
-            .button {
-                border-style: none;
-                height: 50px;
-                width: 150px;
-                border-radius: 15px;
-
-            }
-
-            &:hover {
-                .loginBox {
-                    visibility: visible;
-                }
-            }
-
-            .loginBox {
+            .navMenu {
                 display: flex;
-                position: absolute;
-                justify-content: center;
-                align-items: center;
-                width: 300px;
-                height: 200px;
-                top: 50px;
-                right: 0;
-                background: #01acc8;
-                border-radius: 15px;
-                visibility: hidden;
-                gap: 20px;
-                flex-direction: column;
-                background: #f0f0f0;
 
-                button {
-                    width: 200px;
-                    height: 50px;
+                width: 70%;
+                justify-content: space-evenly;
+
+                .nav_link {
+                    text-decoration: none;
+                    color: #6d4e4e;
+                    font-weight: 500;
+
+                    i {
+                        font-size: 30px;
+                        color: #111;
+                    }
+                }
+            }
+
+            .comboBtn {
+                position: relative;
+
+                .btnLogout {
                     border-style: none;
-                    border-radius: 10px;
+                    height: 50px;
+                    width: 120px;
+                    border-radius: 15px;
+
+                }
+
+                .btnLogin {
+                    border-style: none;
+                    height: 50px;
+                    width: 150px;
+                    border-radius: 15px;
+                }
+
+                &:hover {
+                    .loginBox {
+                        visibility: visible;
+                    }
+                }
+
+                .loginBox {
+                    display: flex;
+                    position: absolute;
+                    justify-content: center;
+                    align-items: center;
+                    width: 300px;
+                    height: 200px;
+                    top: 50px;
+                    right: 0;
                     background: #01acc8;
+                    border-radius: 15px;
+                    visibility: hidden;
+                    gap: 20px;
+                    flex-direction: column;
+                    background: #f0f0f0;
 
-                    a {
-                        text-decoration: none;
-                        color: #fff;
+                    button {
+                        width: 200px;
+                        height: 50px;
+                        border-style: none;
+                        border-radius: 10px;
+                        background: #01acc8;
 
+                        a {
+                            text-decoration: none;
+                            color: #fff;
+
+                        }
                     }
                 }
             }
         }
+
+
     }
+}
+
+@media(max-width: 900px) {
+    .header {
+        height: 200px;
+
+        .containerH {
+            flex-direction: column;
+        }
+    }
+
 }

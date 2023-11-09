@@ -25,16 +25,53 @@ export class CreateAccountComponent implements OnInit {
     dni: new FormControl('', Validators.required),
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     fechaNacimiento: new FormControl('', Validators.required),
     genero: new FormControl('', Validators.required),
-    telefono: new FormControl('', Validators.required),
+    telefono: new FormControl('', [Validators.required]),
     password: new FormControl('', Validators.required),
     paswordVal: new FormControl('', Validators.required),
     idPais: new FormControl('', Validators.required),
     idEstado: new FormControl('', Validators.required),
     idCiudad: new FormControl('', Validators.required),
   });
+  get dni() {
+    return this.createAccountForm.controls.dni;
+  }
+  get nombre() {
+    return this.createAccountForm.controls.nombre;
+  }
+  get apellido() {
+    return this.createAccountForm.controls.apellido;
+  }
+  get email() {
+    return this.createAccountForm.controls.email;
+  }
+  get fechaNacimiento() {
+    return this.createAccountForm.controls.fechaNacimiento;
+  }
+  get genero() {
+    return this.createAccountForm.controls.genero;
+  }
+  get telefono() {
+    return this.createAccountForm.controls.telefono;
+  }
+
+  get password() {
+    return this.createAccountForm.controls.password;
+  }
+  get paswordVal() {
+    return this.createAccountForm.controls.paswordVal;
+  }
+  get idPais() {
+    return this.createAccountForm.controls.idPais;
+  }
+  get idEstado() {
+    return this.createAccountForm.controls.idEstado;
+  }
+  get idCiudad() {
+    return this.createAccountForm.controls.idCiudad;
+  }
   constructor(
     private usuarios: UsuarioService,
     private ubicacionesService: UbicacionesService
@@ -108,7 +145,7 @@ export class CreateAccountComponent implements OnInit {
       genero: formData.genero,
       telefono: formData.telefono,
       password: formData.password,
-      idCiudad: Number(formData.idCiudad),
+      idPais: Number(formData.idCiudad),
       idTipoUsuario: tipoUsuario,
     };
 

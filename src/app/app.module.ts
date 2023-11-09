@@ -25,6 +25,7 @@ import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 
 // import function to register Swiper custom elements
 import { register } from 'swiper/element/bundle';
+import { UpdateDataComponent } from './pages/complements/update-data/update-data.component';
 // register Swiper custom elements
 register();
 
@@ -43,7 +44,8 @@ register();
     CardsComponent,
     DatingPatientComponent,
     TopFiveComponent,
-    PsicologosComponent
+    PsicologosComponent,
+    UpdateDataComponent
   ],
   imports: [
     BrowserModule,
