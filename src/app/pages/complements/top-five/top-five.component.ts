@@ -15,19 +15,14 @@ export class TopFiveComponent {
     this.fillCard();
   }
   fillCard(){
-    console.log("Llamar a la peticion llegar")
     this.usuariosServices.obtenerUsuarios().subscribe({
       next:(usersData)=>{
-        console.log(usersData);
         this.userData= usersData;
       },
       error:(err)=>{
         console.error(err);
         
       },
-      complete:()=>{
-        console.info("Request Complet")
-      }
     })
   }
 }

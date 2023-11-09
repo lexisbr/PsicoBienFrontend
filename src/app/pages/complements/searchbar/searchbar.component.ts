@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-searchbar',
@@ -8,5 +9,6 @@ import { Component, Input } from '@angular/core';
 export class SearchbarComponent {
 
   @Input() placeholder: string = 'Searchbar';
+  value: string = "";
 
 }

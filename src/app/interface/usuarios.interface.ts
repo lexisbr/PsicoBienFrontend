@@ -17,6 +17,7 @@ export interface UsuariosInterface{
     colegiadoProfesional?: string;
     idTipoUsuario?: number;
     idPais?: number;
+    especialidades?: string[];
 }
 
 export interface UserResponse{

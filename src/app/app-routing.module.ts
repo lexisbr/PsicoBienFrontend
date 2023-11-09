@@ -18,25 +18,28 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
     component: HomeComponent,
-
   },
   {
     path: 'profile',
     component: ProfileComponent,
-    canActivate: [LoginGuard]
+    canActivate: [LoginGuard],
+  },
+  {
+    path: 'profile/:dni',
+    component: ProfileComponent
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'create-account',
-    component: CreateAccountComponent
+    component: CreateAccountComponent,
   },
   {
     path: 'calendar',
@@ -44,37 +47,36 @@ const routes: Routes = [
   },
   {
     path: 'pruebas',
-    component: PruebasComponent
+    component: PruebasComponent,
   },
   {
     path: 'select',
-    component: SelectTypeUserComponent
+    component: SelectTypeUserComponent,
   },
   {
     path: 'header',
-    component: HeaderComponent
+    component: HeaderComponent,
   },
   {
     path: 'cards',
-    component: CardsComponent
+    component: CardsComponent,
   },
   {
     path: 'dating',
-    component: DatingPatientComponent
+    component: DatingPatientComponent,
   },
   {
     path: 'top5',
-    component: TopFiveComponent
+    component: TopFiveComponent,
   },
   {
     path: 'psicologos',
-    component: PsicologosComponent
-  }
-
+    component: PsicologosComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

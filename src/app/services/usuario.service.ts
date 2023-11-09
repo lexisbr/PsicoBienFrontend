@@ -31,7 +31,6 @@ export class UsuarioService {
       .post<UserResponse>(`${environment.usuariosUrl}/login`, form)
       .pipe(
         map((res: UserResponse) => {
-          console.log('Res =>', res);
         }),
         catchError((err) => this.handlerError(err))
       );
@@ -44,7 +43,6 @@ export class UsuarioService {
   obtenerUsuarios() {
     return this.http.get<UsuariosInterface[]>(`${this.url}/users`).pipe(
       map((res: UsuariosInterface[]) => {
-        console.log('Res =>', res);
         return res;
       }),
       tap((userData) => {
@@ -63,7 +61,7 @@ export class UsuarioService {
       `${environment.usuariosUrl}/userEspecialidad/${dni}`
     );
   }
-  
+
   datosProfesional(colegiado: string) {
     return this.http.get<DatosProfesional>(
       `${environment.profesionalesUrl}/datosProfesionales/${colegiado}`

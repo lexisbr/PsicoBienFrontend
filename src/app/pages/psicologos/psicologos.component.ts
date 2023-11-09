@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { UsuariosInterface } from 'src/app/interface/usuarios.interface';
 import { Select2Option } from 'ng-select2-component';
 import { UbicacionesService } from 'src/app/services/ubicaciones.service';
 import { ProfesionalesService } from 'src/app/services/profesionales.service';
+import { BuscarProfesional } from 'src/app/interface/buscar-profesionales.interface';
+import { SearchbarComponent } from '../complements/searchbar/searchbar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-psicologos',
@@ -12,31 +15,34 @@ import { ProfesionalesService } from 'src/app/services/profesionales.service';
 })
 export class PsicologosComponent {
   title: string = 'Psicologos';
-  userData?: UsuariosInterface[];
+  profesionales?: UsuariosInterface[];
   estados: Select2Option[] = [];
   especialidades: Select2Option[] = [];
-  selectedIdEstado: number;
-  
+  selectedIdEstado: number = null;
+  selectedEspecialidades: string[] = [];
+
+  @ViewChild('searchbar') searchbar: SearchbarComponent;
+
   constructor(
-    private usuarioServices: UsuarioService,
     private ubicacionesService: UbicacionesService,
-    private profesionalesService: ProfesionalesService
+    private profesionalesService: ProfesionalesService,
+    private router: Router
   ) {}
 
   ngOnInit() {
-    this.fillCard();
+    this.search();
+    this.estados.push({ value: '', label: 'Seleccione un departamento' });
     this.ubicacionesService.obtenerEstados('1').subscribe({
       next: (estados) => {
-        console.log(estados);
         estados.forEach((estado) => {
           this.estados.push({
             value: estado.idEstado.toString(),
             label: estado.nombre,
           });
         });
-        
-      }
+      },
     });
+
     this.profesionalesService.obtenerEspecialidades().subscribe({
       next: (especialidades) => {
         especialidades.forEach((especialidad, index) => {
@@ -48,32 +54,39 @@ export class PsicologosComponent {
       },
       error: (err) => {
         console.error(err);
-      }
-    }); 
-  }
-
-  fillCard() {
-    console.log('LLamar a la peticion llenar');
-    this.usuarioServices.obtenerUsuarios().subscribe({
-      next: (userData) => {
-        console.log(userData);
-        this.userData = userData;
-      },
-      error: (err) => {
-        console.error(err);
-      },
-      complete: () => {
-        console.info('Request Complet');
       },
     });
   }
 
-  updateEstado($event){
+
+  updateEstado($event) {
     console.log($event);
-    this.selectedIdEstado = $event.value;
+    this.selectedIdEstado = $event.value === '' ? null : +$event.value;
+  }
+
+  addEspecialidades($event) {
+    const options = $event.options;
+    console.log(options);
+    const optionsList = options.map((option) => `'${option.label}'`);
+    this.selectedEspecialidades = optionsList;
   }
 
   search() {
-    console.log("Especialidades", this.especialidades);
+    console.log(this.selectedEspecialidades.join(','));
+    const body: BuscarProfesional = {
+      nombreCompleto: this.searchbar?.value ?? '',
+      especialidades: this.selectedEspecialidades.join(','),
+      idEstado: this.selectedIdEstado,
+    };
+    this.profesionalesService.buscarProfesionales(body).subscribe({
+      next: (profesionales) => {
+        console.log(profesionales);
+        this.profesionales = profesionales;
+      },
+    });
+  }
+
+  openProfile(dni: string) {
+    this.router.navigate(['/profile'],{ queryParams: { dni }});
   }
 }

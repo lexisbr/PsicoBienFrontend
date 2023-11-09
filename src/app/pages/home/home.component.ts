@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Pais } from 'src/app/interface/pais.interface';
-import { Profesional } from 'src/app/interface/profecional';
 import { UsuariosInterface } from 'src/app/interface/usuarios.interface';
 import { LoginService } from 'src/app/services/auth/login.service';
 import { UbicacionesService } from 'src/app/services/ubicaciones.service';

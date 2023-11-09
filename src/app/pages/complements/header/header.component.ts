@@ -29,7 +29,6 @@ export class HeaderComponent implements OnInit {
     this.loginService.currentUserData.subscribe(
       {
         next:(userData)=>{
-          console.log("Profile(header)",userData)
           this.userData= userData;
         }
       }

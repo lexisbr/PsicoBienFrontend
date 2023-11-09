@@ -65,7 +65,6 @@ export class UpdateDataComponent implements OnInit {
       })
     this.usuariosServices.buscarEspecialidad(this.userData.dni).subscribe({
       next: (data) => {
-        console.log(data);
         this.especialidades = data;
       },
       error: (err) => {
@@ -81,7 +80,6 @@ export class UpdateDataComponent implements OnInit {
   obtenerIdiomas() {
     this.idiomasService.obtenerIdiomas().subscribe({
       next: (data) => {
-        console.log(data);
         this.idiomas = data;
       }
     })
@@ -96,7 +94,6 @@ export class UpdateDataComponent implements OnInit {
         this.imgURL = event.target.result;
       }
       this.image = file;
-      console.log(this.image)
     }
   }
   selectIdioma(event) {
@@ -125,7 +122,6 @@ export class UpdateDataComponent implements OnInit {
 
       }))
     )
-    console.log("Esto se subio", formData)
   }
   onSubmit2() {
     const formData = new FormData();
@@ -149,7 +145,6 @@ export class UpdateDataComponent implements OnInit {
 
       }))
     )
-    console.log("Esto se subio", formData)
   }
   deleteIdioma(idProfesionalIdiomas) {
     Swal.fire({
@@ -159,7 +154,6 @@ export class UpdateDataComponent implements OnInit {
       confirmButtonText: 'Eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
-        // console.log(idProfesionalIdiomas)
         this.http.delete<any>(`http://localhost:3000/usuarios/deleteIdioma/${idProfesionalIdiomas}`).subscribe(res => {
           location.reload();
         })
@@ -169,7 +163,6 @@ export class UpdateDataComponent implements OnInit {
 
   agregarIdioma() {
     if (this.idiomasForm.valid) {
-      console.log("Llamar al servicio de especialidades", this.idiomasForm.value);
       this.http.post<any>('http://localhost:3000/usuarios/agregarIdioma', this.idiomasForm.value).subscribe(
         (res) => (Swal.fire({
           icon: 'success',
@@ -195,7 +188,6 @@ export class UpdateDataComponent implements OnInit {
 
   agregarEspecialidad() {
     if (this.especialidadesForm.valid) {
-      console.log("Llamar al servicio de especialidades", this.especialidadesForm.value);
       this.http.post<any>('http://localhost:3000/usuarios/agregarEspecialidad', this.especialidadesForm.value).subscribe(
         (res) => (Swal.fire({
           icon: 'success',

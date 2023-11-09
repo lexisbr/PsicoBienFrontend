@@ -8,10 +8,13 @@
         <div class="boxContainer">
             <div class="filters">
                 <h2>¿Qué estas buscando?</h2>
-                <app-searchbar placeholder="Buscar por nombre"></app-searchbar>
+                <app-searchbar #searchbar placeholder="Buscar por nombre"></app-searchbar>
                 <div class="filter-box">
-                    <select2 [data]="estados" minCountForSearch="-1" (update)="updateEstado($event)" placeholder="Busca por departamento"></select2>
-                    <select2 [data]="especialidades" minCountForSearch="-1" multiple="true" placeholder="Busca por las especialidades que te interesan"></select2>
+                    <select2 [data]="estados" minCountForSearch="-1" (update)="updateEstado($event)"
+                        placeholder="Busca por departamento"></select2>
+                    <select2 [data]="especialidades" minCountForSearch="-1" multiple="true"
+                        (update)="addEspecialidades($event)" placeholder="Busca por las especialidades que te interesan">
+                    </select2>
                     <button (click)="search()">Buscar</button>
                 </div>
             </div>
@@ -24,17 +27,27 @@
                             <th scope="col">Nombres</th>
                             <th scope="col">Apellidos</th>
                             <th scope="col">Correo</th>
+                            <th scope="col">Especialidades</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let usuario of userData; let i = index">
+                        <tr *ngFor="let profesional of profesionales; let i = index">
                             <th scope="row">{{i+1}}</th>
                             <td>
-                                <img src="{{usuario.urlFotoPerfil}}" alt="Not found" height="100px">
+                                <img src="{{profesional.urlFotoPerfil}}" alt="Not found" height="100px">
                             </td>
-                            <td>{{usuario.nombre}}</td>
-                            <td>{{usuario.apellido}}</td>
-                            <td>{{usuario.email}}</td>
+                            <td>{{profesional.nombre}}</td>
+                            <td>{{profesional.apellido}}</td>
+                            <td>{{profesional.email}}</td>
+                            <td>
+                                <div class="especialidades">
+                                    <span *ngFor="let especialidad of profesional.especialidades">
+                                        {{especialidad}}
+                                    </span>
+                                </div>
+                            </td>
+                            <td><a [routerLink]="['/profile', profesional.dni]">Ver Perfil</a></td>
                         </tr>
                     </tbody>
                 </table>
