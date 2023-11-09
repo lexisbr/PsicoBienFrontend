@@ -49,7 +49,6 @@ export class UpdateDataComponent implements OnInit {
     idCiudad: new FormControl('', Validators.required),
     colegiadoProfesional: new FormControl('', Validators.required),
     terminosDeAtencion: new FormControl('', Validators.required),
-    estado: new FormControl('', Validators.required),
     idPais: new FormControl('', Validators.required),
     idEstado: new FormControl('', Validators.required),
   })
@@ -77,6 +76,8 @@ export class UpdateDataComponent implements OnInit {
       {
         next: (userData) => {
           this.userData = userData;
+          // this.clinicaForm.get('telefono').setValue(userData.telefono);
+          this.clinicaForm.get('colegiadoProfesional').setValue(userData.colegiadoProfesional);
           this.especialidadesForm.get('colegiadoProfesional').setValue(userData.colegiadoProfesional);
           this.idiomasForm.get('colegiadoProfesional').setValue(userData.colegiadoProfesional);
         }
@@ -322,6 +323,29 @@ export class UpdateDataComponent implements OnInit {
         )
       }
     })
+  }
+  agregarClinica(){
+    console.log("Llamar al servicio de especialidades", this.clinicaForm.value);
+    if (this.clinicaForm.valid) {
+      this.http.post<any>('http://localhost:3000/usuarios/agregarClinica', this.clinicaForm.value).subscribe(
+        (res) => (Swal.fire({
+          icon: 'success',
+          title: 'Clinica agregada',
+          text: 'La clinica se subio correctamente'
+        }).then((result) => {
+          if (result) {
+            location.reload();
+          }
+        })
+        ),
+        (err) => (Swal.fire({
+          icon: 'error',
+          title: 'Opps....',
+          text: 'Parece que no subio nada!!!'
+        })
+        )
+      )
+    }
   }
   deleteClinica(idClinica) {
     Swal.fire({
