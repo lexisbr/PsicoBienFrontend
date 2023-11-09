@@ -8,6 +8,10 @@ import { Idiomas, IdiomasProfesional } from 'src/app/interface/profesionales_idi
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ProfesionalEspecialidades, ClinicasProfesional } from 'src/app/interface/profesionales_idiomas.interface';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UbicacionesService } from 'src/app/services/ubicaciones.service';
+import { Pais } from 'src/app/interface/pais.interface';
+import { Estado } from 'src/app/interface/estado.interface';
+import { Ciudad } from 'src/app/interface/ciudad.interface';
 @Component({
   selector: 'app-update-data',
   templateUrl: './update-data.component.html',
@@ -15,6 +19,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class UpdateDataComponent implements OnInit {
   @Output() actualizarPerfil = new EventEmitter<boolean>();
+  paises: Pais[] = [];
+  estados: Estado[] = [];
+  ciudades: Ciudad[] = [];
+
   //para actualizar fotos
   title: 'uploadFiles';
   image = "";
@@ -42,7 +50,8 @@ export class UpdateDataComponent implements OnInit {
     colegiadoProfesional: new FormControl('', Validators.required),
     terminosDeAtencion: new FormControl('', Validators.required),
     estado: new FormControl('', Validators.required),
-
+    idPais: new FormControl('', Validators.required),
+    idEstado: new FormControl('', Validators.required),
   })
   //
   userDataIdiomas: IdiomasProfesional[]
@@ -55,6 +64,7 @@ export class UpdateDataComponent implements OnInit {
     private idiomasService: IdiomasService,
     private usuariosServices: UsuarioService,
     private formBuilder: FormBuilder,
+    private ubicacionesService: UbicacionesService,
     private http: HttpClient
   ) { }
   enviarDatosAlPadre() {
@@ -100,9 +110,39 @@ export class UpdateDataComponent implements OnInit {
     ) 
 
     this.obtenerIdiomas();
+    this.obtenerPaises();
   }
 
-  
+  obtenerPaises() {
+    this.ubicacionesService.obtenerPaises().subscribe((data) => {
+      this.paises = data;
+      console.log(data);
+    });
+  }
+
+  obtenerEstados() {
+
+    const idPais = this.clinicaForm.value.idPais;
+    if (idPais !== null && idPais !== undefined) {
+      this.ubicacionesService.obtenerEstados(idPais).subscribe((data) => {
+        this.estados = data;
+        console.log(data);
+      });
+    }
+  }
+
+  obtenerCiudades() {
+    const idEstado = this.clinicaForm.value.idEstado;
+    if (idEstado !== null && idEstado !== undefined) {
+      this.ubicacionesService.obtenerCiudades(idEstado).subscribe((data) => {
+        this.ciudades = data;
+        console.log(data);
+      });
+    }
+  }
+
+
+
   obtenerIdiomas() {
     this.idiomasService.obtenerIdiomas().subscribe({
       next: (data) => {

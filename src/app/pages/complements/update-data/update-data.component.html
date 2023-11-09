@@ -123,7 +123,17 @@
                     <div class="agregar">
                         <h2 class="text-center">Agregar clinica</h2>
                         <form [formGroup]="clinicaForm">
-                                <input class="form-control" formControlName="zona">
+                            <select class="form-control" name="paises" id="paises" formControlName="idPais"
+                            (change)="obtenerEstados()">
+                            <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombre}}</option>
+                        </select>
+                        <select class="form-control" name="estados" id="estados" formControlName="idEstado" (change)="obtenerCiudades()">
+                            <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}</option>
+                        </select>
+                        <select class="form-control" name="ciudades" id="ciudades" formControlName="idCiudad">
+                            <option *ngFor="let ciudad of ciudades" [value]="ciudad.idCiudad">{{ciudad.nombre}}
+                            </option>
+                        </select>
                                 <input class="form-control" formControlName="calle">
                                 <input class="form-control" formControlName="numero">
                                 <input class="form-control" formControlName="piso">
