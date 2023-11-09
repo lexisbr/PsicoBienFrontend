@@ -53,7 +53,7 @@ export class UsuarioService {
     );
   }
 
-  crearUsuario(form: UsuariosInterface){
+  crearUsuario(form: UsuariosInterface) {
     return this.http.post<UsuariosInterface>(`${this.url}/registrar`, form);
   }
 
