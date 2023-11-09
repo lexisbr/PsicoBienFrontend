@@ -36,13 +36,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-
+    console.log("entra a profile")
     const dniUser = this.route.snapshot.paramMap.get('dni');
 
     if(dniUser){
       this.usuarioService.obtenerUsuario(dniUser).subscribe({
         next: (userData) => {
           this.userData = userData;
+          console.log("Profile", userData);
+          this.loadData();
         },
       });
 
@@ -56,10 +58,21 @@ export class ProfileComponent implements OnInit, OnDestroy {
         next: (userData) => {
           console.log('Profile(profile)', userData);
           this.userData = userData;
-        },
+          this.loadData();
+        }
       });
+    
     }
    
+    
+  }
+
+  ngOnDestroy(): void {
+    this.loginService.currentUserLoginOn.unsubscribe();
+    this.loginService.currentUserData.unsubscribe();
+  }
+
+  loadData(){
     this.idiomasService.obtenerIdiomasProfesional(this.userData.dni).subscribe({
       next: (idiomasData) => {
         // console.log("Estos son los idiomas xd: ", idiomasData)
@@ -80,11 +93,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.datosProfesional = datosProfesional;
         },
       });
-  }
-
-  ngOnDestroy(): void {
-    this.loginService.currentUserLoginOn.unsubscribe();
-    this.loginService.currentUserData.unsubscribe();
+  
   }
 
   selectImage(event) {

@@ -58,7 +58,6 @@ export class PsicologosComponent {
     });
   }
 
-
   updateEstado($event) {
     console.log($event);
     this.selectedIdEstado = $event.value === '' ? null : +$event.value;
@@ -87,6 +86,7 @@ export class PsicologosComponent {
   }
 
   openProfile(dni: string) {
-    this.router.navigate(['/profile'],{ queryParams: { dni }});
+    console.log(dni);
+    this.router.navigate(['/profile', dni]);
   }
 }

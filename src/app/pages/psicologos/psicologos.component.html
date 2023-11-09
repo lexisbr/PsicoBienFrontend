@@ -47,7 +47,7 @@
                                     </span>
                                 </div>
                             </td>
-                            <td><a [routerLink]="['/profile', profesional.dni]">Ver Perfil</a></td>
+                            <td><button (click)="openProfile(profesional.dni)">Ver Perfil</button></td>
                         </tr>
                     </tbody>
                 </table>
