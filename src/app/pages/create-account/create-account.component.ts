@@ -8,6 +8,7 @@ import { Pais } from 'src/app/interface/pais.interface';
 import { Estado } from 'src/app/interface/estado.interface';
 import { Ciudad } from 'src/app/interface/ciudad.interface';
 import { TipoUsuario } from 'src/app/enum/tipos-usuario.enum';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-account',
@@ -35,6 +36,7 @@ export class CreateAccountComponent implements OnInit {
     idEstado: new FormControl('', Validators.required),
     idCiudad: new FormControl('', Validators.required),
   });
+
   get dni() {
     return this.createAccountForm.controls.dni;
   }
@@ -74,13 +76,14 @@ export class CreateAccountComponent implements OnInit {
   }
   constructor(
     private usuarios: UsuarioService,
-    private ubicacionesService: UbicacionesService
+    private ubicacionesService: UbicacionesService,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
     this.obtenerPaises();
   }
-
+  
   obtenerPaises() {
     this.ubicacionesService.obtenerPaises().subscribe((data) => {
       this.paises = data;
@@ -145,19 +148,33 @@ export class CreateAccountComponent implements OnInit {
       genero: formData.genero,
       telefono: formData.telefono,
       password: formData.password,
-      idPais: Number(formData.idCiudad),
+      idCiudad: Number(formData.idCiudad),
       idTipoUsuario: tipoUsuario,
     };
 
-    this.usuarios.crearUsuario(userData).subscribe((data) => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Usuario registrado con exito',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      console.log(data);
-    });
+    this.usuarios.crearUsuario(userData).subscribe({
+      next: (userData) => {
+        console.log(("userdata"),userData);
+        sessionStorage.setItem('usuario', userData.dni);
+      },
+      error: (err) => {
+        console.error(err);
+
+      },
+      complete: () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Usuario registrado con exito',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        console.log("Session", sessionStorage.getItem('usuario'));
+        this.router.navigateByUrl('/profile');
+
+        console.info("Login completo")
+      }
+    })
+    
   }
 
   checkForNullUndefinedValues(formGroup: FormGroup): boolean {

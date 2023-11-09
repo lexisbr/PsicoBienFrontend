@@ -2,50 +2,50 @@
     <h1 class="text-center bg-white">Actualizar datos de perfil</h1>
     <i class="fa-solid fa-rectangle-xmark" (click)="enviarDatosAlPadre()"></i>
     <hr>
-    
-<div class="separadorFotos">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 bg-white">
-                <div class="card">
-                    <div class="card-body">
-                        <form (ngSubmit)="onSubmit()">
-                            <label>Cambiar foto de portada</label>
-                            <div class="form-group">
-                                <div class="div_file">
-                                    <p class="text">Seleccionar...</p>
-                                    <input class="btn_enviar" type="file" name="image" accept="image/*"
-                                        (change)="selectImage($event)"><br>
+
+    <div class="separadorFotos">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 bg-white">
+                    <div class="card">
+                        <div class="card-body">
+                            <form (ngSubmit)="onSubmit()">
+                                <label>Cambiar foto de portada</label>
+                                <div class="form-group">
+                                    <div class="div_file">
+                                        <p class="text">Seleccionar...</p>
+                                        <input class="btn_enviar" type="file" name="image" accept="image/*"
+                                            (change)="selectImage($event)"><br>
+                                    </div>
+                                    <button class="btn btn-outline-primary" type="submit">Subir</button>
                                 </div>
-                                <button class="btn btn-outline-primary" type="submit">Subir</button>
-                            </div>
-                        </form>
-                        <form (ngSubmit)="onSubmit2()">
-                            <label>Cambiar foto de perfil</label>
-                            <div class="form-group">
-                                <div class="div_file">
-                                    <p class="text">Seleccionar...</p>
-                                    <input class="btn_enviar" type="file" name="image" accept="image/*"
-                                    (change)="selectImage($event)"><br>
+                            </form>
+                            <form (ngSubmit)="onSubmit2()">
+                                <label>Cambiar foto de perfil</label>
+                                <div class="form-group">
+                                    <div class="div_file">
+                                        <p class="text">Seleccionar...</p>
+                                        <input class="btn_enviar" type="file" name="image" accept="image/*"
+                                            (change)="selectImage($event)"><br>
+                                    </div>
+                                    <button class="btn btn-outline-primary" type="submit">Subir</button>
                                 </div>
-                                <button class="btn btn-outline-primary" type="submit">Subir</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 bg-white">
+                    <div class="card card-foto">
+                        <img [src]="imgURL" alt="" class="card-img-top">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 bg-white">
-                <div class="card card-foto">
-                    <img [src]="imgURL" alt="" class="card-img-top">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
     <br>
     <div class="separador">
         <div class="container">
@@ -63,10 +63,13 @@
                     </div>
                     <div class="agregar">
                         <form [formGroup]="idiomasForm">
-                            <select class="form-control" name="idiomas" id="idiomas" formControlName="idIdioma" (change)="selectIdioma($event)" >
-                                <option *ngFor="let idioma of idiomas" [value]="idioma.idIdiomas" >{{idioma.nombre}}</option>
+                            <select class="form-control" name="idiomas" id="idiomas" formControlName="idIdioma"
+                                (change)="selectIdioma($event)">
+                                <option *ngFor="let idioma of idiomas" [value]="idioma.idIdiomas">{{idioma.nombre}}
+                                </option>
                             </select>
-                            <button (click)="agregarIdioma()" class="btn btn-outline-success btn-block" type="submit">Agregar</button>
+                            <button (click)="agregarIdioma()" class="btn btn-outline-success btn-block"
+                                type="submit">Agregar</button>
                         </form>
 
                     </div>
@@ -89,7 +92,8 @@
                     <div class="agregar">
                         <form [formGroup]="especialidadesForm">
                             <input class="form-control" formControlName="especialidad">
-                            <button (click)="agregarEspecialidad()" class="btn btn-outline-success btn-block" type="submit">Agregar</button>
+                            <button (click)="agregarEspecialidad()" class="btn btn-outline-success btn-block"
+                                type="submit">Agregar</button>
                         </form>
 
                     </div>
@@ -123,18 +127,33 @@
                     <div class="agregar">
                         <h2 class="text-center">Agregar clinica</h2>
                         <form [formGroup]="clinicaForm">
-                                <input class="form-control" formControlName="zona">
-                                <input class="form-control" formControlName="calle">
-                                <input class="form-control" formControlName="numero">
-                                <input class="form-control" formControlName="piso">
-                                <input class="form-control" formControlName="telefono">
-                                <input class="form-control" formControlName="nombre">
-                                <input class="form-control" formControlName="referencias_direccion">
-                                <input class="form-control" formControlName="idCiudad">
-                                <input class="form-control" formControlName="colegiadoProfesional">
-                                <input class="form-control" formControlName="terminosDeAtencion">
-                                <input class="form-control" formControlName="estado">
-                            <button (click)="agregarEspecialidad()" class="btn btn-outline-success btn-block" type="submit">Agregar</button>
+                            <label for="">Seleccionar pais</label>
+                            <select class="form-control" name="paises" id="paises" formControlName="idPais"
+                                (change)="obtenerEstados()">
+                                <option *ngFor="let pais of paises" [value]="pais.idPais">{{pais.nombre}}</option>
+                            </select>
+                            <label for="">Seleccionar estado</label>
+                            <select class="form-control" name="estados" id="estados" formControlName="idEstado"
+                                
+                                (change)="obtenerCiudades()">
+                                <option *ngFor="let estado of estados" [value]="estado.idEstado">{{estado.nombre}}
+                                </option>
+                            </select>
+                            <label for="">Seleccionar ciudad</label>
+                            <select class="form-control" name="ciudades" id="ciudades" formControlName="idCiudad">
+                                <option *ngFor="let ciudad of ciudades" [value]="ciudad.idCiudad">{{ciudad.nombre}}
+                                </option>
+                            </select>
+                            <input class="form-control" formControlName="zona" placeholder="Ingrese la zona...">
+                            <input class="form-control" formControlName="calle" placeholder="Ingrese la calle...">
+                            <input class="form-control" formControlName="numero" placeholder="Ingrese número de local...">
+                            <input class="form-control" formControlName="piso" placeholder="Ingrese piso">
+                            <input class="form-control" formControlName="telefono" placeholder="Ingrese telefono">
+                            <input class="form-control" formControlName="nombre" placeholder="Ingrese nombre del local">
+                            <input class="form-control" formControlName="referencias_direccion" placeholder="Ingrese alguna referencia...">
+                            <input class="form-control" formControlName="terminosDeAtencion" placeholder="Ingrese terminos y condiciones...">
+                            <button (click)="agregarClinica()" class="btn btn-outline-success btn-block"
+                                type="submit">Agregar</button>
                         </form>
                     </div>
                 </div>

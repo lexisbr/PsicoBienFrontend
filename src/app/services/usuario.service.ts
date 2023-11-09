@@ -53,8 +53,8 @@ export class UsuarioService {
     );
   }
 
-  crearUsuario(form: UsuariosInterface): Observable<ResponseI> {
-    return this.http.post<ResponseI>(`${this.url}/registrar`, form);
+  crearUsuario(form: UsuariosInterface){
+    return this.http.post<UsuariosInterface>(`${this.url}/registrar`, form);
   }
 
   buscarEspecialidad(dni: string) {
