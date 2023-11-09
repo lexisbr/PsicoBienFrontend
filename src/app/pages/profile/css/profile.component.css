@@ -29,19 +29,6 @@
   gap: 20px;
   position: relative;
 }
-.container-fluid .main .content .configura {
-  position: absolute;
-  width: 35px;
-  height: 35px;
-  top: 3%;
-  right: 2%;
-}
-.container-fluid .main .content .configura i {
-  font-size: 35px;
-}
-.container-fluid .main .content .configura i:hover {
-  color: #fff;
-}
 .container-fluid .main .content .profileBox {
   width: 100%;
   height: 700px;
@@ -49,6 +36,19 @@
   border-radius: 15px;
   overflow: hidden;
   position: relative;
+}
+.container-fluid .main .content .profileBox .configura {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 3%;
+  right: 2%;
+}
+.container-fluid .main .content .profileBox .configura i {
+  font-size: 35px;
+}
+.container-fluid .main .content .profileBox .configura i:hover {
+  color: #fff;
 }
 .container-fluid .main .content .profileBox .info {
   display: flex;
@@ -124,6 +124,10 @@
   font-size: 25px;
   padding: 10px;
 }
+.container-fluid .main .content .profileBox .buttons .BoxButtons button a {
+  text-decoration: none;
+  color: black;
+}
 .container-fluid .main .content .profileBox .buttons .BoxButtons button:hover {
   background: #01acc8;
 }
@@ -177,6 +181,9 @@
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   padding: 40px 40px;
 }
+.container-fluid .main .content .containerP .contentBox .informacionBox .datosUbicacion h4 {
+  padding: 10px;
+}
 .container-fluid .main .content .containerP .contentBox .informacionBox .btnContacto {
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   padding: 40px 25px;
@@ -208,6 +215,19 @@
   padding: 10px 40px;
   padding-bottom: 40px;
   width: 100%;
+}
+.container-fluid .main .content .containerP .contentBox .informacionBox .lenguage .boxClinicas {
+  padding: 10px;
+}
+.container-fluid .main .content .containerP .contentBox .informacionBox .lenguage .boxClinicas .option {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.container-fluid .main .content .containerP .contentBox .informacionBox .lenguage .boxClinicas .option i {
+  width: 20px;
+  color: green;
 }
 .container-fluid .main .content .containerP .contentBox .informacionBox .lenguage .option {
   width: 100%;

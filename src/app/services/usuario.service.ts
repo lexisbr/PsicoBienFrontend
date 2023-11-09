@@ -7,6 +7,7 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import {
   DatosProfesional,
   ProfesionalEspecialidades,
+  ClinicasProfesional
 } from '../interface/profesionales_idiomas.interface';
 import {
   UserResponse,
@@ -63,9 +64,12 @@ export class UsuarioService {
   }
 
   datosProfesional(colegiado: string) {
-    return this.http.get<DatosProfesional>(
+    return this.http.get<DatosProfesional[]>(
       `${environment.profesionalesUrl}/datosProfesionales/${colegiado}`
     );
+  }
+  obtenerClinicas(colegiado:string):Observable<ClinicasProfesional[]>{
+    return this.http.get<ClinicasProfesional[]>(`${environment.usuariosUrl}/clinicas/${colegiado}`)
   }
 
   private handlerError(error: HttpErrorResponse) {

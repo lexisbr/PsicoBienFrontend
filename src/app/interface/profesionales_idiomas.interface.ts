@@ -27,7 +27,21 @@ export interface ProfesionalEspecialidades{
     especialidad: string;
 }
 export interface DatosProfesional{
-    descripcion: string;
     nombre: string;
+    descripcion: string;
     precioPorHora: number;
+}
+
+export interface ClinicasProfesional{
+    idClinica: number;
+    zona: number;
+    calle: string;
+    numero: string;
+    piso: number;
+    referencias_direccion: string;
+    telefono: string;
+    nombre: string;
+    terminosDeAtencion: string;
+    ciudad:string;
+    estado: string
 }
