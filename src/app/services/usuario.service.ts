@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ResponseI } from '../interface/response.interface';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -11,10 +10,9 @@ import {
 } from '../interface/profesionales_idiomas.interface';
 import {
   UserResponse,
-  UsuarioEspecialidades,
   UsuariosInterface,
 } from '../interface/usuarios.interface';
-import { LoginInterface } from '../interface/login.interface';
+
 import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({

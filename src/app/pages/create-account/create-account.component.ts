@@ -9,6 +9,7 @@ import { Estado } from 'src/app/interface/estado.interface';
 import { Ciudad } from 'src/app/interface/ciudad.interface';
 import { TipoUsuario } from 'src/app/enum/tipos-usuario.enum';
 import { Router } from '@angular/router';
+import { ProfesionalesService } from 'src/app/services/profesionales.service';
 
 @Component({
   selector: 'app-create-account',
@@ -35,7 +36,13 @@ export class CreateAccountComponent implements OnInit {
     idPais: new FormControl('', Validators.required),
     idEstado: new FormControl('', Validators.required),
     idCiudad: new FormControl('', Validators.required),
+    numeroColegiado: new FormControl(''),
   });
+
+  //para actualizar fotos
+  title: 'uploadFiles';
+  image = '';
+  imgURL = '../../../../assets/sin_foto.jpg';
 
   get dni() {
     return this.createAccountForm.controls.dni;
@@ -74,30 +81,31 @@ export class CreateAccountComponent implements OnInit {
   get idCiudad() {
     return this.createAccountForm.controls.idCiudad;
   }
+  get numeroColegiado() {
+    return this.createAccountForm.controls.numeroColegiado;
+  }
   constructor(
     private usuarios: UsuarioService,
     private ubicacionesService: UbicacionesService,
-    private router: Router,
+    private profesionalesService: ProfesionalesService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.obtenerPaises();
   }
-  
+
   obtenerPaises() {
     this.ubicacionesService.obtenerPaises().subscribe((data) => {
       this.paises = data;
-      console.log(data);
     });
   }
 
   obtenerEstados() {
-
     const idPais = this.createAccountForm.value.idPais;
     if (idPais !== null && idPais !== undefined) {
       this.ubicacionesService.obtenerEstados(idPais).subscribe((data) => {
         this.estados = data;
-        console.log(data);
       });
     }
   }
@@ -107,28 +115,29 @@ export class CreateAccountComponent implements OnInit {
     if (idEstado !== null && idEstado !== undefined) {
       this.ubicacionesService.obtenerCiudades(idEstado).subscribe((data) => {
         this.ciudades = data;
-        console.log(data);
       });
     }
   }
 
   nextTab() {
-    const password = this.createAccountForm.value.password;
-    const passwordVal = this.createAccountForm.value.paswordVal;
-    if (this.checkForNullUndefinedValues(this.createAccountForm)) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Por favor, llena todos los campos',
-      });
-      return;
-    } else if (password !== passwordVal) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Las contraseñas no coinciden',
-      });
-      return;
+    if (this.tab == 1) {
+      const password = this.createAccountForm.value.password;
+      const passwordVal = this.createAccountForm.value.paswordVal;
+      if (this.checkForNullUndefinedValues(this.createAccountForm)) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Por favor, llena todos los campos',
+        });
+        return;
+      } else if (password !== passwordVal) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Las contraseñas no coinciden',
+        });
+        return;
+      }
     }
     this.tab = this.tab + 1;
   }
@@ -138,6 +147,14 @@ export class CreateAccountComponent implements OnInit {
   }
 
   onCreate(tipoUsuario: TipoUsuario) {
+    if (tipoUsuario === TipoUsuario.PACIENTE) {
+      this.sendDataToCreateUser(tipoUsuario);
+    } else if (tipoUsuario === TipoUsuario.PROFESIONAL) {
+      this.nextTab();
+    }
+  }
+
+  sendDataToCreateUser(tipoUsuario: TipoUsuario) {
     const formData = this.createAccountForm.value;
     const userData: UsuariosInterface = {
       dni: formData.dni,
@@ -150,31 +167,36 @@ export class CreateAccountComponent implements OnInit {
       password: formData.password,
       idCiudad: Number(formData.idCiudad),
       idTipoUsuario: tipoUsuario,
+      colegiadoProfesional: formData.numeroColegiado,
     };
 
     this.usuarios.crearUsuario(userData).subscribe({
       next: (userData) => {
-        console.log(("userdata"),userData);
+        console.log('userdata', userData);
         sessionStorage.setItem('usuario', userData.dni);
       },
       error: (err) => {
         console.error(err);
-
       },
       complete: () => {
-        Swal.fire({
-          icon: 'success',
-          title: 'Usuario registrado con exito',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        console.log("Session", sessionStorage.getItem('usuario'));
+        if (tipoUsuario === TipoUsuario.PROFESIONAL) {
+          Swal.fire({
+            icon: 'success',
+            title:
+              'Hemos registrado tu solicitud con éxito',
+            showConfirmButton: true,
+          });
+        } else if (tipoUsuario === TipoUsuario.PACIENTE) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Usuario registrado con exito',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
         this.router.navigateByUrl('/profile');
-
-        console.info("Login completo")
-      }
-    })
-    
+      },
+    });
   }
 
   checkForNullUndefinedValues(formGroup: FormGroup): boolean {
@@ -182,11 +204,52 @@ export class CreateAccountComponent implements OnInit {
 
     Object.keys(formGroup.controls).forEach((key) => {
       const control = formGroup.get(key).value;
-      if (control == '' || control === null || control === undefined) {
+      if (key != "numeroColegiado" && (control == '' || control === null || control === undefined)) {
         hasNullUndefinedValues = true;
       }
     });
 
     return hasNullUndefinedValues;
+  }
+
+  createProfesional() {
+    if (this.image != '' && this.numeroColegiado) {
+      const formData = new FormData();
+      formData.append('file', this.image);
+      formData.append('dni', this.createAccountForm.value.dni);
+      formData.append('colegiado', this.numeroColegiado.value);
+
+      this.profesionalesService.enviarSolicitudRegistro(formData).subscribe({
+        next: (data) => {
+          this.sendDataToCreateUser(TipoUsuario.PROFESIONAL);
+        },
+        error: (err) => {
+          Swal.fire({
+            icon: 'error',
+            title: err.error.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        },
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Por favor, llena todos los campos',
+      });
+    }
+  }
+
+  selectImage(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      const readear = new FileReader();
+      readear.readAsDataURL(file);
+      readear.onload = (event: any) => {
+        this.imgURL = event.target.result;
+      };
+      this.image = file;
+    }
   }
 }

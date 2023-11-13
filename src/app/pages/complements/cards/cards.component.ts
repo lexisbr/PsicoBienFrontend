@@ -5,6 +5,7 @@ import {
   IdiomasProfesional,
 } from 'src/app/interface/profesionales_idiomas.interface';
 import { UsuariosInterface } from 'src/app/interface/usuarios.interface';
+import { LoginService } from 'src/app/services/auth/login.service';
 import { IdiomasService } from 'src/app/services/idiomas.service';
 import { UbicacionesService } from 'src/app/services/ubicaciones.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -19,19 +20,28 @@ export class CardsComponent {
   userDataIdiomas: IdiomasProfesional[];
   especialidades: ProfesionalEspecialidades[];
   @Input() userData: UsuariosInterface;
-
+  userLoginOn: boolean = false;
+  
   constructor(
-    private ubicasionesServices: UbicacionesService,
+    private ubicacionesService: UbicacionesService,
     private usuariosServices: UsuarioService,
-    private idiomasService: IdiomasService
+    private idiomasService: IdiomasService,
+    private loginService: LoginService,
   ) {}
+
   ngOnInit() {
     this.findPais();
     this.findEspecialidades();
     this.findIdiomas();
+    this.loginService.currentUserLoginOn.subscribe({
+      next: (userLoginOn) => {
+        this.userLoginOn = userLoginOn;
+      },
+    });
   }
+
   findPais() {
-    this.ubicasionesServices.obtenerPais(this.userData.dni).subscribe({
+    this.ubicacionesService.obtenerPais(this.userData.dni).subscribe({
       next: (data) => {
         this.pais = data;
       },

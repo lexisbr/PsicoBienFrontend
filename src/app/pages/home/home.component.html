@@ -1,11 +1,10 @@
 <div class="container-fluid">
-    <app-header></app-header>
     <main class="main">
         <section class="banner">
             <img src="assets/img-home/banner_3.webp" alt="banner" class="img">
             <div class="content">
                 <h2> Tus salud mental es lo más importante</h2>
-                <p>Tu bienestar emocional es nuestra prioridad. En PsicóBien, te conectamos con profesionales de la
+                <p>Tu bienestar emocional es nuestra prioridad. En Psicobien, te conectamos con profesionales de la
                     salud mental para que puedas vivir una vida plena y equilibrada.</p>
                 <a href="#PsicoCards" class="btn">Ver más</a>
             </div>
@@ -39,7 +38,7 @@
         </section>
         <section class="PsicoCards" id="PsicoCards">
             <div class="content">
-                <h2>Psicólogos que te pueden interesar</h2>
+                <h2>Psicólogos que te pueden interesar</h2><br>
                 <h3>Profesionales capacitados para ayudarte con tu bienesar mental.</h3>
             </div>
 
@@ -54,7 +53,7 @@
             coverflow-effect-modifier="1"
             coverflow-effect-slide-shadows="false"
             >
-                <swiper-slide *ngFor="let usuario of userDatas">
+                <swiper-slide *ngFor="let usuario of usersData">
                     <app-cards [userData]="usuario"></app-cards>
                 </swiper-slide>
                 

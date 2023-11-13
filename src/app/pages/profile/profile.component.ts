@@ -6,16 +6,22 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { LoginService } from 'src/app/services/auth/login.service';
-import { ClinicasProfesional, DatosProfesional, ProfesionalEspecialidades } from 'src/app/interface/profesionales_idiomas.interface';
-import { IdiomasProfesional, Profesionales_idiomasInterface } from 'src/app/interface/profesionales_idiomas.interface';
+import {
+  ClinicasProfesional,
+  DatosProfesional,
+  ProfesionalEspecialidades,
+} from 'src/app/interface/profesionales_idiomas.interface';
+import { IdiomasProfesional } from 'src/app/interface/profesionales_idiomas.interface';
 import { IdiomasService } from 'src/app/services/idiomas.service';
-import { cl, dE } from '@fullcalendar/core/internal-common';
+import { TipoUsuario } from 'src/app/enum/tipos-usuario.enum';
+import { ProfesionalesService } from 'src/app/services/profesionales.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./css/profile.component.css'],
 })
-export class ProfileComponent implements OnInit, OnDestroy {
+export class ProfileComponent implements OnInit {
   @Input() usuario: UsuariosInterface;
   updateDataComponent: boolean = true;
   private fileTmp: any;
@@ -28,27 +34,27 @@ export class ProfileComponent implements OnInit, OnDestroy {
   UserDataIdiomas: IdiomasProfesional[];
   especialidades: ProfesionalEspecialidades[];
 
+  canEditProfile: boolean = true;
+
   constructor(
     private usuarioService: UsuarioService,
     private route: ActivatedRoute,
     private loginService: LoginService,
-    private idiomasService: IdiomasService
+    private idiomasService: IdiomasService,
+    private profesionalesService: ProfesionalesService
   ) {}
 
   ngOnInit() {
-    console.log("entra a profile")
     const dniUser = this.route.snapshot.paramMap.get('dni');
 
-    if(dniUser){
+    if (dniUser) {
       this.usuarioService.obtenerUsuario(dniUser).subscribe({
         next: (userData) => {
           this.userData = userData;
-          console.log("Profile", userData);
           this.loadData();
         },
       });
-
-    }else{
+    } else {
       this.loginService.currentUserLoginOn.subscribe({
         next: (userLoginOn) => {
           this.userLoginOn = userLoginOn;
@@ -56,32 +62,42 @@ export class ProfileComponent implements OnInit, OnDestroy {
       });
       this.loginService.currentUserData.subscribe({
         next: (userData) => {
-          console.log('Profile(profile)', userData);
-          this.userData = userData;
-          this.loadData();
-        }
+          if (userData.dni !== '') {
+            this.userData = userData;
+            if (this.userData.idTipoUsuario == TipoUsuario.PROFESIONAL) {
+              console.log(this.userData.colegiadoProfesional);
+              this.profesionalesService
+                .obtenerDatosProfesional(this.userData.colegiadoProfesional)
+                .subscribe({
+                  next: (data) => {
+                    const dataProfesional = data[0];
+                    if (dataProfesional.estado == 2) {
+                      this.canEditProfile = false;
+                      Swal.fire({
+                        icon: 'info',
+                        title:
+                          'Por el momento no podrás editar tu perfil, debes esperar a que el administrador aprueba tu solicitud de registro',
+                        showConfirmButton: true,
+                      });
+                    }
+                  },
+                });
+            }
+            this.loadData();
+          }
+        },
       });
-    
     }
-   
-    
   }
 
-  ngOnDestroy(): void {
-    this.loginService.currentUserLoginOn.unsubscribe();
-    this.loginService.currentUserData.unsubscribe();
-  }
-
-  loadData(){
+  loadData() {
     this.idiomasService.obtenerIdiomasProfesional(this.userData.dni).subscribe({
       next: (idiomasData) => {
-        // console.log("Estos son los idiomas xd: ", idiomasData)
         this.UserDataIdiomas = idiomasData;
       },
     });
     this.usuarioService.buscarEspecialidad(this.userData.dni).subscribe({
       next: (especialidades) => {
-        // console.log("Estas son las especialidades",especialidades);
         this.especialidades = especialidades;
       },
     });
@@ -89,18 +105,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
       .datosProfesional(this.userData.colegiadoProfesional)
       .subscribe({
         next: (datosProfesional) => {
-          // console.log('datos que vienen de descripcion ', datosProfesional);
           this.datosProfesional = datosProfesional;
         },
       });
-
-      this.usuarioService.obtenerClinicas(this.userData.colegiadoProfesional)
-      .subscribe({
-        next: (datosClincia)=>{
-          this.clinicasProfesiona = datosClincia;
-        }
-      })
-  
   }
 
   selectImage(event) {

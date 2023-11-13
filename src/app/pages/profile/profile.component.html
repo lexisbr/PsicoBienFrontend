@@ -1,5 +1,4 @@
 <div class="container-fluid">
-    <app-header></app-header>
     <div class="main">
         <div class="prueba" *ngIf="!updateDataComponent">
             <app-update-data (actualizarPerfil)="actualizarPerfilEnPadre($event)"
@@ -8,7 +7,7 @@
         <section class="content">
 
             <div class="profileBox">
-                <div class="configura">
+                <div class="configura" *ngIf="canEditProfile">
                     <i class="fa-solid fa-gear" (click)="updateDataComponent = !updateDataComponent"></i>
                 </div>
                 <div class="info">

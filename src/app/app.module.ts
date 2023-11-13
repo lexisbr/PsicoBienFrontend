@@ -27,7 +27,8 @@ import { Select2Module } from 'ng-select2-component';
 import { register } from 'swiper/element/bundle';
 import { SearchbarComponent } from './pages/complements/searchbar/searchbar.component';
 import { UpdateDataComponent } from './pages/complements/update-data/update-data.component';
-import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
+import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
+import { ImgModalComponent } from './pages/complements/img-modal/img-modal.component';
 // register Swiper custom elements
 register();
 
@@ -49,7 +50,8 @@ register();
     PsicologosComponent,
     SearchbarComponent,
     UpdateDataComponent,
-    DashboardAdminComponent
+    AdminPanelComponent,
+    ImgModalComponent,
   ],
   imports: [
     BrowserModule,
