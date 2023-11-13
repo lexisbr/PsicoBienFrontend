@@ -108,6 +108,13 @@ export class ProfileComponent implements OnInit {
           this.datosProfesional = datosProfesional;
         },
       });
+      this.usuarioService.obtenerClinicas(this.userData.colegiadoProfesional).subscribe(
+        {
+          next: (clinicas)=>{
+            this.clinicasProfesiona = clinicas;
+          }
+        }
+      ) 
   }
 
   selectImage(event) {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ResponseI } from '../interface/response.interface';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -10,9 +11,10 @@ import {
 } from '../interface/profesionales_idiomas.interface';
 import {
   UserResponse,
+  UsuarioEspecialidades,
   UsuariosInterface,
 } from '../interface/usuarios.interface';
-
+import { LoginInterface } from '../interface/login.interface';
 import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
@@ -37,18 +39,6 @@ export class UsuarioService {
 
   obtenerUsuario(DNI) {
     return this.http.get<UsuariosInterface>(`${this.url}/users/${DNI}`);
-  }
-
-  obtenerUsuarios() {
-    return this.http.get<UsuariosInterface[]>(`${this.url}/users/${2}`).pipe(
-      map((res: UsuariosInterface[]) => {
-        return res;
-      }),
-      tap((userData) => {
-        this.currentUserData.next(userData);
-      }),
-      catchError(this.handlerError)
-    );
   }
 
   crearUsuario(form: UsuariosInterface) {
