@@ -1,0 +1,36 @@
+<main>
+    <div class="requests">
+        <h1>Solicitudes de Registro</h1>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Correo</th>
+                        <th>No. Colegiado</th>
+                        <th>Titulo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of requests">
+                        <td>{{request.nombre}}</td>
+                        <td>{{request.apellido}}</td>
+                        <td>{{request.email}}</td>
+                        <td>{{request.colegiado}}</td>
+                        <td><button (click)="setImageUrl(request.fotoTitulo)">Ver</button></td>
+                        <td>
+                            <button class="btn btn-success" (click)="acceptRequest(request.colegiado)">Aceptar</button>
+                            <button class="btn btn-danger" (click)="rejectRequest(request.colegiado)">Rechazar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div *ngIf="modalImageUrl != ''">
+        <h1>Titulo Seleccionado: </h1>
+        <img src="{{modalImageUrl}}" alt="Titulo">
+    </div>
+</main>

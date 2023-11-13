@@ -13,6 +13,8 @@ import { DatingPatientComponent } from './pages/dating-patient/dating-patient.co
 import { TopFiveComponent } from './pages/complements/top-five/top-five.component';
 import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 import { LoginGuard } from './guards/login.guard';
+import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -73,6 +75,11 @@ const routes: Routes = [
     path: 'psicologos',
     component: PsicologosComponent,
   },
+  {
+    path: 'admin',
+    component: AdminPanelComponent,
+    canActivate: [AdminGuard],
+  }
 ];
 
 @NgModule({

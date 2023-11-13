@@ -1,3 +1,5 @@
+import { TipoUsuario } from "../enum/tipos-usuario.enum";
+
 export type Roles = 'SUSCRIPTOR' | 'ADMIN'
 
 export interface UsuariosInterface{
@@ -15,7 +17,7 @@ export interface UsuariosInterface{
     direccion?: string;
     estado?:boolean;
     colegiadoProfesional?: string;
-    idTipoUsuario?: number;
+    idTipoUsuario?: TipoUsuario;
     especialidades?: string[];
     idCiudad?: number;
 }

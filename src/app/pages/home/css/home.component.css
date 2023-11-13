@@ -111,6 +111,7 @@
   flex-direction: column;
   padding: 150px 50px;
   gap: 60px;
+  background-color: #3f90db;
 }
 .container-fluid .main .PsicoCards .content {
   display: flex;
@@ -121,10 +122,12 @@
 .container-fluid .main .PsicoCards .content h2 {
   font-weight: 500;
   font-size: 50px;
+  color: #fff;
 }
 .container-fluid .main .PsicoCards .content h3 {
   font-weight: 300;
   font-size: 20px;
+  color: #fff;
 }
 .container-fluid .main .PsicoCards swiper-container {
   width: 100%;

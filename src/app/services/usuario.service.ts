@@ -41,18 +41,6 @@ export class UsuarioService {
     return this.http.get<UsuariosInterface>(`${this.url}/users/${DNI}`);
   }
 
-  obtenerUsuarios() {
-    return this.http.get<UsuariosInterface[]>(`${this.url}/users`).pipe(
-      map((res: UsuariosInterface[]) => {
-        return res;
-      }),
-      tap((userData) => {
-        this.currentUserData.next(userData);
-      }),
-      catchError(this.handlerError)
-    );
-  }
-
   crearUsuario(form: UsuariosInterface) {
     return this.http.post<UsuariosInterface>(`${this.url}/registrar`, form);
   }
