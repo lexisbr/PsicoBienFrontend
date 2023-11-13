@@ -93,6 +93,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.datosProfesional = datosProfesional;
         },
       });
+
+      this.usuarioService.obtenerClinicas(this.userData.colegiadoProfesional)
+      .subscribe({
+        next: (datosClincia)=>{
+          this.clinicasProfesiona = datosClincia;
+        }
+      })
   
   }
 

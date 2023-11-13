@@ -13,6 +13,7 @@ import { DatingPatientComponent } from './pages/dating-patient/dating-patient.co
 import { TopFiveComponent } from './pages/complements/top-five/top-five.component';
 import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 import { LoginGuard } from './guards/login.guard';
+import { DashboardAdminComponent } from './pages/dashboard-admin/dashboard-admin.component';
 
 const routes: Routes = [
   {
@@ -73,6 +74,10 @@ const routes: Routes = [
     path: 'psicologos',
     component: PsicologosComponent,
   },
+  {
+    path: 'dashboard',
+    component: DashboardAdminComponent
+  }
 ];
 
 @NgModule({

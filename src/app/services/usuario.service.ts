@@ -42,7 +42,7 @@ export class UsuarioService {
   }
 
   obtenerUsuarios() {
-    return this.http.get<UsuariosInterface[]>(`${this.url}/users`).pipe(
+    return this.http.get<UsuariosInterface[]>(`${this.url}/users/${2}`).pipe(
       map((res: UsuariosInterface[]) => {
         return res;
       }),

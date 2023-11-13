@@ -86,7 +86,7 @@
                         <div class="group">
                             <div class="inputBox">
                                 <h4>Contraseña</h4>
-                                <input class="form-control" type="text" id="password" placeholder="Contraseña..."
+                                <input class="form-control" type="password" id="password" placeholder="Contraseña..."
                                     formControlName="password">
                                     <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
                                         <div *ngIf="password.errors?.['required']">
@@ -96,7 +96,7 @@
                             </div>
                             <div class="inputBox">
                                 <h4>Validación de contraseña</h4>
-                                <input class="form-control" type="text" id="password" placeholder="Telefono..."
+                                <input class="form-control" type="password" id="password" placeholder="Telefono..."
                                     formControlName="paswordVal">
                                     <div *ngIf="paswordVal.invalid && (paswordVal.dirty || paswordVal.touched)" class="text-danger">
                                         <div *ngIf="paswordVal.errors?.['required']">
