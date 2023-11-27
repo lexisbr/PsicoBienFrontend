@@ -1,0 +1,39 @@
+<main>
+    <div class="requests">
+        <h1>Solicitudes de Citas</h1>
+        
+            <table class="table table-striped table-light table-hover" id="tabla-profesional">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">DNI</th>
+                        <th scope="col">Horario Inicial</th>
+                        <th scope="col">Horario Final</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let datos of DataCitaEnEspera">
+                        <td>{{datos.nombre}}</td>
+                        <td>{{datos.apellido}}</td>
+                        <td>{{datos.email}}</td>
+                        <td>{{datos.horaInicial}}</td>
+                        <td>{{datos.horaFinal}}</td>
+                        <td>{{datos.fechaEvento}}</td>
+                        <!-- <td><button (click)="setImageUrl()">Ver</button></td> -->
+                        <td class="btnOption">
+                            <button class="btn btn-success" (click)="acceptRequest(datos.idEvento)">Aceptar</button>
+                            <button class="btn btn-danger" (click)="rejectRequest(datos.idEvento)">Rechazar</button>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+    <!-- <div >
+        <h1>Titulo Seleccionado: </h1>
+        <img src="" alt="Titulo">
+    </div> -->
+</main>

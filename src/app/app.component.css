@@ -1,0 +1,19 @@
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #333;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.swal2-confirm {
+    color: yellow !important;
+}

@@ -36,13 +36,18 @@
                         <button>
                             <i class="fa-brands fa-whatsapp"></i>
                             Contactar</button>
+                        <button *ngIf="canDataProfile">
+                            <i class="fa-solid fa-bell"></i>
+                            <a
+                                href="/panelCitas">Solicitudes</a>
+                            </button>
 
                     </div>
 
                 </div>
             </div>
             <div class="containerP">
-                <div class="contentBox">
+                <div class="contentBox" *ngIf="canDataProfile">
                     <div class="aboutBox">
                         <div class="aboutContainer">
                             <h2>
@@ -93,7 +98,7 @@
                                 <p>{{especialidad.especialidad}}</p>
                             </div>
                         </div>
-                        <div class="lenguage" >
+                        <div class="lenguage">
                             <h2>Clinicas</h2>
                             <div class="boxClinicas" *ngFor="let p of clinicasProfesiona">
                                 <div class="option">
@@ -122,7 +127,7 @@
                 </div>
                 <div class="calendarBox">
                     <h2>Citas agendadas</h2>
-                    <app-calendar></app-calendar>
+                    <app-calendar [userDataC]="userData"></app-calendar>
                 </div>
             </div>
         </section>

@@ -1,7 +1,7 @@
 <div class="topfive">
     <div class="box">
-        <h3>Mejores psicólogos del mes</h3>
-        <div class="list" *ngFor="let usuario of mejorPagadoTop; let i = index">
+        <h3>Mejores psicólogos del Año</h3>
+        <div class="list" *ngFor="let usuario of mejorPagadoAnio; let i = index">
             <div class="imgBox">
                 <img src="{{usuario.urlFotoPerfil}}" alt="Not found">
             </div>
@@ -10,10 +10,12 @@
                     <small>#</small>
                     {{i+1}}
                 </h2>
-                <h4>{{usuario.psicologo}}</h4>
+                <h4>
+                    {{usuario.psicologo}}
+                </h4>
                 <p>Psicóloga</p>
                 <p>No. {{usuario.colegiado}}</p>
-                <p>Ganancia {{usuario.ganancias_al_mes}}</p>
+                <p>Ganancia. {{usuario.ganancias_al_anio}}</p>
             </div>
         </div>
     </div>

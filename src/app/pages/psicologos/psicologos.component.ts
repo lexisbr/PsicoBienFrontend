@@ -7,6 +7,8 @@ import { ProfesionalesService } from 'src/app/services/profesionales.service';
 import { BuscarProfesional } from 'src/app/interface/buscar-profesionales.interface';
 import { SearchbarComponent } from '../complements/searchbar/searchbar.component';
 import { Router } from '@angular/router';
+import { ProfesionalPagado } from 'src/app/interface/profesional.interface';
+import { dA } from '@fullcalendar/core/internal-common';
 
 @Component({
   selector: 'app-psicologos',
@@ -20,6 +22,9 @@ export class PsicologosComponent {
   especialidades: Select2Option[] = [];
   selectedIdEstado: number = null;
   selectedEspecialidades: string[] = [];
+  mejorPagado: ProfesionalPagado[];
+  mejorPagadoAnio: ProfesionalPagado[];
+
 
   @ViewChild('searchbar') searchbar: SearchbarComponent;
 
@@ -30,6 +35,8 @@ export class PsicologosComponent {
   ) {}
 
   ngOnInit() {
+    this.obtenerMejorPagadoDelMes();
+    this.obtenerMejorPagadoDelAnio();
     this.search();
     this.estados.push({ value: '', label: 'Seleccione un departamento' });
     this.ubicacionesService.obtenerEstados('1').subscribe({
@@ -89,4 +96,26 @@ export class PsicologosComponent {
     console.log(dni);
     this.router.navigate(['/profile', dni]);
   }
+
+  obtenerMejorPagadoDelMes(){
+    let fechaActual = new Date();
+    let mes = fechaActual.getMonth()+1;
+    this.profesionalesService.obtenerMejorPagadoMes(mes).subscribe({
+      next: (data) => {
+        console.log(`Este es el mejor pagado del mes ${mes} `,data)
+        this.mejorPagado = data;
+      },
+    })
+  }
+  obtenerMejorPagadoDelAnio(){
+    let fechaActual = new Date();
+    let anio = fechaActual.getFullYear();
+    this.profesionalesService.obtenerMejorPagadoAnio(anio).subscribe({
+      next: (data) => {
+        console.log(`Este es el mejor pagado del mes ${anio} `,data)
+        this.mejorPagadoAnio = data;
+      },
+    })
+  }
+
 }

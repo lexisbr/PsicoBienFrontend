@@ -32,3 +32,10 @@ export interface UserResponse{
 export interface UsuarioEspecialidades{
     especialidad: string;
 }
+export interface ClientesTop{
+
+    dni: string;
+    paciente: string;
+    total_citas: number;
+    urlFotoPerfil?: string;
+}

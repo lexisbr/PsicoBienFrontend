@@ -29,6 +29,9 @@ import { SearchbarComponent } from './pages/complements/searchbar/searchbar.comp
 import { UpdateDataComponent } from './pages/complements/update-data/update-data.component';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { ImgModalComponent } from './pages/complements/img-modal/img-modal.component';
+import { TopFive2Component } from './pages/complements/top-five2/top-five2.component';
+import { TopClientesComponent } from './pages/complements/top-clientes/top-clientes.component';
+import { PanelCitasComponent } from './pages/complements/panel-citas/panel-citas.component';
 // register Swiper custom elements
 register();
 
@@ -52,6 +55,9 @@ register();
     UpdateDataComponent,
     AdminPanelComponent,
     ImgModalComponent,
+    TopFive2Component,
+    TopClientesComponent,
+    PanelCitasComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,5 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
-  UsuarioEspecialidades,
   UsuariosInterface,
 } from 'src/app/interface/usuarios.interface';
 import { ActivatedRoute } from '@angular/router';
@@ -22,11 +21,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./css/profile.component.css'],
 })
 export class ProfileComponent implements OnInit {
-  @Input() usuario: UsuariosInterface;
   updateDataComponent: boolean = true;
   private fileTmp: any;
   userLoginOn: boolean = false;
-  userData?: UsuariosInterface;
+  userData: UsuariosInterface;
   //Datos basicos del profesional
   datosProfesional?: DatosProfesional[];
   //Clinicas del profesional
@@ -35,7 +33,7 @@ export class ProfileComponent implements OnInit {
   especialidades: ProfesionalEspecialidades[];
 
   canEditProfile: boolean = true;
-
+  canDataProfile: boolean = false;
   constructor(
     private usuarioService: UsuarioService,
     private route: ActivatedRoute,
@@ -51,7 +49,10 @@ export class ProfileComponent implements OnInit {
       this.usuarioService.obtenerUsuario(dniUser).subscribe({
         next: (userData) => {
           this.userData = userData;
+          this.canEditProfile = false;
+          this.canDataProfile = true;
           this.loadData();
+          console.log("datos de usuario ", userData)
         },
       });
     } else {
@@ -62,10 +63,12 @@ export class ProfileComponent implements OnInit {
       });
       this.loginService.currentUserData.subscribe({
         next: (userData) => {
+          console.log("Datos de la cuenta actual ",userData)
           if (userData.dni !== '') {
             this.userData = userData;
             if (this.userData.idTipoUsuario == TipoUsuario.PROFESIONAL) {
               console.log(this.userData.colegiadoProfesional);
+              this.canDataProfile = true;
               this.profesionalesService
                 .obtenerDatosProfesional(this.userData.colegiadoProfesional)
                 .subscribe({
@@ -73,6 +76,7 @@ export class ProfileComponent implements OnInit {
                     const dataProfesional = data[0];
                     if (dataProfesional.estado == 2) {
                       this.canEditProfile = false;
+                      
                       Swal.fire({
                         icon: 'info',
                         title:
@@ -106,7 +110,8 @@ export class ProfileComponent implements OnInit {
       .subscribe({
         next: (datosProfesional) => {
           this.datosProfesional = datosProfesional;
-        },
+
+        }
       });
       this.usuarioService.obtenerClinicas(this.userData.colegiadoProfesional).subscribe(
         {

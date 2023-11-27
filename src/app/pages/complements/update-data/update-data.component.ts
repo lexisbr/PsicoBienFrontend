@@ -12,6 +12,7 @@ import { UbicacionesService } from 'src/app/services/ubicaciones.service';
 import { Pais } from 'src/app/interface/pais.interface';
 import { Estado } from 'src/app/interface/estado.interface';
 import { Ciudad } from 'src/app/interface/ciudad.interface';
+import { TipoUsuario } from 'src/app/enum/tipos-usuario.enum';
 @Component({
   selector: 'app-update-data',
   templateUrl: './update-data.component.html',
@@ -58,6 +59,7 @@ export class UpdateDataComponent implements OnInit {
   userData?: UsuariosInterface;
   especialidades: ProfesionalEspecialidades[];
   clinicasProfesiona?: ClinicasProfesional[];//oberter clinicas
+  canEditProfile: boolean = true;
   constructor(
     private loginService: LoginService,
     private idiomasService: IdiomasService,
@@ -76,13 +78,24 @@ export class UpdateDataComponent implements OnInit {
       {
         next: (userData) => {
           this.userData = userData;
-          // this.clinicaForm.get('telefono').setValue(userData.telefono);
           this.clinicaForm.get('colegiadoProfesional').setValue(userData.colegiadoProfesional);
           this.especialidadesForm.get('colegiadoProfesional').setValue(userData.colegiadoProfesional);
           this.idiomasForm.get('colegiadoProfesional').setValue(userData.colegiadoProfesional);
+          if(userData.idTipoUsuario == TipoUsuario.PROFESIONAL){
+            this.canEditProfile = true;
+          }else{
+            this.canEditProfile = false;
+          }
         }
       }
     )
+
+    this.loadData();
+    this.obtenerIdiomas();
+    this.obtenerPaises();
+  }
+
+  loadData(){
     this.idiomasService.obtenerIdiomasProfesional(this.userData.dni).subscribe(
       {
         next: (idiomasData) => {
@@ -108,11 +121,7 @@ export class UpdateDataComponent implements OnInit {
         }
       }
     ) 
-
-    this.obtenerIdiomas();
-    this.obtenerPaises();
   }
-
   obtenerPaises() {
     this.ubicacionesService.obtenerPaises().subscribe((data) => {
       this.paises = data;
@@ -178,6 +187,8 @@ export class UpdateDataComponent implements OnInit {
       }).then((result) => {
         if (result) {
           location.reload();
+
+
         }
       })
       ),
@@ -227,7 +238,8 @@ export class UpdateDataComponent implements OnInit {
             text: 'El idioma se borro correctamente'
           }).then((result) => {
             if (result) {
-              location.reload();
+              // location.reload();
+              this.loadData();
             }
           })
           ),
@@ -251,7 +263,8 @@ export class UpdateDataComponent implements OnInit {
           text: 'El idioma se subio correctamente'
         }).then((result) => {
           if (result) {
-            location.reload();
+            // location.reload();
+            this.loadData();
           }
         })
         ),
@@ -273,7 +286,9 @@ export class UpdateDataComponent implements OnInit {
           text: 'La especialidad se subio correctamente'
         }).then((result) => {
           if (result) {
-            location.reload();
+            // location.reload();
+            this.loadData();
+
           }
         })
         ),
@@ -303,7 +318,8 @@ export class UpdateDataComponent implements OnInit {
             text: 'La especialidad se borro correctamente'
           }).then((result) => {
             if (result) {
-              location.reload();
+              // location.reload();
+              this.loadData();
             }
           })
           ),
@@ -327,7 +343,8 @@ export class UpdateDataComponent implements OnInit {
           text: 'La clinica se subio correctamente'
         }).then((result) => {
           if (result) {
-            location.reload();
+            // location.reload();
+            this.loadData();
           }
         })
         ),
@@ -356,7 +373,8 @@ export class UpdateDataComponent implements OnInit {
             text: 'La clinica se borro correctamente'
           }).then((result) => {
             if (result) {
-              location.reload();
+              // location.reload();
+              this.loadData();
             }
           })
           ),

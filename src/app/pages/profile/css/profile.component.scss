@@ -20,7 +20,7 @@
             height: 100vh;
             background-color: #ccc;
             z-index: 1000;
-            // overflow: auto;
+    
         }
         .content {
             display: flex;
@@ -62,13 +62,16 @@
                     height: 60%;
 
                     img {
+
                         padding: 0;
                         width: 100%;
                         height: 100%;
+                        object-fit: cover;
+
                     }
 
                     .foto {
-                        // z-index: 100;
+
                         position: absolute;
                         top: 40%;
                         right: 5%;
@@ -80,14 +83,22 @@
 
 
                         img {
-                            width: 200px;
+                            
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 100%;  
+                            height: 100%;
+                            object-fit: cover;
                             border-radius: 50%;
                             border: 5px ridge #01acc8;
+
                         }
                     }
                 }
 
                 .buttons {
+
                     height: 40%;
                     padding: 10px 0;
                     display: flex;
@@ -97,8 +108,10 @@
                     width: 100%;
 
                     .textInfo {
+                        
                         z-index: 1;
                         padding-left: 50px;
+                        
 
                         h2 {
                             font-size: 42px;
@@ -124,6 +137,7 @@
                         padding-top: 15px;
 
                         button {
+                            position: relative;
                             display: flex;
                             justify-content: flex-start;
                             gap: 20px;
@@ -134,13 +148,24 @@
                             width: 200px;
                             border-radius: 15px;
 
+                            
+
                             i {
+
                                 font-size: 25px;
                                 padding: 10px;
+
                             }
                             a{
+
+                                position: absolute;
+                                display: flex;
                                 text-decoration: none;
                                 color: black;
+                                width: 100%;
+                                height: 100%;
+                                justify-content: center;
+                                align-items: center;
                             }
 
                             &:hover {
@@ -303,8 +328,6 @@
                 }
             }
         }
-
-
     }
 }
 
@@ -314,24 +337,14 @@
     .container-fluid {
         .main {
             top: 200px;
-        }
+            .content{
+                .profileBox{
+                    height: 1000px;
+                    background: #fff;
+                }
+            }
+        }   
     }
-
 }
 
 
-::-webkit-scrollbar {
-    width: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: #333;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #111;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}

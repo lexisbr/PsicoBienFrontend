@@ -11,4 +11,8 @@
   background: #ebebeb;
   width: 90%;
   height: 90%;
+}
+
+.swal2-confirm {
+  color: yellow !important;
 }/*# sourceMappingURL=calendar.component.css.map */

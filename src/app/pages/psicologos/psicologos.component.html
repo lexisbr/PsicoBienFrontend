@@ -1,8 +1,48 @@
 <section class="container-fluid">
     <div class="main">
-        <div class="top-psicologos">
-            <app-top-five></app-top-five>
-            <app-top-five></app-top-five>
+        <div class="containerTops">
+            <div class="box" >
+                <h3 class="text-center" >Psicólogos del mes con más ganancias</h3>
+                <div class="list" *ngFor="let datos of mejorPagado">
+                    <div class="imgBox">
+                        <img src="{{datos.urlFotoPerfil}}" alt="Not found">
+                    </div>
+                    <div class="content">
+                        <h2 class="rank">
+                            <small>#</small>
+                            
+                        </h2>
+                        <h4> {{datos.psicologo}}</h4>
+                        <p>Psicólog@</p>
+                        <p>No. {{datos.colegiado}} </p>
+                        <p>Ganancia: {{datos.ganancias_al_mes}} </p>
+                    </div>
+                </div>
+                <h3 class="text-center" >Psicólogos del año con más ganancias</h3>
+
+                <div class="list" *ngFor="let datos of mejorPagadoAnio">
+                    <div class="imgBox" >
+                        <img src="{{datos.urlFotoPerfil}}" alt="Not found">
+                    </div>
+                    <div class="content">
+                        <h2 class="rank">
+                            <small>#</small>
+                            
+                        </h2>
+                        <h4> {{datos.psicologo}}</h4>
+                        <p>Psicólog@</p>
+                        <p>No. {{datos.colegiado}} </p>
+                        <p>Ganancia: {{datos.ganancias_al_anio}} </p>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="top-psicologos">
+                <app-top-five></app-top-five>
+                <app-top-five2></app-top-five2>
+                <app-top-clientes></app-top-clientes>
+            </div>
         </div>
         <div class="boxContainer">
             <div class="filters">

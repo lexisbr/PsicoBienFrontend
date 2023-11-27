@@ -15,6 +15,7 @@ import { PsicologosComponent } from './pages/psicologos/psicologos.component';
 import { LoginGuard } from './guards/login.guard';
 import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { AdminGuard } from './guards/admin.guard';
+import { PanelCitasComponent } from './pages/complements/panel-citas/panel-citas.component';
 
 const routes: Routes = [
   {
@@ -33,7 +34,8 @@ const routes: Routes = [
   },
   {
     path: 'profile/:dni',
-    component: ProfileComponent
+    component: ProfileComponent,
+
   },
   {
     path: 'login',
@@ -64,7 +66,7 @@ const routes: Routes = [
     component: CardsComponent,
   },
   {
-    path: 'dating',
+    path: 'dating/:dni',
     component: DatingPatientComponent,
   },
   {
@@ -74,11 +76,18 @@ const routes: Routes = [
   {
     path: 'psicologos',
     component: PsicologosComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: 'admin',
     component: AdminPanelComponent,
     canActivate: [AdminGuard],
+  },
+  {
+    path: 'panelCitas',
+    component: PanelCitasComponent,
+    canActivate: [LoginGuard],
+
   }
 ];
 
